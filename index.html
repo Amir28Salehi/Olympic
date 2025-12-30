@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المپیک فانتزی شمال کشور</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background: linear-gradient(135deg, #030411 0%, #1a1f35 25%, #2a2540 50%, #1a2a45 75%, #030411 100%);
+      color: #FFFFFF;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+    .animated-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      background: 
+        radial-gradient(circle at 15% 30%, rgba(77, 142, 229, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 85% 70%, rgba(245, 185, 131, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 50% 10%, rgba(189, 156, 172, 0.1) 0%, transparent 50%);
+      animation: bgMove 25s infinite alternate ease-in-out;
+    }
+    @keyframes bgMove {
+      0% { transform: translateX(0) translateY(0); }
+      100% { transform: translateX(-20px) translateY(15px); }
+    }
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 15px;
+    }
+    header {
+      background: linear-gradient(135deg, rgba(8, 18, 45, 0.85) 0%, rgba(3, 4, 17, 0.95) 100%);
+      backdrop-filter: blur(12px);
+      padding: 15px 25px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 30px rgba(77, 142, 229, 0.4);
+      border: 1px solid rgba(245, 185, 131, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    #tournament-logo {
+      height: 40px;
+      object-fit: contain;
+    }
+    .logo-text {
+      font-size: 22px;
+      font-weight: 900;
+      background: linear-gradient(90deg, #F5B983, #4D8EE5, #BD9CAC, #F5B983);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 4s infinite linear;
+      text-shadow: 0 0 12px rgba(245, 185, 131, 0.5);
+    }
+    @keyframes shine {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 300% 50%; }
+    }
+    .nav-menu {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-right: auto;
+    }
+    .nav-btn {
+      background: linear-gradient(135deg, rgba(10, 20, 40, 0.7) 0%, rgba(20, 30, 60, 0.7) 100%);
+      border: 2px solid rgba(245, 185, 131, 0.4);
+      color: white;
+      padding: 8px 18px;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.35s ease;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: 'Vazirmatn', sans-serif;
+      position: relative;
+      overflow: hidden;
+    }
+    .nav-btn::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(77, 142, 229, 0.3), transparent);
+      transition: left 0.5s;
+    }
+    .nav-btn:hover, .nav-btn.active {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(245, 185, 131, 0.4);
+      border-color: #F5B983;
+    }
+    .nav-btn:hover::before {
+      left: 100%;
+    }
+    .hero {
+      background: url('https://images.unsplash.com/photo-1540747913346-19e32dc3b1a4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      position: relative;
+      border-radius: 25px;
+      padding: 30px 25px;
+      margin-bottom: 25px;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+      border: 2px solid rgba(245, 185, 131, 0.35);
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(10, 15, 40, 0.9));
+      border-radius: 25px;
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-content h1 {
+      font-size: 28px;
+      margin-bottom: 8px;
+      background: linear-gradient(90deg, #F5B983, #FFFFFF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 15px rgba(245, 185, 131, 0.6);
+      font-weight: 900;
+    }
+    .hero-content h2 {
+      font-size: 17px;
+      margin-bottom: 8px;
+      opacity: 0.95;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    .hero-week {
+      font-size: 16px;
+      background: linear-gradient(90deg, #4D8EE5, #BD9CAC);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+      margin-top: 5px;
+    }
+    /* Weekly Medalists - Glass Style, Final Version */
+    .weekly-medals {
+      background: rgba(15, 20, 40, 0.65);
+      border-radius: 18px;
+      padding: 16px;
+      margin: 20px 0 25px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+    }
+    .weekly-title {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 16px;
+      font-weight: 800;
+      color: #F5B983;
+      text-shadow: 0 0 8px rgba(245, 185, 131, 0.4);
+    }
+    .medal-columns.compact.glass {
+      display: flex;
+      gap: 14px;
+    }
+    @media (max-width: 768px) {
+      .medal-columns.compact.glass {
+        flex-direction: column;
+        gap: 14px;
+      }
+    }
+    .medal-league.glass {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 14px;
+      padding: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(6px);
+    }
+    .league-header {
+      text-align: center;
+      font-size: 17px;
+      font-weight: 800;
+      color: #F5B983;
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid rgba(245, 185, 131, 0.2);
+      direction: rtl;
+    }
+    .medal-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 0;
+      direction: rtl;
+    }
+    .player-info {
+      font-size: 15px;
+      font-weight: 700;
+      color: #e0e0ff;
+      text-align: right;
+    }
+    .medal-icon {
+      font-size: 20px;
+      min-width: 24px;
+      text-align: left;
+      color: #fff;
+    }
+    .special-content {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #f0f0ff;
+      font-weight: 600;
+      opacity: 0.95;
+      text-align: justify;
+      padding-top: 4px;
+      direction: rtl;
+    }
+    @media (max-width: 768px) {
+      .medal-columns.compact {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+    .medal-league.compact {
+      flex: 1;
+      background: rgba(20, 25, 50, 0.6);
+      border-radius: 14px;
+      padding: 12px;
+      font-size: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .league-header.compact {
+      background: #b08a30;
+      color: #ffffff;
+      font-weight: 800;
+      padding: 6px 0;
+      text-align: center;
+      border-radius: 10px;
+      margin-bottom: 8px;
+      font-size: 15px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+    }
+    .medal-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 0;
+      color: #e0e0ff;
+      font-weight: 700;
+      font-size: 15px;
+    }
+    .medal-icon {
+      font-size: 18px;
+      min-width: 22px;
+      text-align: center;
+    }
+    .special .special-content {
+      color: #f0f0ff;
+      font-size: 14px;
+      line-height: 1.5;
+      font-weight: 600;
+      opacity: 0.95;
+      text-align: justify;
+      padding-top: 4px;
+    }
+    .medal-columns {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 15px;
+    }
+    @media (max-width: 768px) {
+      .medal-columns {
+        flex-direction: column;
+      }
+    }
+    .medal-column {
+      flex: 1;
+      background: rgba(20, 30, 60, 0.5);
+      padding: 15px;
+      border-radius: 16px;
+      border: 1px solid rgba(245, 185, 131, 0.3);
+    }
+    .medal-column h3 {
+      text-align: center;
+      margin-bottom: 12px;
+      font-size: 18px;
+      color: #F5B983;
+    }
+    .medal-item {
+      display: flex;
+      justify-content: space-between;
+      margin: 6px 0;
+      font-size: 14px;
+    }
+    .special-news {
+      background: rgba(25, 35, 70, 0.6);
+      padding: 12px;
+      border-radius: 14px;
+      border-left: 4px solid #F5B983;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .special-news-title {
+      font-weight: 700;
+      color: #F5B983;
+      margin-bottom: 5px;
+    }
+    .page {
+      display: none;
+    }
+    .page.active {
+      display: block;
+      animation: fadeIn 0.6s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .card {
+      background: linear-gradient(145deg, rgba(18, 25, 45, 0.85) 0%, rgba(12, 18, 38, 0.9) 100%);
+      backdrop-filter: blur(12px);
+      padding: 25px 20px;
+      border-radius: 20px;
+      margin-bottom: 25px;
+      border: 2px solid rgba(77, 142, 229, 0.35);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 4px;
+      background: linear-gradient(90deg, #4D8EE5, #F5B983, #BD9CAC);
+      background-size: 200% 100%;
+      animation: cardGlow 3s infinite alternate;
+    }
+    @keyframes cardGlow {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 200% 0%; }
+    }
+    .card-title {
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-align: center;
+      background: linear-gradient(90deg, #F5B983, #FFFFFF, #BD9CAC);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 12px rgba(245, 185, 131, 0.5);
+      font-weight: 900;
+    }
+    .slideshow {
+      position: relative;
+      max-width: 650px;
+      margin: 0 auto 25px;
+    }
+    .slide {
+      display: none;
+      background: linear-gradient(135deg, rgba(25, 35, 60, 0.8) 0%, rgba(20, 30, 50, 0.8) 100%);
+      padding: 20px;
+      border-radius: 18px;
+      text-align: center;
+      border: 2px solid rgba(245, 185, 131, 0.4);
+      animation: slideIn 0.4s ease;
+      line-height: 1.6;
+    }
+    .slide.active {
+      display: block;
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .slide-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-top: 15px;
+    }
+    .slide-btn {
+      background: linear-gradient(135deg, rgba(30, 45, 80, 0.8) 0%, rgba(20, 35, 70, 0.8) 100%);
+      border: 2px solid rgba(77, 142, 229, 0.6);
+      color: white;
+      padding: 6px 14px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-weight: 700;
+      font-family: 'Vazirmatn', sans-serif;
+      font-size: 13px;
+    }
+    .slide-btn:hover {
+      background: linear-gradient(135deg, rgba(77, 142, 229, 0.3) 0%, rgba(245, 185, 131, 0.2) 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(245, 185, 131, 0.3);
+    }
+    .slide-counter {
+      font-size: 14px;
+      font-weight: 600;
+      opacity: 0.95;
+      color: #F5B983;
+    }
+    #duelSlideshow {
+      background: linear-gradient(135deg, rgba(20, 30, 60, 0.9) 0%, rgba(15, 25, 50, 0.9) 100%);
+      border: 2px solid rgba(77, 142, 229, 0.5);
+    }
+    .duel-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      margin: 10px 0;
+      gap: 15px;
+    }
+    .duel-player {
+      flex: 1;
+      text-align: center;
+    }
+    .duel-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+    .duel-vs {
+      font-size: 22px;
+      font-weight: 900;
+      background: linear-gradient(90deg, #F5B983, #4D8EE5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 12px rgba(245, 185, 131, 0.6);
+    }
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+      direction: ltr !important;
+      text-align: left;
+    }
+    .countdown-item {
+      background: linear-gradient(145deg, rgba(20, 30, 55, 0.7) 0%, rgba(15, 20, 45, 0.7) 100%);
+      padding: 12px 4px;
+      border-radius: 12px;
+      min-width: 60px;
+      border: 2px solid rgba(245, 185, 131, 0.4);
+      transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .countdown-number {
+      font-size: 24px;
+      font-weight: 900;
+      background: linear-gradient(90deg, #F5B983, #FFFFFF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .countdown-label {
+      font-size: 10px;
+      opacity: 0.9;
+      margin-top: 4px;
+      font-weight: 600;
+      color: #BD9CAC;
+    }
+    .hunger-countdown {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+    .hunger-item {
+      background: rgba(25, 35, 65, 0.6);
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 13px;
+      border: 1px solid rgba(245, 185, 131, 0.3);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(245, 185, 131, 0.4); }
+      50% { box-shadow: 0 0 0 6px rgba(245, 185, 131, 0); }
+    }
+    .hunger-number {
+      font-weight: 800;
+      color: #F5B983;
+      font-size: 15px;
+    }
+    .table-wrapper {
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 8px;
+      font-size: 13px;
+    }
+    thead tr {
+      background: linear-gradient(135deg, rgba(30, 45, 80, 0.8) 0%, rgba(25, 40, 70, 0.8) 100%);
+    }
+    th {
+      padding: 10px;
+      text-align: center;
+      font-weight: 700;
+      border: 1px solid rgba(245, 185, 131, 0.5);
+      color: #F5B983;
+    }
+    th:first-child { border-radius: 12px 0 0 12px; }
+    th:last-child { border-radius: 0 12px 12px 0; }
+    tbody tr {
+      background: linear-gradient(135deg, rgba(25, 35, 60, 0.6) 0%, rgba(20, 30, 50, 0.6) 100%);
+      transition: all 0.35s;
+      border: 1px solid rgba(77, 142, 229, 0.2);
+    }
+    tbody tr:hover {
+      background: linear-gradient(135deg, rgba(77, 142, 229, 0.25) 0%, rgba(245, 185, 131, 0.15) 100%);
+      transform: scale(1.015);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    td {
+      padding: 15px 8px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #FFFFFF;
+    }
+    tbody tr td:first-child { border-radius: 12px 0 0 12px; }
+    tbody tr td:last-child { border-radius: 0 12px 12px 0; }
+    .player-cell {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      justify-content: center;
+    }
+    .player-name {
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .player-flag {
+      font-size: 20px;
+    }
+    .medal-cell, .total-cell {
+      font-weight: 700;
+    }
+    .total-cell {
+      background: linear-gradient(90deg, #F5B983, #FFFFFF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 900;
+    }
+    .chip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+    .chip-card {
+      background: linear-gradient(145deg, rgba(25, 35, 60, 0.75) 0%, rgba(20, 30, 50, 0.75) 100%);
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(77, 142, 229, 0.3);
+    }
+    .chip-name {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      background: linear-gradient(90deg, #F5B983, #BD9CAC);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .chip-users {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .chip-user {
+      background: linear-gradient(135deg, rgba(30, 40, 70, 0.6) 0%, rgba(20, 30, 60, 0.6) 100%);
+      padding: 6px 12px;
+      border-radius: 16px;
+      font-size: 12px;
+      border: 1px solid rgba(245, 185, 131, 0.3);
+    }
+    .rules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 15px;
+    }
+    .rule-card {
+      background: linear-gradient(145deg, rgba(25, 35, 60, 0.75) 0%, rgba(20, 30, 50, 0.75) 100%);
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(77, 142, 229, 0.3);
+    }
+    .rule-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #F5B983, #4D8EE5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .rule-content {
+      font-size: 13px;
+      line-height: 1.7;
+      opacity: 0.95;
+      color: rgba(255, 255, 255, 0.92);
+    }
+    .compare-section {
+      background: linear-gradient(145deg, rgba(18, 25, 45, 0.85) 0%, rgba(12, 18, 38, 0.9) 100%);
+      padding: 25px 20px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      border: 2px solid rgba(77, 142, 229, 0.35);
+    }
+    .compare-controls {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .compare-select {
+      background: linear-gradient(135deg, rgba(25, 35, 60, 0.8) 0%, rgba(20, 30, 50, 0.8) 100%);
+      border: 2px solid rgba(245, 185, 131, 0.4);
+      color: white;
+      padding: 10px 16px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-family: 'Vazirmatn', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .compare-result {
+      display: none;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 20px;
+      align-items: start;
+      margin-top: 20px;
+    }
+    .compare-result.active {
+      display: grid;
+    }
+    .player-compare {
+      background: linear-gradient(135deg, rgba(25, 35, 60, 0.8) 0%, rgba(20, 30, 50, 0.8) 100%);
+      padding: 20px;
+      border-radius: 16px;
+      text-align: center;
+      border: 1px solid rgba(77, 142, 229, 0.3);
+      font-size: 14px;
+    }
+    .compare-name {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      background: linear-gradient(90deg, #F5B983, #FFFFFF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .chip-status {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(245, 185, 131, 0.2);
+    }
+    .chip-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .chip-used::after {
+      content: "✓";
+      color: #4ade80;
+      font-weight: bold;
+    }
+    .chip-not-used::after {
+      content: "✗";
+      color: #f87171;
+      font-weight: bold;
+    }
+    .compare-vs {
+      font-size: 36px;
+      font-weight: 900;
+      background: linear-gradient(90deg, #F5B983, #4D8EE5, #F5B983);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: vsShine 3s infinite linear;
+      align-self: center;
+    }
+    @keyframes vsShine {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 300% 50%; }
+    }
+    .footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 20px;
+      font-size: 14px;
+      opacity: 0.75;
+      border-top: 1px solid rgba(245, 185, 131, 0.2);
+      color: #BD9CAC;
+    }
+    /* Financial Help Overlay */
+    #laughOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(3, 4, 17, 0.97);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      flex-direction: column;
+      gap: 20px;
+    }
+    #laughText {
+      font-size: 28px;
+      background: linear-gradient(90deg, #F5B983, #FFFFFF, #4D8EE5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+      font-weight: 700;
+      text-shadow: 0 0 20px rgba(245, 185, 131, 0.8);
+    }
+    #laughEmoji {
+      font-size: 120px;
+      animation: bounce 1.5s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    @media (max-width: 768px) {
+      .intro-slide { flex-direction: column; text-align: center; }
+      .intro-text { text-align: center !important; }
+      .compare-result { grid-template-columns: 1fr; }
+      .compare-vs { margin: 15px 0; }
+      header { flex-direction: column; align-items: flex-start; }
+      .nav-menu { margin-right: 0; margin-top: 10px; }
+      .countdown { flex-direction: row; }
+      .countdown-item { min-width: 50px; padding: 10px 2px; }
+      .countdown-number { font-size: 20px; }
+      .countdown-label { font-size: 9px; }
+      .hero { padding: 20px 15px; }
+    }
+    /* === CHRISTMAS THEME === */
+    body.christmas {
+      background: linear-gradient(135deg, #0c1e2d 0%, #8b0000 25%, #1a1f35 50%, #8b0000 75%, #0c1e2d 100%) !important;
+    }
+    .christmas .hero {
+      background: url('https://images.unsplash.com/photo-1598898104753-f4e9ef9c6ae4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat !important;
+      border-color: rgba(255, 255, 255, 0.4) !important;
+    }
+    .christmas .logo-text,
+    .christmas .card-title,
+    .christmas .hero-content h1 {
+      background: linear-gradient(90deg, #ff0000, #ffffff, #ffd700) !important;
+      text-shadow: 0 0 15px rgba(255, 0, 0, 0.6) !important;
+    }
+    .christmas .weekly-title,
+    .christmas .league-header,
+    .christmas .chip-name,
+    .christmas .rule-title,
+    .christmas .card::before {
+      color: #ffd700 !important;
+      text-shadow: 0 0 8px rgba(255, 215, 0, 0.6) !important;
+    }
+    .christmas .hero::after {
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(139, 0, 0, 0.5)) !important;
+    }
+    .christmas .countdown-item {
+      background: linear-gradient(145deg, rgba(139, 0, 0, 0.8), rgba(0, 0, 0, 0.7)) !important;
+      border-color: rgba(255, 215, 0, 0.5) !important;
+    }
+    .christmas .countdown-number {
+      background: linear-gradient(90deg, #ffd700, #ffffff) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+    }
+    /* Snowflakes Container */
+    .snowflakes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+    }
+    .snowflake {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+      }
+    }
+    /* === Christmas: Title Readability Fix === */
+    .christmas .logo-text,
+    .christmas .card-title,
+    .christmas .hero-content h1,
+    .christmas .weekly-title,
+    .christmas .league-header,
+    .christmas .chip-name,
+    .christmas .rule-title {
+      /* حذف گرادیان ناخوانا */
+      background: none !important;
+      -webkit-background-clip: unset !important;
+      -webkit-text-fill-color: unset !important;
+      /* رنگ متن روشن + سایه کریسمسی */
+      color: #ffffff !important;
+      text-shadow: 
+        0 0 10px #ffd700,
+        0 0 20px #ff0000,
+        0 0 30px rgba(255, 0, 0, 0.6) !important;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+    }
+
+    /* === NEW: Player Introduction Card === */
+    .player-intro-card {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      gap: 25px;
+      padding: 0 20px;
+      direction: rtl;
+    }
+    .player-intro-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      text-align: right;
+    }
+    .player-intro-name {
+      font-size: 32px;
+      font-weight: 900;
+      background: linear-gradient(90deg, #F5B983, #FFFFFF, #4D8EE5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 12px rgba(245, 185, 131, 0.5);
+      margin-bottom: 5px;
+      line-height: 1.1;
+    }
+    .player-intro-avatar {
+      flex: 1;
+      height: 100%;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .player-intro-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 0;
+      background: transparent;
+    }
+    .player-intro-slide {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      padding: 0 20px;
+      direction: rtl;
+    }
+    .player-intro-slide .player-intro-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      text-align: right;
+    }
+    .player-intro-slide .player-intro-name {
+      font-size: 32px;
+      font-weight: 900;
+      background: linear-gradient(90deg, #F5B983, #FFFFFF, #4D8EE5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 12px rgba(245, 185, 131, 0.5);
+      margin-bottom: 5px;
+      line-height: 1.1;
+    }
+    .player-intro-slide .player-intro-avatar {
+      flex: 1;
+      height: 100%;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .player-intro-slide .player-intro-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 0;
+      background: transparent;
+    }
+  </style>
+</head>
+<body>
+  <div class="animated-bg"></div>
+  <div id="laughOverlay">
+    <div id="laughText">«خااااااا تو باز پول نده»</div>
+    <div id="laughEmoji">😂</div>
+  </div>
+  <div class="container">
+    <header>
+      <div class="logo-container">
+        <img id="tournament-logo" src="/images/logo.png" alt="لوگو">
+        <div class="logo-text">المپیک فانتزی شمال کشور</div>
+      </div>
+      <div class="nav-menu">
+        <button class="nav-btn active" onclick="showPage('home')">خانه</button>
+        <button class="nav-btn" onclick="showPage('duels')">دوئل‌ها</button>
+        <button class="nav-btn" onclick="showPage('compare')">مقایسه</button>
+        <button class="nav-btn" onclick="showPage('history')">تاریخچه</button>
+        <button class="nav-btn" onclick="showPage('support')">کمک مالی</button>
+      </div>
+    </header>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page active">
+      <div class="hero">
+        <div class="hero-content">
+          <h1>🏅 المپیک فانتزی شمال کشور</h1>
+          <h2>فصل ۱۴۰۴–۱۴۰۵</h2>
+          <div class="hero-week">هفته <span id="weekDisplay">۱۴</span> ام   </div>
+        </div>
+      </div>
+
+      <!-- Weekly Medalists -->
+      <div class="weekly-medals">
+        <div class="weekly-title">مدال‌آوران هفته <span id="weekMedalDisplay">۱۴</span>ام</div>
+        <div class="medal-columns compact glass">
+          <!-- لیگ کلاسیک -->
+          <div class="medal-league glass">
+            <div class="league-header">لیگ کلاسیک</div>
+            <div class="medal-item">
+              <span class="player-info">هاتف  — مقام اول</span>
+              <span class="medal-icon">🥇</span>
+            </div>
+            <div class="medal-item">
+              <span class="player-info">حسین  — مقام دوم</span>
+              <span class="medal-icon">🥈</span>
+            </div>
+            <div class="medal-item">
+              <span class="player-info">علی  — مقام سوم</span>
+              <span class="medal-icon">🥉</span>
+            </div>
+          </div>
+          <!-- لیگ درفت -->
+          <div class="medal-league glass">
+            <div class="league-header">لیگ درفت</div>
+            <div class="medal-item">
+              <span class="player-info">امیر  — مقام اول</span>
+              <span class="medal-icon">🥇</span>
+            </div>
+            <div class="medal-item">
+              <span class="player-info">رسول  — مقام دوم</span>
+              <span class="medal-icon">🥈</span>
+            </div>
+            <div class="medal-item">
+              <span class="player-info">سید  — مقام سوم</span>
+              <span class="medal-icon">🥉</span>
+            </div>
+          </div>
+          <!-- چیپ نیوز -->
+          <div class="medal-league glass news">
+            <div class="league-header">چیپ نیوز</div>
+            <div class="special-content">
+برنز علی برنز علی برنز علی!!!!!!!!!!!!!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NEW: Player Introduction Card -->
+      <div class="card">
+        <h2 class="card-title">🌟 معرفی بازیکنان</h2>
+        <div id="introSlideshow"></div>
+        <div class="slide-controls" style="position: absolute; bottom: 12px; left: 15px; display: flex; gap: 10px; z-index: 2;">
+          <button class="slide-btn" onclick="prevIntroSlide()">→ قبلی</button>
+          <div class="slide-counter"><span id="currentIntroSlide">۱</span> / <span id="totalIntroSlides">۱۰</span></div>
+          <button class="slide-btn" onclick="nextIntroSlide()">بعدی ←</button>
+        </div>
+      </div>
+
+      <!-- Olympic Table -->
+      <div class="card">
+        <h2 class="card-title">🏅 جدول مدال‌های المپیک</h2>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>رتبه</th>
+                <th>بازیکن</th>
+                <th>🥇 طلا</th>
+                <th>🥈 نقره</th>
+                <th>🥉 برنز</th>
+                <th>مجموع</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Chip Usage -->
+      <div class="card">
+        <h2 class="card-title">🎯 استفاده از چیپ‌ها</h2>
+        <div class="chip-grid">
+          <div class="chip-card">
+            <div class="chip-name">💎 چیپ صعود</div>
+            <div class="chip-users">
+              <div class="chip-user">🇻🇬 نوید</div>
+            </div>
+          </div>
+          <div class="chip-card">
+            <div class="chip-name">⚔️ چیپ ضربه دوگانه</div>
+            <div class="chip-users">
+              <div class="chip-user">🇧🇿 محمد</div>
+              <div class="chip-user">🇰🇭 اکبری</div>
+            </div>
+          </div>
+          <div class="chip-card">
+            <div class="chip-name">🔥 چیپ دوئل</div>
+            <div class="chip-users">
+              <div class="chip-user">🇻🇬 نوید</div>
+              <div class="chip-user">🇨🇴 حسین</div>
+              <div class="chip-user">🇧🇿 محمد</div>
+              <div class="chip-user">🇦🇷 رسول</div>
+              <div class="chip-user">🇳🇴 مهدی</div>
+              <div class="chip-user">🇰🇭 اکبری</div>
+              <div class="chip-user">🇨🇮 هاتف</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rules -->
+      <div class="card">
+        <h2 class="card-title">📋 قوانین رسمی</h2>
+        <div class="rules-grid">
+          <div class="rule-card">
+            <div class="rule-title">🏆 معرفی لیگ</div>
+            <div class="rule-content">المپیک فانتزی شامل دو لیگ مستقل: <strong>کلاسیک</strong> و <strong>درفت</strong>. مدال‌ها جداگانه محاسبه می‌شوند.</div>
+          </div>
+          <div class="rule-card">
+            <div class="rule-title">🔥 Hunger Games Week</div>
+            <div class="rule-content">هفته‌های ۱۰، ۲۰، ۳۰: بازیکن بدون مدال در هر دو لیگ، به ترتیب <strong>برنز، نقره، طلا</strong> از دست می‌دهد (یا امتیاز منفی).</div>
+          </div>
+          <div class="rule-card">
+            <div class="rule-title">💎 چیپ صعود</div>
+            <div class="rule-content">مدال یک درجه ارتقاء می‌یابد (نقره→طلا). اگر طلا گرفت، چیپ برای هفته بعد ذخیره می‌شود. بدون مدال = سوخت.</div>
+          </div>
+          <div class="rule-card">
+            <div class="rule-title">⚔️ چیپ ضربه دوگانه</div>
+            <div class="rule-content">بهترین مدال بازیکن در یک لیگ، در هر دو لیگ اعمال می‌شود. بدون مدال = سوخت.</div>
+          </div>
+          <div class="rule-card">
+            <div class="rule-title">🔥 چیپ دوئل</div>
+            <div class="rule-content">مقایسه در هر دو لیگ. اگر فعال‌کننده در هر دو لیگ برنده شود، یک طلای رقیب را می‌دزدد. در غیر این‌صورت، مجموع امتیازات محاسبه شده و برنده طلا می‌گیرد.</div>
+          </div>
+          <div class="rule-card">
+            <div class="rule-title">🏅 سیستم مدال</div>
+            <div class="rule-content">رتبه‌بندی بر اساس ارزش مدال: طلا > نقره > برنز. بدون امتیاز عددی.</div>
+          </div>
+          <div class="rule-card">
+            <div class="rule-title">🚫 قوانین درفت</div>
+            <div class="rule-content">معامله بین تیم‌ها و تغییر نام تیم ممنوع است.</div>
+          </div>
+          <div class="rule-card">
+            <div class="rule-title">🔄 یارکشی</div>
+            <div class="rule-content">در پایان نیم‌فصل اول لیگ درفت، یارکشی مجدداً انجام خواهد شد.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Countdown Section -->
+      <div class="card">
+        <h2 class="card-title">📅 تا درفت بعدی</h2>
+        <div class="countdown">
+          <div class="countdown-item">
+            <span class="countdown-number" id="days">-</span>
+            <span class="countdown-label">روز</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="hours">-</span>
+            <span class="countdown-label">ساعت</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="minutes">-</span>
+            <span class="countdown-label">دقیقه</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="seconds">-</span>
+            <span class="countdown-label">ثانیه</span>
+          </div>
+        </div>
+        <!-- Hunger Games Countdown -->
+        <div class="hunger-countdown">
+          <div class="hunger-item">
+            تا هانگرگیم نقره‌دزد: <span class="hunger-number" id="hg1Weeks">۶</span> هفته
+          </div>
+          <div class="hunger-item">
+            تا هانگرگیم طلا‌دزد: <span class="hunger-number" id="hg2Weeks">۱۶</span> هفته
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DUELS PAGE -->
+    <div id="duels" class="page">
+      <div class="hero" style="margin-top: 20px;">
+        <div class="hero-content">
+          <h1>⚔️ دوئل‌های المپیک</h1>
+          <h2>همه نبردهای چیپ دوئل در یکجا</h2>
+        </div>
+      </div>
+      <div class="card">
+        <h2 class="card-title">نتایج دوئل‌ها</h2>
+        <div class="slideshow" id="duelFullSlideshow"></div>
+        <div class="slide-controls">
+          <button class="slide-btn" onclick="prevDuelFullSlide()">→ قبلی</button>
+          <div class="slide-counter"><span id="currentDuelFullSlide">۱</span> / <span id="totalDuelFullSlides">۶</span></div>
+          <button class="slide-btn" onclick="nextDuelFullSlide()">بعدی ←</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPARE PAGE -->
+    <div id="compare" class="page">
+      <div class="hero" style="margin-top: 20px;">
+        <div class="hero-content">
+          <h1>📊 مقایسه بازیکنان</h1>
+          <h2>آمار و چیپ‌های بازیکنان را با هم مقایسه کنید</h2>
+        </div>
+      </div>
+      <div class="compare-section">
+        <div class="compare-controls">
+          <select class="compare-select" id="player1Select">
+            <option value="">بازیکن اول را انتخاب کنید</option>
+          </select>
+          <select class="compare-select" id="player2Select">
+            <option value="">بازیکن دوم را انتخاب کنید</option>
+          </select>
+          <button class="slide-btn" onclick="comparePlayers()">مقایسه کن</button>
+        </div>
+        <div class="compare-result" id="compareResult">
+          <div class="player-compare" id="player1Compare"></div>
+          <div class="compare-vs">VS</div>
+          <div class="player-compare" id="player2Compare"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HISTORY PAGE -->
+    <div id="history" class="page">
+      <div class="hero" style="margin-top: 20px;">
+        <div class="hero-content">
+          <h1>📚 تاریخچه لیگ</h1>
+          <h2>تمام فصول و رکوردهای المپیک فانتزی شمال کشور</h2>
+        </div>
+      </div>
+      <div class="card">
+        <h2 class="card-title">🏆 قهرمانان فصول</h2>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>فصل</th>
+                <th>کلاسیک</th>
+                <th>هد تو هد</th>
+                <th>درفت</th>
+                <th>جام حذفی</th>
+                <th>جام جهانی</th>
+                <th>یورو</th>
+              </tr>
+            </thead>
+            <tbody id="historyTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card">
+        <h2 class="card-title">📊 رکوردهای تمام دوران</h2>
+        <div class="rules-grid">
+          <div class="rule-card">
+            <div class="rule-title">🔥 بیشترین امتیاز با چیپ</div>
+            <div class="rule-content">امیرعلی علوی: ۱۵۷ امتیاز</div>
+          </div>
+          <div class="rule-card">
+            <div class="rule-title">⚡ بیشترین امتیاز بی چیپ</div>
+            <div class="rule-content">امیرعلی علوی: ۱۲۹ امتیاز</div>
+          </div>
+          <div class="rule-card">
+            <div class="rule-title">📈 بیشترین امتیاز با دبل گیمویک درفت</div>
+            <div class="rule-content">امیررضا صالحی: ۹۳ امتیاز</div>
+          </div>
+          <div class="rule-card">
+            <div class="rule-title">💪 بیشترین امتیاز بی دبل گیمویک درفت</div>
+            <div class="rule-content">نوید جهانی: ۸۹ امتیاز</div>
+          </div>
+          <div class="rule-card">
+            <div class="rule-title">🎯 بهترین تریپل</div>
+            <div class="rule-content">امیررضا صالحی: ۸۷ امتیاز</div>
+          </div>
+          <div class="rule-card">
+            <div class="rule-title">🤝 بیشترین تساوی</div>
+            <div class="rule-content">امیررضا صالحی: ۵ تساوی</div>
+          </div>
+          <div class="rule-card">
+            <div class="rule-title">💥 سنگین‌ترین برد</div>
+            <div class="rule-content">مهدی علی محمدی در مقابل محمد توکلی: ۹۱ اختلاف</div>
+          </div>
+          <div class="rule-card">
+            <div class="rule-title">📉 کمترین امتیاز</div>
+            <div class="rule-content">رضا غلامی: ۳ امتیاز</div>
+          </div>
+          <div class="rule-card">
+            <div class="rule-title">🏆 سنگین‌ترین برد درفت</div>
+            <div class="rule-content">امیرعلی علوی در مقابل رضا: ۵۹ اختلاف</div>
+          </div>
+          <div class="rule-card">
+            <div class="rule-title">⚠️ کمترین امتیاز درفت</div>
+            <div class="rule-content">نوید جهانی: ۰ امتیاز</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUPPORT PAGE -->
+    <div id="support" class="page">
+      <div class="hero" style="margin-top: 20px;">
+        <div class="hero-content">
+          <h1>💛 کمک مالی به لیگ</h1>
+          <h2>هر چقدر هم کم باشه، دل ما رو گرم می‌کنه!</h2>
+        </div>
+      </div>
+      <div class="card" style="text-align: center;">
+        <h2 class="card-title">❤️ از تو ممنونیم!</h2>
+        <button class="nav-btn" style="margin: 20px auto; padding: 12px 24px; font-size: 18px;" onclick="showLaughOverlay()">
+          کمک مالی
+        </button>
+      </div>
+    </div>
+
+    <div class="footer">
+      © طراحی و توسعه توسط سید امیررضا صالحی — سال ۱۴۰۴ — نسخه 1
+    </div>
+  </div>
+
+  <script>
+    // -----------------------------
+    // 🔑 فقط این خط را هر هفته عوض کن
+    const currentWeek = 18; // 👈 شماره هفته جاری
+    // -----------------------------
+    function toPersianDigits(str) {
+      const persianDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+      return str.toString().replace(/\d/g, d => persianDigits[parseInt(d)]);
+    }
+    const players = [
+      { name: "امیر", flag: "🇱🇮", gold: 4, silver: 9, bronze: 1, chips: { ascension: false, dual: false, duel: false }, bio: "شاه نقره! امیر با 9 نقره، ثبات خود را نشان داده است.", emoji: "🐐" },
+      { name: "مهدی", flag: "🇳🇴", gold: 3, silver: 2, bronze: 4, chips: { ascension: false, dual: false, duel: true }, bio: "شکارچی طلا! مهدی همیشه در جستجوی مدال طلاست.", emoji: "🦊" },
+      { name: "سید", flag: "🇫🇷", gold: 2, silver: 4, bronze: 6, chips: { ascension: false, dual: false, duel: false }, bio: "ماجراجوی مدال! سید در هر هفته حضوری پررنگ دارد.", emoji: "🐤" },
+      { name: "علی", flag: "🇪🇸", gold: 2, silver: 0, bronze: 8, chips: { ascension: false, dual: false, duel: false }, bio: "برنز‌های پایدار! علی با ۵ برنز، جزو ثابت‌های لیگ است.", emoji: "🐯" },
+      { name: "رسول", flag: "🇦🇷", gold: 0, silver: 4, bronze: 0, chips: { ascension: false, dual: false, duel: true }, bio: "تنها بازنده دوئل! رسول تنها کسی است که در دوئل شکست خورد.", emoji: "🐨" },
+      { name: "اکبری", flag: "🇰🇭", gold: 4, silver: 3, bronze: 1, chips: { ascension: false, dual: true, duel: true }, bio: "ضربه دوگانه‌اش را سوزاند، اما همچنان در رقابت است!", emoji: "🦅" },
+      { name: "هاتف", flag: "🇨🇮", gold: 1, silver: 0, bronze: 3, chips: { ascension: false, dual: false, duel: true }, bio: "طلای نادر! هاتف با یک طلای ارزشمند، در لیگ حضور دارد.", emoji: "🦁" },
+      { name: "محمد", flag: "🇧🇿", gold: 7, silver: 4, bronze: 4, chips: { ascension: false, dual: true, duel: true }, bio: "قاتل نوید! محمد با ضربه دوگانه خود، در هر دو لیگ طلا گرفت.", emoji: "🐔" },
+      { name: "حسین", flag: "🇨🇴", gold: 6, silver: 4, bronze: 1, chips: { ascension: false, dual: false, duel: true }, bio: "استاد دوئل! حسین در تمام دوئل‌های خود پیروز شده است.", emoji: "🦖" },
+      { name: "نوید", flag: "🇻🇬", gold: 9, silver: 6, bronze: 4, chips: { ascension: true, dual: false, duel: true }, bio: "معروف به شاهزاده صعود، نوید با یک چیپ صعود، مدال خود را به طلا تبدیل کرد!", emoji: "🐴" }
+    ];
+    const duels = [
+      { p1: "اکبری", f1: "🇰🇭", p2: "امیر", f2: "🇱🇮", winner: "اکبری" },
+      { p1: "محمد", f1: "🇧🇿", p2: "علی", f2: "🇪🇸", winner: "محمد" },
+      { p1: "مهدی", f1: "🇳🇴", p2: "امیر", f2: "🇱🇮", winner: "مهدی" },
+      { p1: "سید", f1: "🇫🇷", p2: "رسول", f2: "🇦🇷", winner: "سید" },
+      { p1: "نوید", f1: "🇻🇬", p2: "مهدی", f2: "🇳🇴", winner: "نوید" },
+      { p1: "هاتف", f1: "🇨🇮", p2: "امیر", f2: "🇱🇮", winner: "امیر" },
+      { p1: "حسین", f1: "🇨🇴", p2: "سید", f2: "🇫🇷", winner: "حسین" }
+    ];
+    const seasons = [
+      { year: "1397-1398", classic: "امیررضا صالحی", hth: "امیررضا صالحی", draft: "-", cup: "-", world: "-", euro: "-" },
+      { year: "1398-1399", classic: "امیرعلی علوی", hth: "مهدی علی محمدی", draft: "-", cup: "-", world: "-", euro: "-" },
+      { year: "1399-1400", classic: "-", hth: "-", draft: "-", cup: "-", world: "-", euro: "-" },
+      { year: "1400-1401", classic: "نوید جهانی", hth: "نوید جهانی", draft: "-", cup: "امیررضا صالحی", world: "-", euro: "امیررضا صالحی" },
+      { year: "1401-1402", classic: "مهدی علی محمدی", hth: "مهدی علی محمدی", draft: "امیررضا صالحی", cup: "محمد توکلی", world: "علی نوری", euro: "-" },
+      { year: "1402-1403", classic: "امیررضا صالحی", hth: "امیررضا صالحی", draft: "امیرعلی علوی", cup: "مهدی علی محمدی", world: "-", euro: "محمدحسین اکبری" },
+      { year: "1403-1404", classic: "امیررضا صالحی", hth: "نوید جهانی", draft: "رسول", cup: "علی نوری", world: "-", euro: "-" }
+    ];
+
+    // Initialize week display
+    document.getElementById('weekDisplay').textContent = toPersianDigits(currentWeek);
+    document.getElementById('weekMedalDisplay').textContent = toPersianDigits(currentWeek);
+
+    // Hunger Games countdown
+    const hg1Weeks = 20 - currentWeek;
+    const hg2Weeks = 30 - currentWeek;
+    document.getElementById('hg1Weeks').textContent = hg1Weeks > 0 ? toPersianDigits(hg1Weeks) : '۰';
+    document.getElementById('hg2Weeks').textContent = hg2Weeks > 0 ? toPersianDigits(hg2Weeks) : '۰';
+
+    players.sort((a, b) => {
+      if (b.gold !== a.gold) return b.gold - a.gold;
+      if (b.silver !== a.silver) return b.silver - a.silver;
+      if (b.bronze !== a.bronze) return b.bronze - a.bronze;
+      return (b.gold + b.silver + b.bronze) - (a.gold + a.silver + a.bronze);
+    });
+
+    const tableBody = document.getElementById('tableBody');
+    players.forEach((player, index) => {
+      const total = player.gold + player.silver + player.bronze;
+      let rankText = '';
+      if (index === 0) rankText = '🥇';
+      else if (index === 1) rankText = '🥈';
+      else if (index === 2) rankText = '🥉';
+      else rankText = `#${toPersianDigits(index + 1)}`;
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td><span style="font-size: 22px;">${rankText}</span></td>
+        <td>
+          <div class="player-cell">
+            <div class="player-name">${player.name} <span class="player-flag">${player.flag}</span></div>
+          </div>
+        </td>
+        <td class="medal-cell">🥇 ${toPersianDigits(player.gold)}</td>
+        <td class="medal-cell">🥈 ${toPersianDigits(player.silver)}</td>
+        <td class="medal-cell">🥉 ${toPersianDigits(player.bronze)}</td>
+        <td class="total-cell">${toPersianDigits(total)}</td>
+      `;
+      tableBody.appendChild(row);
+    });
+
+    const historyTable = document.getElementById('historyTableBody');
+    seasons.forEach(season => {
+      const persianYear = toPersianDigits(season.year);
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${persianYear}</td>
+        <td>${season.classic}</td>
+        <td>${season.hth}</td>
+        <td>${season.draft}</td>
+        <td>${season.cup}</td>
+        <td>${season.world}</td>
+        <td>${season.euro}</td>
+      `;
+      historyTable.appendChild(row);
+    });
+
+    const player1Select = document.getElementById('player1Select');
+    const player2Select = document.getElementById('player2Select');
+    players.forEach(player => {
+      const option1 = document.createElement('option');
+      option1.value = player.name;
+      option1.textContent = `${player.name} ${player.flag}`;
+      player1Select.appendChild(option1);
+      const option2 = document.createElement('option');
+      option2.value = player.name;
+      option2.textContent = `${player.name} ${player.flag}`;
+      player2Select.appendChild(option2);
+    });
+
+    // === NEW: Player Introduction Slideshow ===
+    const introContainer = document.getElementById('introSlideshow');
+    players.forEach(player => {
+      const slide = document.createElement('div');
+      slide.className = 'slide';
+      if (introContainer.children.length === 0) slide.classList.add('active');
+
+      // مسیر عکس: فایل PNG با نام فارسی در پوشه /images/
+      const avatarPath = `/images/${encodeURIComponent(player.name)}.png`;
+
+    slide.innerHTML = `
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh; padding: 20px;">
+  <img src="${avatarPath}" alt="${player.name}" 
+       style="max-width: 90%; max-height: 80vh; object-fit: contain; background: transparent;"
+       onerror="this.style.display='none'">
+</div>
+`;
+      introContainer.appendChild(slide);
+    });
+    document.getElementById('totalIntroSlides').textContent = toPersianDigits(players.length);
+
+    // Navigation
+    function showPage(pageName) {
+      document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+      document.getElementById(pageName).classList.add('active');
+      document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      window.scrollTo(0, 0);
+    }
+
+    // Slideshow logic for Intro
+    let introIndex = 1;
+    function showIntroSlide(n, max) {
+      const slides = document.querySelectorAll('#introSlideshow .slide');
+      let index = n;
+      if (index > max) index = 1;
+      if (index < 1) index = max;
+      introIndex = index;
+      slides.forEach(s => s.classList.remove('active'));
+      slides[index - 1].classList.add('active');
+      document.getElementById('currentIntroSlide').textContent = toPersianDigits(index);
+    }
+    function nextIntroSlide() { showIntroSlide(++introIndex, players.length); }
+    function prevIntroSlide() { showIntroSlide(--introIndex, players.length); }
+
+    // Full Duel Slideshow (in Duels tab)
+    const duelFullContainer = document.getElementById('duelFullSlideshow');
+    duels.forEach((duel, i) => {
+      const slide = document.createElement('div');
+      slide.className = 'slide';
+      if (i === 0) slide.classList.add('active');
+      slide.innerHTML = `
+        <div class="duel-content">
+          <div class="duel-player">
+            <div class="duel-name">${duel.p1} ${duel.f1}</div>
+          </div>
+          <div class="duel-vs">VS</div>
+          <div class="duel-player">
+            <div class="duel-name">${duel.p2} ${duel.f2}</div>
+          </div>
+        </div>
+        <div style="margin-top:15px; font-weight:700; color:#F5B983;">${duel.winner} برنده شد ✓</div>
+      `;
+      duelFullContainer.appendChild(slide);
+    });
+    document.getElementById('totalDuelFullSlides').textContent = toPersianDigits(duels.length);
+
+    // Auto-rotate slides every 5 seconds
+    setInterval(() => {
+      nextIntroSlide();
+    }, 5000);
+
+    // Countdown
+    function updateCountdown() {
+      const targetDate = new Date('2025-12-29').getTime();
+      function update() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+        if (distance < 0) {
+          ['days','hours','minutes','seconds'].forEach(id => 
+            document.getElementById(id).textContent = '۰'
+          );
+          return;
+        }
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        document.getElementById('days').textContent = toPersianDigits(days);
+        document.getElementById('hours').textContent = toPersianDigits(hours);
+        document.getElementById('minutes').textContent = toPersianDigits(minutes);
+        document.getElementById('seconds').textContent = toPersianDigits(seconds);
+      }
+      update();
+      setInterval(update, 1000);
+    }
+
+    function comparePlayers() {
+      const p1Name = document.getElementById('player1Select').value;
+      const p2Name = document.getElementById('player2Select').value;
+      if (!p1Name || !p2Name || p1Name === p2Name) {
+        alert('لطفاً دو بازیکن متفاوت را انتخاب کنید.');
+        return;
+      }
+      const p1 = players.find(p => p.name === p1Name);
+      const p2 = players.find(p => p.name === p2Name);
+      const p1Total = p1.gold + p1.silver + p1.bronze;
+      const p2Total = p2.gold + p2.silver + p2.bronze;
+      const chipNames = [
+        { key: 'ascension', label: 'صعود' },
+        { key: 'dual', label: 'ضربه دوگانه' },
+        { key: 'duel', label: 'دوئل' }
+      ];
+      function renderChipStatus(chips) {
+        return `
+          <div class="chip-status">
+            ${chipNames.map(c => `
+              <div class="chip-item">
+                <div>${c.label}</div>
+                <div class="${chips[c.key] ? 'chip-used' : 'chip-not-used'}"></div>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      }
+      document.getElementById('player1Compare').innerHTML = `
+        <div class="compare-name">${p1.name} ${p1.flag}</div>
+        <div class="compare-stats">
+          <div>🥇 طلا: ${toPersianDigits(p1.gold)}</div>
+          <div>🥈 نقره: ${toPersianDigits(p1.silver)}</div>
+          <div>🥉 برنز: ${toPersianDigits(p1.bronze)}</div>
+          <div style="background: linear-gradient(90deg, #F5B983, #FFFFFF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight:900; margin-top:8px;">مجموع: ${toPersianDigits(p1Total)}</div>
+        </div>
+        ${renderChipStatus(p1.chips)}
+      `;
+      document.getElementById('player2Compare').innerHTML = `
+        <div class="compare-name">${p2.name} ${p2.flag}</div>
+        <div class="compare-stats">
+          <div>🥇 طلا: ${toPersianDigits(p2.gold)}</div>
+          <div>🥈 نقره: ${toPersianDigits(p2.silver)}</div>
+          <div>🥉 برنز: ${toPersianDigits(p2.bronze)}</div>
+          <div style="background: linear-gradient(90deg, #F5B983, #FFFFFF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight:900; margin-top:8px;">مجموع: ${toPersianDigits(p2Total)}</div>
+        </div>
+        ${renderChipStatus(p2.chips)}
+      `;
+      document.getElementById('compareResult').classList.add('active');
+    }
+
+    function showLaughOverlay() {
+      document.getElementById('laughOverlay').style.display = 'flex';
+    }
+
+    updateCountdown();
+    showIntroSlide(introIndex, players.length);
+  </script>
+
+  <!-- Christmas Snow Effect -->
+  <div id="snowflakes" class="snowflakes"></div>
+  <script>
+    // Only run if Christmas mode is on
+    document.body.classList.add('christmas');
+    function createSnowflakes() {
+      const container = document.getElementById('snowflakes');
+      const snowflakeCount = 100;
+      for (let i = 0; i < snowflakeCount; i++) {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        const size = Math.random() * 4 + 2;
+        snowflake.style.width = `${size}px`;
+        snowflake.style.height = `${size}px`;
+        snowflake.style.left = `${Math.random() * 100}vw`;
+        snowflake.style.opacity = Math.random() * 0.5 + 0.3;
+        snowflake.style.animationDuration = `${Math.random() * 10 + 5}s`;
+        snowflake.style.animationDelay = `${Math.random() * 5}s`;
+        container.appendChild(snowflake);
+      }
+    }
+    if (document.body.classList.contains('christmas')) {
+      createSnowflakes();
+    }
+  </script>
+</body>
+</html>
