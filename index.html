@@ -511,6 +511,35 @@ tbody tr td:last-child { border-radius: 0 12px 12px 0; }
     gap: 8px;
   }
 }
+
+
+
+
+.hunger-item-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  background: rgba(30, 40, 70, 0.4);
+  padding: 6px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(152, 102, 235, 0.3);
+}
+.hunger-number-top {
+  color: #FFD700;
+  font-weight: 900;
+  font-size: 16px;
+  text-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
+}
+
+
+
+
+
+
+
+
 </style>
 </head>
 <body>
@@ -813,10 +842,15 @@ const seasons = [
 document.getElementById('weekDisplay').textContent = toPersianDigits(currentWeek);
 document.getElementById('weekMedalDisplay').textContent = toPersianDigits(currentWeek);
 
-// Update Hunger Games top banner (fixed values per request)
-document.getElementById('hg1Top').textContent = toPersianDigits(3);
-document.getElementById('hg2Top').textContent = toPersianDigits(13);
+// Update Hunger Games top banner — ✅ پویا و زیباتر
+const hgSilverWeek = 20; // هفته هانگرگیم نقره‌دزد
+const hgGoldWeek = 30;   // هفته هانگرگیم طلا‌دزد
 
+const weeksToSilver = Math.max(0, hgSilverWeek - currentWeek);
+const weeksToGold = Math.max(0, hgGoldWeek - currentWeek);
+
+document.getElementById('hg1Top').textContent = toPersianDigits(weeksToSilver);
+document.getElementById('hg2Top').textContent = toPersianDigits(weeksToGold);
 // Sort players
 players.sort((a, b) => {
   if (b.gold !== a.gold) return b.gold - a.gold;
