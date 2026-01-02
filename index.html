@@ -778,9 +778,6 @@ function toPersianDigits(str) {
   return str.toString().replace(/\d/g, d => persianDigits[parseInt(d)]);
 }
 
-// Player images must be in /images/ with names: amir.png, seyed.png, ali.png, etc.
-const playerImageNames = ["amir", "mehdi", "seyed", "ali", "rasoul", "akkbari", "hatef", "mamad", "hossein", "navid"];
-
 const players = [
   { name: "امیر", flag: "🇱🇮", gold: 3, silver: 9, bronze: 1, chips: { ascension: false, dual: false, duel: false }, bio: "شاه نقره! امیر با 9 نقره، ثبات خود را نشان داده است." },
   { name: "مهدی", flag: "🇳🇴", gold: 3, silver: 2, bronze: 4, chips: { ascension: false, dual: false, duel: true }, bio: "شکارچی طلا! مهدی همیشه در جستجوی مدال طلاست." },
@@ -818,9 +815,9 @@ const seasons = [
 document.getElementById('weekDisplay').textContent = toPersianDigits(currentWeek);
 document.getElementById('weekMedalDisplay').textContent = toPersianDigits(currentWeek);
 
-// Update Hunger Games top banner
-document.getElementById('hg1Top').textContent = toPersianDigits(20 - currentWeek);
-document.getElementById('hg2Top').textContent = toPersianDigits(30 - currentWeek);
+// Update Hunger Games top banner (fixed values per request)
+document.getElementById('hg1Top').textContent = toPersianDigits(3);
+document.getElementById('hg2Top').textContent = toPersianDigits(13);
 
 // Sort players
 players.sort((a, b) => {
@@ -872,6 +869,20 @@ players.forEach(player => {
   player2Select.innerHTML += `<option value="${player.name}">${player.name} ${player.flag}</option>`;
 });
 
+// === Image Mapping ===
+const playerImageMap = {
+  "امیر": "amir",
+  "مهدی": "mehdi",
+  "سید": "seyed",
+  "علی": "ali",
+  "رسول": "rasoul",
+  "اکبری": "akkbari",
+  "هاتف": "hatef",
+  "محمد": "mamad",
+  "حسین": "hossein",
+  "نوید": "navid"
+};
+
 // Intro Slideshow with Images
 const introContainer = document.getElementById('introSlideshow');
 players.forEach((player, i) => {
@@ -879,11 +890,11 @@ players.forEach((player, i) => {
   slide.className = 'slide';
   if (i === 0) slide.classList.add('active');
 
-  const imgName = playerImageNames[i];
+  const imgFileName = playerImageMap[player.name] || 'default';
   slide.innerHTML = `
     <div class="intro-slide">
       <div class="intro-avatar">
-        <img src="images/${imgName}.png" alt="${player.name}">
+        <img src="images/${imgFileName}.png" alt="${player.name}" onerror="this.src='images/default.png'">
       </div>
       <div class="intro-text">
         <strong>${player.name} ${player.flag}</strong><br>
