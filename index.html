@@ -4,610 +4,325 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>المپیک فانتزی شمال کشور</title>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root{
+  --void: #0b0f0d;
+  --void-2: #101613;
+  --panel: rgba(22, 29, 25, .68);
+  --panel-solid: #141c18;
+  --line: rgba(231, 185, 61, .16);
+  --line-strong: rgba(231, 185, 61, .35);
+  --gold: #E7B93D;
+  --gold-soft: #f3d27e;
+  --silver: #C7D2D6;
+  --bronze: #C98A4B;
+  --red: #C1443C;
+  --green: #3E7C59;
+  --ink: #F4F1E8;
+  --muted: #9FB0A5;
+  --radius-lg: 22px;
+  --radius-md: 16px;
+  --radius-sm: 10px;
 }
-body {
-  font-family: 'Vazirmatn', sans-serif;
-  background: linear-gradient(135deg, #0a0f1d 0%, #12182a 25%, #1b2236 50%, #101626 75%, #080d18 100%);
-  color: #FFFFFF;
-  min-height: 100vh;
-  overflow-x: hidden;
-  position: relative;
-}
-.animated-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  font-family:'Vazirmatn', sans-serif;
   background:
-    radial-gradient(circle at 15% 30%, rgba(77, 142, 229, 0.1) 0%, transparent 40%),
-    radial-gradient(circle at 85% 70%, rgba(152, 102, 235, 0.1) 0%, transparent 40%),
-    radial-gradient(circle at 50% 10%, rgba(80, 220, 180, 0.07) 0%, transparent 50%);
-  animation: bgMove 25s infinite alternate ease-in-out;
-}
-@keyframes bgMove {
-  0% { transform: translateX(0) translateY(0); }
-  100% { transform: translateX(-20px) translateY(15px); }
-}
-.container {
-  position: relative;
-  z-index: 1;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 15px;
-}
-header {
-  background: rgba(12, 18, 36, 0.92);
-  backdrop-filter: blur(12px);
-  padding: 15px 25px;
-  border-radius: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 10px 30px rgba(77, 142, 229, 0.3);
-  border: 1px solid rgba(152, 102, 235, 0.35);
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-.logo-text {
-  font-size: 22px;
-  font-weight: 900;
-  background: linear-gradient(90deg, #4DA8FF, #9866EB, #50DCB4, #4DA8FF);
-  background-size: 300% 300%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shine 4s infinite linear;
-  text-shadow: 0 0 12px rgba(152, 102, 235, 0.5);
-}
-@keyframes shine {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 300% 50%; }
-}
-.nav-menu {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-right: auto;
-}
-.nav-btn {
-  background: rgba(20, 30, 55, 0.7);
-  border: 2px solid rgba(152, 102, 235, 0.4);
-  color: white;
-  padding: 8px 18px;
-  border-radius: 15px;
-  cursor: pointer;
-  transition: all 0.35s ease;
-  font-size: 14px;
-  font-weight: 600;
-  font-family: 'Vazirmatn', sans-serif;
-  position: relative;
-  overflow: hidden;
-}
-.nav-btn::before {
-  content: '';
-  position: absolute;
-  top: 0; left: -100%;
-  width: 100%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(80, 220, 180, 0.3), transparent);
-  transition: left 0.5s;
-}
-.nav-btn:hover, .nav-btn.active {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(152, 102, 235, 0.4);
-  border-color: #9866EB;
-}
-.nav-btn:hover::before {
-  left: 100%;
-}
-/* Hunger Games Top Banner */
-.hunger-top-banner {
-  background: rgba(18, 25, 45, 0.85);
-  border-radius: 16px;
-  padding: 12px;
-  text-align: center;
-  margin-bottom: 20px;
-  border: 1px solid rgba(152, 102, 235, 0.3);
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  font-size: 14px;
-  font-weight: 700;
-}
-.hunger-item-top {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.hunger-number-top {
-  color: #FFD700;
-  font-weight: 900;
-}
-.hero {
-  background: linear-gradient(135deg, rgba(10, 15, 30, 0.9), rgba(20, 25, 45, 0.95)), 
-              url('https://images.unsplash.com/photo-1540747913346-19e32dc3b1a4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-  position: relative;
-  border-radius: 25px;
-  padding: 30px 25px;
-  margin-bottom: 25px;
-  text-align: center;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-  border: 2px solid rgba(152, 102, 235, 0.3);
-  overflow: hidden;
-}
-.hero-content h1 {
-  font-size: 28px;
-  margin-bottom: 8px;
-  background: linear-gradient(90deg, #4DA8FF, #FFFFFF);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 15px rgba(77, 142, 229, 0.6);
-  font-weight: 900;
-}
-.hero-content h2 {
-  font-size: 17px;
-  margin-bottom: 8px;
-  opacity: 0.95;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
-}
-.hero-week {
-  font-size: 16px;
-  background: linear-gradient(90deg, #4DA8FF, #9866EB);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 700;
-  margin-top: 5px;
-}
-/* Weekly Medalists */
-.weekly-medals {
-  background: rgba(18, 25, 45, 0.75);
-  border-radius: 18px;
-  padding: 16px;
-  margin: 20px 0 25px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
-.weekly-title {
-  text-align: center;
-  font-size: 22px;
-  margin-bottom: 16px;
-  font-weight: 800;
-  color: #4DA8FF;
-  text-shadow: 0 0 8px rgba(77, 142, 229, 0.4);
-}
-.medal-columns.compact.glass {
-  display: flex;
-  gap: 14px;
-}
-@media (max-width: 768px) {
-  .medal-columns.compact.glass {
-    flex-direction: column;
-    gap: 14px;
-  }
-}
-.medal-league.glass {
-  flex: 1;
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 14px;
-  padding: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-.league-header {
-  text-align: center;
-  font-size: 17px;
-  font-weight: 800;
-  color: #4DA8FF;
-  margin-bottom: 10px;
-  padding-bottom: 6px;
-  border-bottom: 1px solid rgba(77, 142, 229, 0.2);
-}
-.medal-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6px 0;
-  direction: rtl;
-}
-.player-info {
-  font-size: 15px;
-  font-weight: 700;
-  color: #e0e0ff;
-}
-.medal-icon {
-  font-size: 20px;
-  min-width: 24px;
-  text-align: left;
-  color: #fff;
-}
-.special-content {
-  font-size: 14px;
-  line-height: 1.5;
-  color: #f0f0ff;
-  font-weight: 600;
-  opacity: 0.95;
-  text-align: justify;
-  padding-top: 4px;
-  direction: rtl;
-}
-.card {
-  background: rgba(18, 25, 45, 0.85);
-  backdrop-filter: blur(12px);
-  padding: 25px 20px;
-  border-radius: 20px;
-  margin-bottom: 25px;
-  border: 2px solid rgba(77, 142, 229, 0.3);
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
-  position: relative;
-  overflow: hidden;
-}
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 4px;
-  background: linear-gradient(90deg, #4DA8FF, #9866EB, #50DCB4);
-  background-size: 200% 100%;
-  animation: cardGlow 3s infinite alternate;
-}
-@keyframes cardGlow {
-  0% { background-position: 0% 0%; }
-  100% { background-position: 200% 0%; }
-}
-.card-title {
-  font-size: 24px;
-  margin-bottom: 20px;
-  text-align: center;
-  background: linear-gradient(90deg, #4DA8FF, #FFFFFF, #50DCB4);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 12px rgba(77, 142, 229, 0.5);
-  font-weight: 900;
-}
-/* Intro Avatar - Image-based */
-.intro-slide {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 15px;
-  direction: rtl;
-}
-.intro-avatar {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  border: 2px solid #4DA8FF;
-  box-shadow: 0 0 12px rgba(77, 142, 229, 0.4);
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(10, 15, 30, 0.5);
-}
-.intro-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.intro-text {
-  text-align: right;
-  font-size: 15px;
-  line-height: 1.7;
-}
-.page {
-  display: none;
-}
-.page.active {
-  display: block;
-  animation: fadeIn 0.6s ease-out;
-}
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(25px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.slide {
-  display: none;
-  background: rgba(20, 30, 50, 0.85);
-  padding: 20px;
-  border-radius: 18px;
-  text-align: center;
-  border: 2px solid rgba(152, 102, 235, 0.4);
-  animation: slideIn 0.4s ease;
-  line-height: 1.6;
-}
-.slide.active {
-  display: block;
-}
-@keyframes slideIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-.slide-controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  margin-top: 15px;
-}
-.slide-btn {
-  background: rgba(25, 35, 65, 0.8);
-  border: 2px solid rgba(77, 142, 229, 0.6);
-  color: white;
-  padding: 6px 14px;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s;
-  font-weight: 700;
-  font-family: 'Vazirmatn', sans-serif;
-  font-size: 13px;
-}
-.slide-btn:hover {
-  background: linear-gradient(135deg, rgba(77, 142, 229, 0.3), rgba(152, 102, 235, 0.2));
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(152, 102, 235, 0.3);
-}
-.slide-counter {
-  font-size: 14px;
-  font-weight: 600;
-  opacity: 0.95;
-  color: #4DA8FF;
-}
-.table-wrapper {
-  overflow-x: auto;
-}
-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 8px;
-  font-size: 13px;
-}
-thead tr { background: rgba(25, 35, 65, 0.8); }
-th {
-  padding: 10px;
-  text-align: center;
-  font-weight: 700;
-  border: 1px solid rgba(152, 102, 235, 0.5);
-  color: #4DA8FF;
-}
-th:first-child { border-radius: 12px 0 0 12px; }
-th:last-child { border-radius: 0 12px 12px 0; }
-tbody tr {
-  background: rgba(20, 30, 50, 0.7);
-  transition: all 0.35s;
-  border: 1px solid rgba(77, 142, 229, 0.2);
-}
-tbody tr:hover {
-  background: linear-gradient(135deg, rgba(77, 142, 229, 0.2), rgba(152, 102, 235, 0.15));
-  transform: scale(1.015);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-td {
-  padding: 15px 8px;
-  text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #FFFFFF;
-}
-tbody tr td:first-child { border-radius: 12px 0 0 12px; }
-tbody tr td:last-child { border-radius: 0 12px 12px 0; }
-.player-cell {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  justify-content: center;
-}
-.player-name {
-  font-weight: 700;
-  font-size: 14px;
-}
-.player-flag {
-  font-size: 20px;
-}
-.total-cell {
-  background: linear-gradient(90deg, #4DA8FF, #FFFFFF);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 900;
-}
-.chip-grid, .rules-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 15px;
-}
-.chip-card, .rule-card {
-  background: rgba(20, 30, 55, 0.75);
-  padding: 20px;
-  border-radius: 16px;
-  border: 1px solid rgba(77, 142, 229, 0.3);
-}
-.chip-name, .rule-title {
-  font-size: 17px;
-  font-weight: 700;
-  margin-bottom: 12px;
-  background: linear-gradient(90deg, #4DA8FF, #9866EB);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.rule-content {
-  font-size: 13px;
-  line-height: 1.7;
-  opacity: 0.95;
-}
-.compare-section {
-  background: rgba(18, 25, 45, 0.85);
-  padding: 25px 20px;
-  border-radius: 20px;
-  margin-bottom: 20px;
-  border: 2px solid rgba(77, 142, 229, 0.3);
-}
-.compare-controls {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.compare-select {
-  background: rgba(25, 35, 65, 0.8);
-  border: 2px solid rgba(152, 102, 235, 0.4);
-  color: white;
-  padding: 10px 16px;
-  border-radius: 12px;
-  font-size: 15px;
-  font-family: 'Vazirmatn', sans-serif;
-  font-weight: 600;
-  cursor: pointer;
-}
-.compare-result {
-  display: none;
-  grid-template-columns: 1fr auto 1fr;
-  gap: 20px;
-  align-items: start;
-  margin-top: 20px;
-}
-.compare-result.active {
-  display: grid;
-}
-.player-compare {
-  background: rgba(25, 35, 65, 0.8);
-  padding: 20px;
-  border-radius: 16px;
-  text-align: center;
-  border: 1px solid rgba(77, 142, 229, 0.3);
-  font-size: 14px;
-}
-.compare-name {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 12px;
-  background: linear-gradient(90deg, #4DA8FF, #FFFFFF);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.footer {
-  text-align: center;
-  padding: 20px;
-  margin-top: 20px;
-  font-size: 14px;
-  opacity: 0.75;
-  border-top: 1px solid rgba(152, 102, 235, 0.2);
-  color: #9866EB;
-}
-@media (max-width: 768px) {
-  .intro-slide { flex-direction: column; text-align: center; }
-  .intro-text { text-align: center !important; }
-  .compare-result { grid-template-columns: 1fr; }
-  .compare-vs { margin: 15px 0; }
-  header { flex-direction: column; align-items: flex-start; }
-  .nav-menu { margin-right: 0; margin-top: 10px; }
-  .hunger-top-banner {
-    flex-direction: column;
-    gap: 8px;
-  }
+    radial-gradient(ellipse 900px 500px at 15% -5%, rgba(231,185,61,.08), transparent 60%),
+    radial-gradient(ellipse 800px 600px at 100% 20%, rgba(62,124,89,.10), transparent 55%),
+    linear-gradient(180deg, var(--void) 0%, var(--void-2) 100%);
+  color: var(--ink);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+.lane-field{
+  position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.5;
+  background-image: repeating-linear-gradient(115deg, rgba(255,255,255,0.015) 0 2px, transparent 2px 90px);
+}
+.container{ position:relative; z-index:1; max-width:1180px; margin:0 auto; padding:16px 16px 40px; }
+
+/* ---------- NAV ---------- */
+header{
+  position:sticky; top:12px; z-index:50;
+  background: rgba(11,15,13,.72);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 10px 18px;
+  margin-bottom: 22px;
+  display:flex; align-items:center; gap:16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.45);
+}
+.brand{ display:flex; align-items:center; gap:10px; white-space:nowrap; }
+.brand-mark{ width:30px; height:30px; flex-shrink:0; }
+.brand-text{
+  font-size:15px; font-weight:800; letter-spacing:.2px;
+  background: linear-gradient(90deg, var(--gold-soft), var(--ink) 60%);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+.nav-menu{ display:flex; gap:6px; margin-right:auto; overflow-x:auto; scrollbar-width:none; }
+.nav-menu::-webkit-scrollbar{ display:none; }
+.nav-btn{
+  background:transparent; border:1px solid transparent; color: var(--muted);
+  padding:8px 16px; border-radius:999px; cursor:pointer; white-space:nowrap;
+  font-size:13.5px; font-weight:700; font-family:'Vazirmatn',sans-serif;
+  transition: all .25s ease;
+}
+.nav-btn:hover{ color: var(--ink); background: rgba(255,255,255,.05); }
+.nav-btn.active{
+  color:#191308; background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+  box-shadow: 0 4px 14px rgba(231,185,61,.35);
 }
 
-
-
-
-.hunger-item-top {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 15px;
-  font-weight: 600;
-  background: rgba(30, 40, 70, 0.4);
-  padding: 6px 14px;
-  border-radius: 12px;
-  border: 1px solid rgba(152, 102, 235, 0.3);
+/* ---------- EYEBROW / TITLES ---------- */
+.eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:12px; font-weight:700; letter-spacing:1.5px; color: var(--gold);
+  background: rgba(231,185,61,.08); border:1px solid var(--line-strong);
+  padding:5px 14px; border-radius:999px;
 }
-.hunger-number-top {
-  color: #FFD700;
-  font-weight: 900;
-  font-size: 16px;
-  text-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
+.section-title{
+  font-size: clamp(20px, 3vw, 26px); font-weight:900; text-align:center; margin-bottom:20px;
+  color: var(--ink);
+}
+.section-title .accent{ color: var(--gold); }
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative; overflow:hidden;
+  border-radius: var(--radius-lg);
+  padding: 44px 24px 36px;
+  margin-bottom: 22px;
+  text-align:center;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(650px 260px at 50% -10%, rgba(231,185,61,.16), transparent 65%),
+    repeating-linear-gradient(118deg, rgba(255,255,255,.02) 0 3px, transparent 3px 46px),
+    linear-gradient(160deg, #10160f, #0b0f0d 70%);
+  box-shadow: 0 20px 50px rgba(0,0,0,.5);
+}
+.hero::after{
+  content:''; position:absolute; left:0; right:0; bottom:0; height:5px;
+  background: repeating-linear-gradient(90deg, #fff 0 10px, #191308 10px 20px);
+  opacity:.85;
+}
+.hero-content h1{
+  font-size: clamp(24px, 4.4vw, 34px); font-weight:900; margin-bottom:10px;
+  background: linear-gradient(90deg, var(--gold-soft), #fff 65%);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+.hero-content .sub{ font-size:15px; color: var(--muted); font-weight:600; margin-bottom:18px; }
+.week-chip{
+  display:inline-flex; align-items:center; gap:12px;
+  background: rgba(0,0,0,.35); border:1px solid var(--line-strong);
+  padding: 8px 8px 8px 18px; border-radius: 16px;
+}
+.week-chip span.lbl{ font-size:13px; font-weight:700; color:var(--muted); }
+.week-chip .digit{
+  display:flex; align-items:center; justify-content:center;
+  min-width:38px; height:38px; border-radius:10px; font-size:19px; font-weight:900;
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold)); color:#191308;
 }
 
+/* ---------- CARD ---------- */
+.card{
+  position:relative; background: var(--panel); backdrop-filter: blur(14px);
+  border:1px solid var(--line); border-radius: var(--radius-lg);
+  padding: 24px 20px; margin-bottom:22px;
+  box-shadow: 0 14px 34px rgba(0,0,0,.4);
+  overflow:hidden;
+}
+.card::before{
+  content:''; position:absolute; top:0; left:0; right:0; height:4px;
+  background: repeating-linear-gradient(90deg, var(--gold) 0 14px, transparent 14px 28px);
+  opacity:.7;
+}
 
+/* ---------- WEEKLY MEDALS ---------- */
+.medal-columns{ display:flex; gap:14px; }
+@media (max-width:768px){ .medal-columns{ flex-direction:column; } }
+.medal-league{
+  flex:1; background: rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.07);
+  border-radius: var(--radius-md); padding:16px;
+}
+.league-header{
+  text-align:center; font-size:15.5px; font-weight:800; color: var(--gold);
+  margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--line-strong);
+}
+.empty-state{
+  text-align:center; padding: 20px 10px; color: var(--muted); font-size:13.5px; font-weight:600;
+  border:1px dashed rgba(255,255,255,.12); border-radius: var(--radius-sm);
+}
+.empty-state .ico{ font-size:22px; display:block; margin-bottom:6px; opacity:.7; }
 
+/* ---------- PLAYER BADGES ---------- */
+.badge-grid{
+  display:grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap:16px;
+}
+.badge-card{
+  background: rgba(255,255,255,.025); border:1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius-md); padding:18px 14px; text-align:center;
+  transition: transform .25s ease, border-color .25s ease;
+}
+.badge-card:hover{ transform: translateY(-4px); border-color: var(--line-strong); }
+.badge-frame{
+  width:92px; height:100px; margin:0 auto 12px; position:relative;
+  clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+  background: linear-gradient(160deg, rgba(231,185,61,.35), rgba(255,255,255,.05));
+  padding:2px;
+}
+.badge-frame-inner{
+  width:100%; height:100%;
+  clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+  background: #0e1310; display:flex; align-items:center; justify-content:center; overflow:hidden;
+}
+.badge-frame img{ width:100%; height:100%; object-fit:cover; }
+.badge-flag{
+  position:absolute; bottom:-4px; left:50%; transform:translateX(-50%);
+  font-size:18px; background:#161f19; border:1px solid var(--line-strong);
+  border-radius:50%; width:30px; height:30px; display:flex; align-items:center; justify-content:center;
+}
+.badge-name{ font-size:15.5px; font-weight:800; margin-bottom:6px; }
+.badge-bio{ font-size:12.5px; color: var(--muted); line-height:1.6; }
 
+/* ---------- PODIUM ---------- */
+.podium-wrap{ direction:ltr; display:flex; align-items:flex-end; justify-content:center; gap:10px; margin-bottom:22px; }
+.podium-slot{ direction:rtl; flex:1; max-width:190px; text-align:center; }
+.podium-slot .plinth{
+  border-radius: 14px 14px 0 0; display:flex; flex-direction:column; align-items:center; justify-content:flex-end;
+  padding:14px 10px; position:relative;
+}
+.podium-slot.rank1 .plinth{ height:130px; background: linear-gradient(180deg, rgba(231,185,61,.28), rgba(231,185,61,.06)); border:1px solid var(--gold); order:2; }
+.podium-slot.rank2 .plinth{ height:100px; background: linear-gradient(180deg, rgba(199,210,214,.22), rgba(199,210,214,.05)); border:1px solid var(--silver); order:1; }
+.podium-slot.rank3 .plinth{ height:80px; background: linear-gradient(180deg, rgba(201,138,75,.22), rgba(201,138,75,.05)); border:1px solid var(--bronze); order:3; }
+.podium-slot.rank1{ order:2; } .podium-slot.rank2{ order:1; } .podium-slot.rank3{ order:3; }
+.podium-medal{ font-size:26px; margin-bottom:6px; }
+.podium-name{ font-weight:800; font-size:14px; }
+.podium-total{ font-size:12px; color:var(--muted); margin-top:4px; }
 
+/* ---------- TABLE ---------- */
+.table-wrapper{ overflow-x:auto; }
+table{ width:100%; border-collapse:separate; border-spacing:0 8px; font-size:13px; min-width:520px; }
+thead tr{ background: rgba(255,255,255,.03); }
+th{ padding:10px 8px; text-align:center; font-weight:700; color: var(--gold); border-bottom:1px solid var(--line-strong); }
+tbody tr{ background: rgba(255,255,255,.025); border:1px solid rgba(255,255,255,.06); transition:.25s; }
+tbody tr:hover{ background: rgba(231,185,61,.07); }
+td{ padding:13px 8px; text-align:center; }
+tbody tr td:first-child{ border-radius:12px 0 0 12px; }
+tbody tr td:last-child{ border-radius:0 12px 12px 0; }
+.player-cell{ display:flex; align-items:center; gap:8px; justify-content:center; }
+.player-name{ font-weight:700; font-size:13.5px; }
+.player-flag{ font-size:18px; }
+.total-cell{ font-weight:900; color: var(--gold-soft); }
 
+/* ---------- CHIPS / GAMBIT ---------- */
+.chip-grid, .rules-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap:14px; }
+.chip-card{
+  background: rgba(255,255,255,.025); padding:18px; border-radius: var(--radius-md);
+  border:1px solid rgba(255,255,255,.08);
+}
+.chip-name{ font-size:15.5px; font-weight:800; margin-bottom:8px; color: var(--gold-soft); display:flex; align-items:center; gap:8px; }
+.chip-desc{ font-size:12.5px; color:var(--muted); line-height:1.6; margin-bottom:10px; }
 
+.gambit-chain{ display:flex; gap:14px; align-items:stretch; }
+@media (max-width:768px){ .gambit-chain{ flex-direction:column; } }
+.gambit-stage{
+  flex:1; border-radius: var(--radius-md); padding:18px; position:relative;
+  background: rgba(255,255,255,.025); border:1px solid var(--line-strong);
+}
+.gambit-stage.locked{ opacity:.55; border-style:dashed; border-color: rgba(255,255,255,.15); }
+.gambit-num{
+  width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold)); color:#191308; font-weight:900; font-size:14px;
+  margin-bottom:10px;
+}
+.gambit-stage.locked .gambit-num{ background:rgba(255,255,255,.12); color: var(--muted); }
+.gambit-title{ font-weight:800; font-size:15px; margin-bottom:6px; }
+.gambit-desc{ font-size:12px; color: var(--muted); line-height:1.6; margin-bottom:12px; }
+.lock-tag{ font-size:11.5px; color:var(--muted); font-weight:700; }
 
+/* ---------- RULE CARDS ---------- */
+.rule-card{ background: rgba(255,255,255,.025); padding:18px; border-radius: var(--radius-md); border:1px solid rgba(255,255,255,.08); }
+.rule-title{ font-size:15px; font-weight:800; margin-bottom:10px; color: var(--gold-soft); }
+.rule-content{ font-size:12.8px; line-height:1.75; color: var(--ink); opacity:.92; }
+.rule-content strong{ color: var(--gold-soft); }
+
+/* ---------- SIMPLE PLACEHOLDER PAGE ---------- */
+.placeholder-card{ text-align:center; padding: 50px 20px; }
+.placeholder-card .ico{ font-size:38px; margin-bottom:14px; }
+.placeholder-card p{ color:var(--muted); font-size:14px; }
+
+.page{ display:none; }
+.page.active{ display:block; animation: fadeIn .5s ease-out; }
+@keyframes fadeIn{ from{ opacity:0; transform:translateY(18px);} to{ opacity:1; transform:translateY(0);} }
+
+.footer{ text-align:center; padding:20px; margin-top:10px; font-size:13px; color: var(--muted); border-top:1px solid var(--line); }
+
+@media (max-width:768px){
+  header{ flex-wrap:wrap; border-radius:22px; }
+  .nav-menu{ margin-right:0; width:100%; order:3; padding-top:6px; }
+  .podium-slot .plinth{ padding:10px 6px; }
+}
 </style>
 </head>
 <body>
-<div class="animated-bg"></div>
+<div class="lane-field"></div>
 <div class="container">
+
 <header>
-  <div class="logo-text">المپیک فانتزی شمال کشور</div>
+  <div class="brand">
+    <svg class="brand-mark" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="13" fill="none" stroke="#E7B93D" stroke-width="4"/>
+      <circle cx="40" cy="20" r="13" fill="none" stroke="#C7D2D6" stroke-width="4"/>
+      <circle cx="30" cy="28" r="13" fill="none" stroke="#C98A4B" stroke-width="4"/>
+    </svg>
+    <div class="brand-text">المپیک فانتزی شمال کشور</div>
+  </div>
   <div class="nav-menu">
-    <button class="nav-btn active" onclick="showPage('home')">خانه</button>
-    <button class="nav-btn" onclick="showPage('duels')">دوئل‌ها</button>
-    <button class="nav-btn" onclick="showPage('compare')">مقایسه</button>
-    <button class="nav-btn" onclick="showPage('history')">تاریخچه</button>
-    <button class="nav-btn" onclick="showPage('cup')">جام حذفی</button>
-    <button class="nav-btn" onclick="showPage('support')">کمک مالی</button>
+    <button class="nav-btn active" onclick="showPage('home', this)">خانه</button>
+    <button class="nav-btn" onclick="showPage('duels', this)">دوئل‌ها</button>
+    <button class="nav-btn" onclick="showPage('history', this)">تاریخچه</button>
   </div>
 </header>
-
-<!-- Hunger Games Top Banner -->
-<div class="hunger-top-banner">
-  <div class="hunger-item-top">تا هانگرگیم نقره‌دزد: <span class="hunger-number-top" id="hg1Top">۱</span> هفته</div>
-  <div class="hunger-item-top">تا هانگرگیم طلا‌دزد: <span class="hunger-number-top" id="hg2Top">۱۱</span> هفته</div>
-</div>
 
 <!-- HOME PAGE -->
 <div id="home" class="page active">
   <div class="hero">
     <div class="hero-content">
-      <h1>🏅 المپیک فانتزی شمال کشور</h1>
-      <h2>فصل ۱۴۰۴–۱۴۰۵</h2>
-      <div class="hero-week">هفته <span id="weekDisplay">۱۴</span> ام</div>
+      <div class="eyebrow">🏅 المپیک فانتزی</div>
+      <h1 style="margin-top:14px;">المپیک فانتزی شمال کشور</h1>
+      <div class="sub">فصل <span id="seasonDisplay">۱۴۰۵-۱۴۰۶</span> — لیگ کلاسیک و لیگ درفت، مستقل و موازی</div>
+      <div class="week-chip">
+        <span class="lbl">هفته جاری</span>
+        <span class="digit" id="weekDisplay">۱</span>
+      </div>
     </div>
   </div>
 
-  <div class="weekly-medals">
-    <div class="weekly-title">مدال‌آوران هفته <span id="weekMedalDisplay">۱۴</span>ام</div>
-    <div class="medal-columns compact glass">
-      <div class="medal-league glass">
+  <div class="card">
+    <h2 class="section-title">مدال‌آوران هفته <span class="accent" id="weekMedalDisplay">۱</span></h2>
+    <div class="medal-columns">
+      <div class="medal-league">
         <div class="league-header">لیگ کلاسیک</div>
-        <div class="medal-item"><span class="player-info">اکبری  — مقام اول</span><span class="medal-icon">🥇</span></div>
-        <div class="medal-item"><span class="player-info">رسول  — مقام دوم</span><span class="medal-icon">🥈</span></div>
-        <div class="medal-item"><span class="player-info">هاتف  — مقام سوم</span><span class="medal-icon">🥉</span></div>
+        <div class="empty-state"><span class="ico">🥇</span>هنوز مدالی برای این هفته ثبت نشده — بعد از پایان هفته اول تکمیل می‌شود.</div>
       </div>
-      <div class="medal-league glass">
+      <div class="medal-league">
         <div class="league-header">لیگ درفت</div>
-        <div class="medal-item"><span class="player-info">علی  — مقام اول</span><span class="medal-icon">🥇</span></div>
-        <div class="medal-item"><span class="player-info">هاتف  — مقام دوم</span><span class="medal-icon">🥈</span></div>
-        <div class="medal-item"><span class="player-info">نوید  — مقام سوم</span><span class="medal-icon">🥉</span></div>
-      </div>
-      <div class="medal-league glass news">
-        <div class="league-header">چیپ نیوز</div>
-        <div class="special-content">هاتف و علی پیشتاز رقابت. اکبری بطور جدی وارد کورس قهرمانی شد. !
-        </div>
+        <div class="empty-state"><span class="ico">🥇</span>هنوز مدالی برای این هفته ثبت نشده — بعد از پایان هفته اول تکمیل می‌شود.</div>
       </div>
     </div>
   </div>
 
   <div class="card">
-    <h2 class="card-title">🌟 معرفی بازیکنان</h2>
-    <div class="slideshow" id="introSlideshow"></div>
-    <div class="slide-controls">
-      <button class="slide-btn" onclick="prevIntroSlide()">→ قبلی</button>
-      <div class="slide-counter"><span id="currentIntroSlide">۱</span> / <span id="totalIntroSlides">۱۰</span></div>
-      <button class="slide-btn" onclick="nextIntroSlide()">بعدی ←</button>
-    </div>
+    <h2 class="section-title">🌟 معرفی <span class="accent">بازیکنان</span></h2>
+    <div class="badge-grid" id="badgeGrid"></div>
   </div>
 
   <div class="card">
-    <h2 class="card-title">🏅 جدول مدال‌های المپیک</h2>
+    <h2 class="section-title">🏅 جدول <span class="accent">مدال‌های المپیک</span></h2>
+    <div class="podium-wrap" id="podiumWrap"></div>
     <div class="table-wrapper">
       <table>
         <thead>
@@ -626,106 +341,103 @@ tbody tr td:last-child { border-radius: 0 12px 12px 0; }
   </div>
 
   <div class="card">
-    <h2 class="card-title">🎯 استفاده از چیپ‌ها</h2>
+    <h2 class="section-title">🎯 استفاده از <span class="accent">چیپ‌ها</span></h2>
     <div class="chip-grid">
       <div class="chip-card">
         <div class="chip-name">💎 چیپ صعود</div>
-        <div class="chip-users">
-          <div class="chip-user">🇻🇬 نوید</div>
-        </div>
+        <div class="chip-desc">مدال کسب‌شده در لیگ منتخب، یک درجه ارتقا می‌یابد.</div>
+        <div class="empty-state">هنوز فعال نشده</div>
       </div>
       <div class="chip-card">
-        <div class="chip-name">⚔️ چیپ ضربه دوگانه</div>
-        <div class="chip-users">
-          <div class="chip-user">🇧🇿 محمد</div>
-          <div class="chip-user">🇰🇭 اکبری</div>
-        </div>
+        <div class="chip-name">🪞 چیپ آینه</div>
+        <div class="chip-desc">نتیجه هفتگی یک بازیکن هدف، برای دارنده چیپ نیز کپی می‌شود.</div>
+        <div class="empty-state">هنوز فعال نشده</div>
       </div>
       <div class="chip-card">
-        <div class="chip-name">🔥 چیپ دوئل</div>
-        <div class="chip-users">
-          <div class="chip-user">🇻🇬 نوید</div>
-          <div class="chip-user">🇨🇴 حسین</div>
-          <div class="chip-user">🇧🇿 محمد</div>
-          <div class="chip-user">🇦🇷 رسول</div>
-          <div class="chip-user">🇳🇴 مهدی</div>
-          <div class="chip-user">🇰🇭 اکبری</div>
-          <div class="chip-user">🇨🇮 هاتف</div>
-        </div>
+        <div class="chip-name">⚔️ چیپ دوئل</div>
+        <div class="chip-desc">دوئل اجباری در هر دو لیگ؛ برنده یک مدال طلای رقیب را می‌رباید.</div>
+        <div class="empty-state">هنوز فعال نشده</div>
+      </div>
+      <div class="chip-card">
+        <div class="chip-name">🥈 چیپ دوئل نقره‌ای</div>
+        <div class="chip-desc">مشابه چیپ دوئل، اما جایزه دوئل یک مدال نقره است.</div>
+        <div class="empty-state">هنوز فعال نشده</div>
+      </div>
+      <div class="chip-card">
+        <div class="chip-name">🆘 چیپ ناجی</div>
+        <div class="chip-desc">مخصوص ۳ تیم انتهای جدول؛ عبور از یکی از ۳ تیم برتر هفته، یک طلای پاداش می‌دهد.</div>
+        <div class="empty-state">هنوز فعال نشده</div>
       </div>
     </div>
   </div>
 
   <div class="card">
-    <h2 class="card-title">📋 قوانین رسمی</h2>
+    <h2 class="section-title">👑 گمبیت‌های <span class="accent">لیگ درفت</span></h2>
+    <div class="gambit-chain">
+      <div class="gambit-stage">
+        <div class="gambit-num">۱</div>
+        <div class="gambit-title">Gambit — Stage I</div>
+        <div class="gambit-desc">کسب طلا در درفت = دو طلا. عدم کسب طلا = منهای یک طلا.</div>
+        <div class="empty-state">هنوز کسی این مرحله را رد نکرده</div>
+      </div>
+      <div class="gambit-stage locked">
+        <div class="gambit-num">۲</div>
+        <div class="gambit-title">Gambit — Stage II</div>
+        <div class="gambit-desc">کسب طلا = دو طلا و دو نقره. عدم کسب طلا = کسر دو طلا و دو نقره.</div>
+        <div class="lock-tag">🔒 پس از عبور از مرحله یک باز می‌شود</div>
+      </div>
+      <div class="gambit-stage locked">
+        <div class="gambit-num">۳</div>
+        <div class="gambit-title">Gambit — Stage III</div>
+        <div class="gambit-desc">کسب طلا = چهار طلا. عدم کسب طلا = کسر چهار طلا.</div>
+        <div class="lock-tag">🔒 پس از عبور از مرحله دو باز می‌شود</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 class="section-title">📋 قوانین <span class="accent">رسمی</span></h2>
     <div class="rules-grid">
-      <div class="rule-card"><div class="rule-title">🏆 معرفی لیگ</div><div class="rule-content">المپیک فانتزی شامل دو لیگ مستقل: <strong>کلاسیک</strong> و <strong>درفت</strong>. مدال‌ها جداگانه محاسبه می‌شوند.</div></div>
-      <div class="rule-card"><div class="rule-title">🔥 Hunger Games Week</div><div class="rule-content">هفته‌های ۱۰، ۲۰، ۳۰: بازیکن بدون مدال در هر دو لیگ، به ترتیب <strong>برنز، نقره، طلا</strong> از دست می‌دهد (یا امتیاز منفی).</div></div>
-      <div class="rule-card"><div class="rule-title">💎 چیپ صعود</div><div class="rule-content">مدال یک درجه ارتقاء می‌یابد (نقره→طلا). اگر طلا گرفت، چیپ برای هفته بعد ذخیره می‌شود. بدون مدال = سوخت.</div></div>
-      <div class="rule-card"><div class="rule-title">⚔️ چیپ ضربه دوگانه</div><div class="rule-content">بهترین مدال بازیکن در یک لیگ، در هر دو لیگ اعمال می‌شود. بدون مدال = سوخت.</div></div>
-      <div class="rule-card"><div class="rule-title">🔥 چیپ دوئل</div><div class="rule-content">مقایسه در هر دو لیگ. اگر فعال‌کننده در هر دو لیگ برنده شود، یک طلای رقیب را می‌دزدد. در غیر این‌صورت، مجموع امتیازات محاسبه شده و برنده طلا می‌گیرد.</div></div>
-      <div class="rule-card"><div class="rule-title">🏅 سیستم مدال</div><div class="rule-content">رتبه‌بندی بر اساس ارزش مدال: طلا > نقره > برنز. بدون امتیاز عددی.</div></div>
-      <div class="rule-card"><div class="rule-title">🚫 قوانین درفت</div><div class="rule-content">معامله بین تیم‌ها و تغییر نام تیم ممنوع است.</div></div>
-      <div class="rule-card"><div class="rule-title">🔄 یارکشی</div><div class="rule-content">در پایان نیم‌فصل اول لیگ درفت، یارکشی مجدداً انجام خواهد شد.</div></div>
+      <div class="rule-card"><div class="rule-title">🏆 معرفی لیگ</div><div class="rule-content">المپیک فانتزی شامل دو لیگ مستقل: <strong>کلاسیک</strong> و <strong>درفت</strong>. مدال‌ها و رتبه‌بندی هر لیگ کاملاً جداگانه محاسبه می‌شود.</div></div>
+      <div class="rule-card"><div class="rule-title">🏅 ارزش مدال‌ها</div><div class="rule-content">🥇 طلا = <strong>۴</strong> امتیاز، 🥈 نقره = <strong>۲</strong> امتیاز، 🥉 برنز = <strong>۱</strong> امتیاز. جدول بر اساس مجموع امتیاز مرتب می‌شود.</div></div>
+      <div class="rule-card"><div class="rule-title">🔥 Hunger Games Week</div><div class="rule-content">در هفته‌های <strong>۱۰، ۲۰ و ۳۰</strong>، بازیکنی که در هیچ‌کدام از دو لیگ مدال نگیرد، به‌ترتیب یک <strong>برنز</strong>، یک <strong>نقره</strong> و یک <strong>طلا</strong> از دست می‌دهد (در نبود مدال کافی، مدال منفی ثبت می‌شود).</div></div>
+      <div class="rule-card"><div class="rule-title">🚫 قوانین درفت</div><div class="rule-content">معامله (Trade) بین تیم‌ها ممنوع است. تغییر نام تیم پس از آغاز مسابقات مجاز نیست.</div></div>
+      <div class="rule-card"><div class="rule-title">🧩 چیپ‌های ویژه</div><div class="rule-content">هر بازیکن سه چیپ اختصاصی از میان چیپ‌های موجود انتخاب می‌کند؛ هر چیپ فقط یک‌بار در طول فصل قابل استفاده است.</div></div>
+      <div class="rule-card"><div class="rule-title">💎 چیپ صعود</div><div class="rule-content">مدال کسب‌شده یک درجه ارتقا می‌یابد (🥉→🥈، 🥈→🥇). اگر همان هفته طلا بگیرد، چیپ ذخیره می‌ماند برای اولین هفته‌ای که غیرطلا بگیرد. بدون مدال = سوخت.</div></div>
+      <div class="rule-card"><div class="rule-title">🪞 چیپ آینه</div><div class="rule-content">پیش از هفته، یک بازیکن هدف انتخاب می‌شود. نتیجهٔ هفتگی او (در هر دو لیگ) عیناً برای دارنده چیپ هم اعمال می‌شود، بدون تأثیر روی خود بازیکن هدف.</div></div>
+      <div class="rule-card"><div class="rule-title">⚔️ چیپ دوئل / دوئل نقره‌ای</div><div class="rule-content">دوئل اجباری و تصادفی، همزمان در هر دو لیگ. برد در هر دو لیگ = ربودن یک مدال (طلا یا نقره) از رقیب. برد در یکی، باخت در دیگری = مقایسه مجموع امتیاز دو لیگ. تساوی = چیپ بی‌اثر می‌سوزد.</div></div>
+      <div class="rule-card"><div class="rule-title">🆘 چیپ ناجی</div><div class="rule-content">مخصوص ۳ تیم انتهای جدول کلی. اگر در آن هفته امتیاز بازیکن از حداقل یکی از ۳ تیم برتر بیشتر شود، یک طلای پاداش (جدا از مدال‌های عادی) دریافت می‌کند.</div></div>
+      <div class="rule-card"><div class="rule-title">👑 گمبیت‌ها</div><div class="rule-content">مخصوص لیگ درفت و به‌صورت زنجیره‌ای. تنها مرحله یک از ابتدا باز است؛ شکست در هر مرحله، مسیر را برای همیشه می‌بندد. هر مرحله فقط یک‌بار قابل استفاده است.</div></div>
+      <div class="rule-card"><div class="rule-title">🔄 یارکشی نیم‌فصل</div><div class="rule-content">در پایان نیم‌فصل اول لیگ درفت، لیگ متوقف و یارکشی مجدد انجام می‌شود؛ نیم‌فصل دوم با ترکیبی تازه آغاز می‌گردد.</div></div>
     </div>
   </div>
 </div>
 
 <!-- DUELS PAGE -->
 <div id="duels" class="page">
-  <div class="hero" style="margin-top: 20px;">
+  <div class="hero" style="margin-top:8px;">
     <div class="hero-content">
       <h1>⚔️ دوئل‌های المپیک</h1>
-      <h2>همه نبردهای چیپ دوئل در یکجا</h2>
+      <div class="sub">همه نبردهای چیپ دوئل در یک‌جا</div>
     </div>
   </div>
-  <div class="card">
-    <h2 class="card-title">نتایج دوئل‌ها</h2>
-    <div class="slideshow" id="duelFullSlideshow"></div>
-    <div class="slide-controls">
-      <button class="slide-btn" onclick="prevDuelFullSlide()">→ قبلی</button>
-      <div class="slide-counter"><span id="currentDuelFullSlide">۱</span> / <span id="totalDuelFullSlides">۷</span></div>
-      <button class="slide-btn" onclick="nextDuelFullSlide()">بعدی ←</button>
-    </div>
-  </div>
-</div>
-
-<!-- COMPARE PAGE -->
-<div id="compare" class="page">
-  <div class="hero" style="margin-top: 20px;">
-    <div class="hero-content">
-      <h1>📊 مقایسه بازیکنان</h1>
-      <h2>آمار و چیپ‌های بازیکنان را با هم مقایسه کنید</h2>
-    </div>
-  </div>
-  <div class="compare-section">
-    <div class="compare-controls">
-      <select class="compare-select" id="player1Select">
-        <option value="">بازیکن اول را انتخاب کنید</option>
-      </select>
-      <select class="compare-select" id="player2Select">
-        <option value="">بازیکن دوم را انتخاب کنید</option>
-      </select>
-      <button class="slide-btn" onclick="comparePlayers()">مقایسه کن</button>
-    </div>
-    <div class="compare-result" id="compareResult">
-      <div class="player-compare" id="player1Compare"></div>
-      <div class="compare-vs" style="font-size: 36px; font-weight: 900; background: linear-gradient(90deg, #4DA8FF, #9866EB, #4DA8FF); background-size: 300% 300%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: vsShine 3s infinite linear; align-self: center;">VS</div>
-      <div class="player-compare" id="player2Compare"></div>
-    </div>
+  <div class="card placeholder-card">
+    <div class="ico">🤺</div>
+    <h2 class="section-title" style="margin-bottom:8px;">بزودی نتایج دوئل...</h2>
+    <p>به‌محض برگزاری اولین دوئل فصل، نتایج اینجا نمایش داده می‌شود.</p>
   </div>
 </div>
 
 <!-- HISTORY PAGE -->
 <div id="history" class="page">
-  <div class="hero" style="margin-top: 20px;">
+  <div class="hero" style="margin-top:8px;">
     <div class="hero-content">
       <h1>📚 تاریخچه لیگ</h1>
-      <h2>تمام فصول و رکوردهای المپیک فانتزی شمال کشور</h2>
+      <div class="sub">تمام فصول و رکوردهای المپیک فانتزی شمال کشور</div>
     </div>
   </div>
   <div class="card">
-    <h2 class="card-title">🏆 قهرمانان فصول</h2>
+    <h2 class="section-title">🏆 قهرمانان <span class="accent">فصول</span></h2>
     <div class="table-wrapper">
       <table>
         <thead>
@@ -737,6 +449,8 @@ tbody tr td:last-child { border-radius: 0 12px 12px 0; }
             <th>جام حذفی</th>
             <th>جام جهانی</th>
             <th>یورو</th>
+            <th>المپیک</th>
+            <th>پیش‌بینی</th>
           </tr>
         </thead>
         <tbody id="historyTableBody"></tbody>
@@ -744,12 +458,12 @@ tbody tr td:last-child { border-radius: 0 12px 12px 0; }
     </div>
   </div>
   <div class="card">
-    <h2 class="card-title">📊 رکوردهای تمام دوران</h2>
+    <h2 class="section-title">📊 رکوردهای <span class="accent">تمام دوران</span></h2>
     <div class="rules-grid">
       <div class="rule-card"><div class="rule-title">🔥 بیشترین امتیاز با چیپ</div><div class="rule-content">امیرعلی علوی: ۱۵۷ امتیاز</div></div>
       <div class="rule-card"><div class="rule-title">⚡ بیشترین امتیاز بی چیپ</div><div class="rule-content">امیرعلی علوی: ۱۲۹ امتیاز</div></div>
-      <div class="rule-card"><div class="rule-title">📈 بیشترین امتیاز با دبل گیمویک درفت</div><div class="rule-content">امیررضا صالحی: ۹۳ امتیاز</div></div>
-      <div class="rule-card"><div class="rule-title">💪 بیشترین امتیاز بی دبل گیمویک درفت</div><div class="rule-content">نوید جهانی: ۸۹ امتیاز</div></div>
+      <div class="rule-card"><div class="rule-title">📈 بیشترین امتیاز با دبل گیم‌ویک درفت</div><div class="rule-content">امیررضا صالحی: ۹۳ امتیاز</div></div>
+      <div class="rule-card"><div class="rule-title">💪 بیشترین امتیاز بی دبل گیم‌ویک درفت</div><div class="rule-content">نوید جهانی: ۸۹ امتیاز</div></div>
       <div class="rule-card"><div class="rule-title">🎯 بهترین تریپل</div><div class="rule-content">امیررضا صالحی: ۸۷ امتیاز</div></div>
       <div class="rule-card"><div class="rule-title">🤝 بیشترین تساوی</div><div class="rule-content">امیررضا صالحی: ۵ تساوی</div></div>
       <div class="rule-card"><div class="rule-title">💥 سنگین‌ترین برد</div><div class="rule-content">مهدی علی محمدی در مقابل محمد توکلی: ۹۱ اختلاف</div></div>
@@ -760,277 +474,142 @@ tbody tr td:last-child { border-radius: 0 12px 12px 0; }
   </div>
 </div>
 
-<!-- CUP PAGE -->
-<div id="cup" class="page">
-  <div class="hero" style="margin-top: 20px;">
-    <div class="hero-content">
-      <h1>🏆 جام حذفی طوفان شمال</h1>
-      <h2>رقابت‌های حذفی از هفته ۲۲</h2>
-    </div>
-  </div>
-  <div class="card" style="text-align: center; padding: 40px 20px;">
-    <h2 class="card-title">⏳ بزودی از هفته ۲۲ ام</h2>
-    <p style="font-size: 16px; color: #e0e0ff; margin-top: 15px;">با هیجان منتظر شروع جام حذفی باشید!</p>
-  </div>
-</div>
-
-<!-- SUPPORT PAGE -->
-<div id="support" class="page">
-  <div class="hero" style="margin-top: 20px;">
-    <div class="hero-content">
-      <h1>💛 کمک مالی به لیگ</h1>
-      <h2>هر چقدر هم کم باشه، دل ما رو گرم می‌کنه!</h2>
-    </div>
-  </div>
-  <div class="card" style="text-align: center;">
-    <h2 class="card-title">❤️ از تو ممنونیم!</h2>
-    <button class="nav-btn" style="margin: 20px auto; padding: 12px 24px; font-size: 18px;" onclick="alert('در حال حاضر امکان پرداخت فراهم نیست. ممنون از علاقه‌تون!')">
-      کمک مالی
-    </button>
-  </div>
-</div>
-
-<div class="footer">
-  © طراحی و توسعه توسط سید امیررضا صالحی — سال ۱۴۰۴ — نسخه 3
-</div>
+<div class="footer">© طراحی و توسعه توسط سید امیررضا صالحی — سال ۱۴۰۴ — نسخه 4</div>
 </div>
 
 <script>
-// -----------------------------
-const currentWeek = 20;
-// -----------------------------
-function toPersianDigits(str) {
-  const persianDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
-  return str.toString().replace(/\d/g, d => persianDigits[parseInt(d)]);
+const currentWeek = 1;
+const currentSeason = "1405-1406";
+
+function toPersianDigits(str){
+  const d = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+  return str.toString().replace(/\d/g, x => d[parseInt(x)]);
 }
 
 const players = [
-  { name: "امیر", flag: "🇱🇮", gold: 4, silver: 8, bronze: 1, chips: { ascension: false, dual: false, duel: false }, bio: "برای جلوگیری از حمل بر خودستایی چیزی گفته نمی شود" },
-  { name: "مهدی", flag: "🇳🇴", gold: 3, silver: 2, bronze: 4, chips: { ascension: false, dual: false, duel: true }, bio: "خطرناک، فرصت طلب. اداعای بی تفاوتی اما جدی و مدال آور" },
-  { name: "سید", flag: "🇫🇷", gold: 3, silver: 3, bronze: 6, chips: { ascension: false, dual: false, duel: false }, bio: "رکورد دار و نژادپرست" },
-  { name: "علی", flag: "🇪🇸", gold: 3, silver: 0, bronze: 9, chips: { ascension: false, dual: false, duel: false }, bio: "برنز‌علی." },
-  { name: "رسول", flag: "🇦🇷", gold: 0, silver: 5, bronze: 1, chips: { ascension: false, dual: false, duel: true }, bio: "سردار و سپهبد" },
-  { name: "اکبری", flag: "🇰🇭", gold: 5, silver: 3, bronze: 1, chips: { ascension: false, dual: true, duel: true }, bio: "صاحب سبک و متخصص سیاهان سرعتی" },
-  { name: "هاتف", flag: "🇨🇮", gold: 2, silver: 2, bronze: 4, chips: { ascension: false, dual: false, duel: true }, bio: "متخصص هافبک دفاعی و مرد جاده های ایران و همسایگان شمالی" },
-  { name: "محمد", flag: "🇧🇿", gold: 7, silver: 3, bronze: 4, chips: { ascension: false, dual: true, duel: true }, bio: "پدیده درخشان امسال " },
-  { name: "حسین", flag: "🇨🇴", gold: 6, silver: 3, bronze: 1, chips: { ascension: false, dual: false, duel: true }, bio: "طرفدار منچستریونایتد" },
-  { name: "نوید", flag: "🇻🇬", gold: 9, silver: 6, bronze: 5, chips: { ascension: true, dual: false, duel: true }, bio: "ن.ج" }
-];
-
-const duels = [
-  { p1: "اکبری", f1: "🇰🇭", p2: "امیر", f2: "🇱🇮", winner: "اکبری" },
-  { p1: "محمد", f1: "🇧🇿", p2: "علی", f2: "🇪🇸", winner: "محمد" },
-  { p1: "مهدی", f1: "🇳🇴", p2: "امیر", f2: "🇱🇮", winner: "مهدی" },
-  { p1: "سید", f1: "🇫🇷", p2: "رسول", f2: "🇦🇷", winner: "سید" },
-  { p1: "نوید", f1: "🇻🇬", p2: "مهدی", f2: "🇳🇴", winner: "نوید" },
-  { p1: "هاتف", f1: "🇨🇮", p2: "امیر", f2: "🇱🇮", winner: "امیر" },
-  { p1: "حسین", f1: "🇨🇴", p2: "سید", f2: "🇫🇷", winner: "حسین" }
+  { name:"امیر",  flag:"🇱🇮", gold:0, silver:0, bronze:0, bio:"برای جلوگیری از حمل بر خودستایی چیزی گفته نمی شود" },
+  { name:"مهدی",  flag:"🇳🇴", gold:0, silver:0, bronze:0, bio:"خطرناک، فرصت طلب. اداعای بی تفاوتی اما جدی و مدال آور" },
+  { name:"سید",   flag:"🇫🇷", gold:0, silver:0, bronze:0, bio:"رکورد دار و نژادپرست" },
+  { name:"علی",   flag:"🇪🇸", gold:0, silver:0, bronze:0, bio:"برنز‌علی." },
+  { name:"رسول",  flag:"🇦🇷", gold:0, silver:0, bronze:0, bio:"سردار و سپهبد" },
+  { name:"اکبری", flag:"🇰🇭", gold:0, silver:0, bronze:0, bio:"صاحب سبک و متخصص سیاهان سرعتی" },
+  { name:"هاتف",  flag:"🇨🇮", gold:0, silver:0, bronze:0, bio:"متخصص هافبک دفاعی و مرد جاده های ایران و همسایگان شمالی" },
+  { name:"محمد",  flag:"🇧🇿", gold:0, silver:0, bronze:0, bio:"پدیده درخشان امسال" },
+  { name:"حسین",  flag:"🇨🇴", gold:0, silver:0, bronze:0, bio:"طرفدار منچستریونایتد" },
+  { name:"نوید",  flag:"🇻🇬", gold:0, silver:0, bronze:0, bio:"ن.ج" }
 ];
 
 const seasons = [
-  { year: "1397-1398", classic: "امیررضا صالحی", hth: "امیررضا صالحی", draft: "-", cup: "-", world: "-", euro: "-" },
-  { year: "1398-1399", classic: "امیرعلی علوی", hth: "مهدی علی محمدی", draft: "-", cup: "-", world: "-", euro: "-" },
-  { year: "1399-1400", classic: "-", hth: "-", draft: "-", cup: "-", world: "-", euro: "-" },
-  { year: "1400-1401", classic: "نوید جهانی", hth: "نوید جهانی", draft: "-", cup: "امیررضا صالحی", world: "-", euro: "امیررضا صالحی" },
-  { year: "1401-1402", classic: "مهدی علی محمدی", hth: "مهدی علی محمدی", draft: "امیررضا صالحی", cup: "محمد توکلی", world: "علی نوری", euro: "-" },
-  { year: "1402-1403", classic: "امیررضا صالحی", hth: "امیررضا صالحی", draft: "امیرعلی علوی", cup: "مهدی علی محمدی", world: "-", euro: "محمدحسین اکبری" },
-  { year: "1403-1404", classic: "امیررضا صالحی", hth: "نوید جهانی", draft: "رسول", cup: "علی نوری", world: "-", euro: "-" }
+  { year:"1397-1398", classic:"امیررضا صالحی", hth:"امیررضا صالحی", draft:"-", cup:"-", world:"-", euro:"-", olympic:"-", prediction:"-" },
+  { year:"1398-1399", classic:"امیرعلی علوی", hth:"مهدی علی محمدی", draft:"-", cup:"-", world:"-", euro:"-", olympic:"-", prediction:"-" },
+  { year:"1399-1400", classic:"-", hth:"-", draft:"-", cup:"-", world:"-", euro:"-", olympic:"-", prediction:"-" },
+  { year:"1400-1401", classic:"نوید جهانی", hth:"نوید جهانی", draft:"-", cup:"امیررضا صالحی", world:"-", euro:"امیررضا صالحی", olympic:"-", prediction:"-" },
+  { year:"1401-1402", classic:"مهدی علی محمدی", hth:"مهدی علی محمدی", draft:"امیررضا صالحی", cup:"محمد توکلی", world:"علی نوری", euro:"-", olympic:"-", prediction:"-" },
+  { year:"1402-1403", classic:"امیررضا صالحی", hth:"امیررضا صالحی", draft:"امیرعلی علوی", cup:"مهدی علی محمدی", world:"-", euro:"محمدحسین اکبری", olympic:"-", prediction:"محمدحسین اکبری" },
+  { year:"1403-1404", classic:"امیررضا صالحی", hth:"نوید جهانی", draft:"رسول", cup:"علی نوری", world:"-", euro:"-", olympic:"-", prediction:"-" },
+  { year:"1404-1405", classic:"-", hth:"-", draft:"-", cup:"-", world:"مهدی علی محمدی", euro:"-", olympic:"ناتمام", prediction:"امیررضا صالحی" }
 ];
 
-// Update week display
+// header displays
+document.getElementById('seasonDisplay').textContent = toPersianDigits(currentSeason);
 document.getElementById('weekDisplay').textContent = toPersianDigits(currentWeek);
 document.getElementById('weekMedalDisplay').textContent = toPersianDigits(currentWeek);
 
-// Update Hunger Games top banner — ✅ پویا و زیباتر
-const hgSilverWeek = 20; // هفته هانگرگیم نقره‌دزد
-const hgGoldWeek = 30;   // هفته هانگرگیم طلا‌دزد
-
-const weeksToSilver = Math.max(0, hgSilverWeek - currentWeek);
-const weeksToGold = Math.max(0, hgGoldWeek - currentWeek);
-
-document.getElementById('hg1Top').textContent = toPersianDigits(weeksToSilver);
-document.getElementById('hg2Top').textContent = toPersianDigits(weeksToGold);
-// Sort players
-players.sort((a, b) => {
-  if (b.gold !== a.gold) return b.gold - a.gold;
-  if (b.silver !== a.silver) return b.silver - a.silver;
-  if (b.bronze !== a.bronze) return b.bronze - a.bronze;
-  return (b.gold + b.silver + b.bronze) - (a.gold + a.silver + a.bronze);
+// sort players (stable — all zero at season start)
+players.sort((a,b)=>{
+  if(b.gold!==a.gold) return b.gold-a.gold;
+  if(b.silver!==a.silver) return b.silver-a.silver;
+  if(b.bronze!==a.bronze) return b.bronze-a.bronze;
+  return 0;
 });
 
-// Fill table
+// podium (top 3)
+const podiumWrap = document.getElementById('podiumWrap');
+const podiumMeta = [
+  { cls:'rank1', medal:'🥇' },
+  { cls:'rank2', medal:'🥈' },
+  { cls:'rank3', medal:'🥉' }
+];
+players.slice(0,3).forEach((p,i)=>{
+  const total = p.gold+p.silver+p.bronze;
+  const slot = document.createElement('div');
+  slot.className = `podium-slot ${podiumMeta[i].cls}`;
+  slot.innerHTML = `
+    <div class="podium-medal">${podiumMeta[i].medal}</div>
+    <div class="plinth">
+      <div class="podium-name">${p.name} ${p.flag}</div>
+      <div class="podium-total">${toPersianDigits(total)} امتیاز</div>
+    </div>
+  `;
+  podiumWrap.appendChild(slot);
+});
+
+// full table
 const tableBody = document.getElementById('tableBody');
-players.forEach((player, index) => {
-  const total = player.gold + player.silver + player.bronze;
-  let rankText = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : `#${toPersianDigits(index + 1)}`;
+players.forEach((p, i)=>{
+  const total = p.gold+p.silver+p.bronze;
+  const rankText = i===0 ? '🥇' : i===1 ? '🥈' : i===2 ? '🥉' : `#${toPersianDigits(i+1)}`;
   const row = document.createElement('tr');
   row.innerHTML = `
-    <td><span style="font-size: 22px;">${rankText}</span></td>
-    <td><div class="player-cell"><div class="player-name">${player.name} <span class="player-flag">${player.flag}</span></div></div></td>
-    <td class="medal-cell">🥇 ${toPersianDigits(player.gold)}</td>
-    <td class="medal-cell">🥈 ${toPersianDigits(player.silver)}</td>
-    <td class="medal-cell">🥉 ${toPersianDigits(player.bronze)}</td>
+    <td><span style="font-size:20px;">${rankText}</span></td>
+    <td><div class="player-cell"><span class="player-name">${p.name}</span><span class="player-flag">${p.flag}</span></div></td>
+    <td>🥇 ${toPersianDigits(p.gold)}</td>
+    <td>🥈 ${toPersianDigits(p.silver)}</td>
+    <td>🥉 ${toPersianDigits(p.bronze)}</td>
     <td class="total-cell">${toPersianDigits(total)}</td>
   `;
   tableBody.appendChild(row);
 });
 
-// History table
-const historyTable = document.getElementById('historyTableBody');
-seasons.forEach(season => {
-  const persianYear = toPersianDigits(season.year);
+// player badge images
+const playerImageMap = {
+  "امیر":"amir", "مهدی":"mehdi", "سید":"seyed", "علی":"ali", "رسول":"rasoul",
+  "اکبری":"akkbari", "هاتف":"hatef", "محمد":"mamad", "حسین":"hossein", "نوید":"navid"
+};
+const badgeGrid = document.getElementById('badgeGrid');
+players.forEach(p=>{
+  const img = playerImageMap[p.name] || 'default';
+  const card = document.createElement('div');
+  card.className = 'badge-card';
+  card.innerHTML = `
+    <div class="badge-frame">
+      <div class="badge-frame-inner">
+        <img src="images/${img}.png" alt="${p.name}" onerror="this.src='images/default.png'">
+      </div>
+      <div class="badge-flag">${p.flag}</div>
+    </div>
+    <div class="badge-name">${p.name}</div>
+    <div class="badge-bio">${p.bio}</div>
+  `;
+  badgeGrid.appendChild(card);
+});
+
+// history table
+const historyBody = document.getElementById('historyTableBody');
+seasons.forEach(s=>{
   const row = document.createElement('tr');
   row.innerHTML = `
-    <td>${persianYear}</td>
-    <td>${season.classic}</td>
-    <td>${season.hth}</td>
-    <td>${season.draft}</td>
-    <td>${season.cup}</td>
-    <td>${season.world}</td>
-    <td>${season.euro}</td>
+    <td>${toPersianDigits(s.year)}</td>
+    <td>${s.classic}</td>
+    <td>${s.hth}</td>
+    <td>${s.draft}</td>
+    <td>${s.cup}</td>
+    <td>${s.world}</td>
+    <td>${s.euro}</td>
+    <td>${s.olympic}</td>
+    <td>${s.prediction}</td>
   `;
-  historyTable.appendChild(row);
+  historyBody.appendChild(row);
 });
 
-// Player selects
-const player1Select = document.getElementById('player1Select');
-const player2Select = document.getElementById('player2Select');
-players.forEach(player => {
-  player1Select.innerHTML += `<option value="${player.name}">${player.name} ${player.flag}</option>`;
-  player2Select.innerHTML += `<option value="${player.name}">${player.name} ${player.flag}</option>`;
-});
-
-// === Image Mapping ===
-const playerImageMap = {
-  "امیر": "amir",
-  "مهدی": "mehdi",
-  "سید": "seyed",
-  "علی": "ali",
-  "رسول": "rasoul",
-  "اکبری": "akkbari",
-  "هاتف": "hatef",
-  "محمد": "mamad",
-  "حسین": "hossein",
-  "نوید": "navid"
-};
-
-// Intro Slideshow with Images
-const introContainer = document.getElementById('introSlideshow');
-players.forEach((player, i) => {
-  const slide = document.createElement('div');
-  slide.className = 'slide';
-  if (i === 0) slide.classList.add('active');
-
-  const imgFileName = playerImageMap[player.name] || 'default';
-  slide.innerHTML = `
-    <div class="intro-slide">
-      <div class="intro-avatar">
-        <img src="images/${imgFileName}.png" alt="${player.name}" onerror="this.src='images/default.png'">
-      </div>
-      <div class="intro-text">
-        <strong>${player.name} ${player.flag}</strong><br>
-        ${player.bio}
-      </div>
-    </div>
-  `;
-  introContainer.appendChild(slide);
-});
-document.getElementById('totalIntroSlides').textContent = toPersianDigits(players.length);
-
-// Duel Slideshow
-const duelFullContainer = document.getElementById('duelFullSlideshow');
-duels.forEach((duel, i) => {
-  const slide = document.createElement('div');
-  slide.className = 'slide';
-  if (i === 0) slide.classList.add('active');
-  slide.innerHTML = `
-    <div class="duel-content">
-      <div class="duel-player"><div class="duel-name">${duel.p1} ${duel.f1}</div></div>
-      <div class="duel-vs">VS</div>
-      <div class="duel-player"><div class="duel-name">${duel.p2} ${duel.f2}</div></div>
-    </div>
-    <div style="margin-top:15px; font-weight:700; color:#4DA8FF;">${duel.winner} برنده شد ✓</div>
-  `;
-  duelFullContainer.appendChild(slide);
-});
-document.getElementById('totalDuelFullSlides').textContent = toPersianDigits(duels.length);
-
-// Navigation
-function showPage(pageName) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+// navigation
+function showPage(pageName, btn){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById(pageName).classList.add('active');
-  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-  event.target.classList.add('active');
-  window.scrollTo(0, 0);
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  window.scrollTo(0,0);
 }
-
-// Slides
-let introIndex = 1, duelFullIndex = 1;
-function showSlide(containerId, index, total) {
-  const slides = document.querySelectorAll(`#${containerId} .slide`);
-  if (index > total) index = 1;
-  if (index < 1) index = total;
-  slides.forEach(s => s.classList.remove('active'));
-  slides[index - 1].classList.add('active');
-  const counterId = containerId === 'introSlideshow' ? 'currentIntroSlide' : 'currentDuelFullSlide';
-  document.getElementById(counterId).textContent = toPersianDigits(index);
-  if (containerId === 'introSlideshow') introIndex = index;
-  if (containerId === 'duelFullSlideshow') duelFullIndex = index;
-}
-function nextIntroSlide() { showSlide('introSlideshow', ++introIndex, players.length); }
-function prevIntroSlide() { showSlide('introSlideshow', --introIndex, players.length); }
-function nextDuelFullSlide() { showSlide('duelFullSlideshow', ++duelFullIndex, duels.length); }
-function prevDuelFullSlide() { showSlide('duelFullSlideshow', --duelFullIndex, duels.length); }
-
-setInterval(() => { nextIntroSlide(); }, 5000);
-setInterval(() => { nextDuelFullSlide(); }, 5000);
-
-// Compare
-function comparePlayers() {
-  const p1Name = document.getElementById('player1Select').value;
-  const p2Name = document.getElementById('player2Select').value;
-  if (!p1Name || !p2Name || p1Name === p2Name) {
-    alert('لطفاً دو بازیکن متفاوت را انتخاب کنید.');
-    return;
-  }
-  const p1 = players.find(p => p.name === p1Name);
-  const p2 = players.find(p => p.name === p2Name);
-  const p1Total = p1.gold + p1.silver + p1.bronze;
-  const p2Total = p2.gold + p2.silver + p2.bronze;
-  const chipNames = [{key:'ascension',label:'صعود'},{key:'dual',label:'ضربه دوگانه'},{key:'duel',label:'دوئل'}];
-  function renderChipStatus(chips) {
-    return `
-      <div style="margin-top:12px; padding-top:12px; border-top:1px solid rgba(77,142,229,0.2);">
-        ${chipNames.map(c => `<div style="display:flex; justify-content:space-between; margin:4px 0;"><span>${c.label}</span><span style="color:${chips[c.key] ? '#4ade80' : '#f87171'};">${chips[c.key] ? '✓' : '✗'}</span></div>`).join('')}
-      </div>
-    `;
-  }
-  document.getElementById('player1Compare').innerHTML = `
-    <div class="compare-name">${p1.name} ${p1.flag}</div>
-    <div style="margin:12px 0;">
-      <div>🥇 طلا: ${toPersianDigits(p1.gold)}</div>
-      <div>🥈 نقره: ${toPersianDigits(p1.silver)}</div>
-      <div>🥉 برنز: ${toPersianDigits(p1.bronze)}</div>
-      <div style="background: linear-gradient(90deg, #4DA8FF, #FFFFFF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight:900; margin-top:8px;">مجموع: ${toPersianDigits(p1Total)}</div>
-    </div>
-    ${renderChipStatus(p1.chips)}
-  `;
-  document.getElementById('player2Compare').innerHTML = `
-    <div class="compare-name">${p2.name} ${p2.flag}</div>
-    <div style="margin:12px 0;">
-      <div>🥇 طلا: ${toPersianDigits(p2.gold)}</div>
-      <div>🥈 نقره: ${toPersianDigits(p2.silver)}</div>
-      <div>🥉 برنز: ${toPersianDigits(p2.bronze)}</div>
-      <div style="background: linear-gradient(90deg, #4DA8FF, #FFFFFF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight:900; margin-top:8px;">مجموع: ${toPersianDigits(p2Total)}</div>
-    </div>
-    ${renderChipStatus(p2.chips)}
-  `;
-  document.getElementById('compareResult').classList.add('active');
-}
-
-// Initialize
-showSlide('introSlideshow', introIndex, players.length);
-showSlide('duelFullSlideshow', duelFullIndex, duels.length);
 </script>
 </body>
 </html>
