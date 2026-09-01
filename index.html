@@ -586,16 +586,16 @@
 
   <!-- HUNGER BANNER -->
   <div class="hunger-banner glass">
-    <div class="hunger-item"><span class="hunger-label">تا هانگرگیم برنز‌دزد</span> <span class="hunger-num" id="hgBronzeCount">۹</span> <span class="hunger-label">هفته</span></div>
-    <div class="hunger-item"><span class="hunger-label">تا هانگرگیم نقره‌دزد</span> <span class="hunger-num" id="hgSilverCount">۱۹</span> <span class="hunger-label">هفته</span></div>
-    <div class="hunger-item"><span class="hunger-label">تا هانگرگیم طلا‌دزد</span> <span class="hunger-num" id="hgGoldCount">۲۹</span> <span class="hunger-label">هفته</span></div>
+    <div class="hunger-item"><span class="hunger-label">تا هانگرگیم برنز‌دزد</span> <span class="hunger-num" id="hgBronzeCount">۸</span> <span class="hunger-label">هفته</span></div>
+    <div class="hunger-item"><span class="hunger-label">تا هانگرگیم نقره‌دزد</span> <span class="hunger-num" id="hgSilverCount">۱۸</span> <span class="hunger-label">هفته</span></div>
+    <div class="hunger-item"><span class="hunger-label">تا هانگرگیم طلا‌دزد</span> <span class="hunger-num" id="hgGoldCount">۲۸</span> <span class="hunger-label">هفته</span></div>
   </div>
 
   <!-- HOME -->
   <div id="page-home" class="page-section">
     <div class="hero-card">
       <div class="hero-season">فصل ۱۴۰۵-۱۴۰۶</div>
-      <div class="hero-week">هفته <span id="currentWeekDisplay">۱</span> ام</div>
+      <div class="hero-week">هفته <span id="currentWeekDisplay">۲</span> ام</div>
     </div>
 
     <!-- ⭐ PREMIUM OVERALL LEADER BOX (صدرنشین کل) -->
@@ -603,28 +603,32 @@
       <div class="overall-leader-inner">
         <div class="overall-leader-label">👑 صدرنشین کل لیگ</div>
         <div class="overall-leader-name">
-          <span class="overall-leader-flag" id="overallLeaderFlag">🇬🇹</span>
-          <span id="overallLeaderName">حسین مرانی</span>
+          <span class="overall-leader-flag" id="overallLeaderFlag">🇸🇪</span>
+          <span id="overallLeaderName">فاطمه محمدزاده</span>
         </div>
-        <div class="overall-leader-points" id="overallLeaderPoints">۴ امتیاز</div>
+        <div class="overall-leader-points" id="overallLeaderPoints">۸ امتیاز</div>
       </div>
     </div>
 
     <div class="leaders-grid">
-      <div class="leader-card"><div class="leader-header">👑 صدرنشین کلاسیک</div><div class="leader-row"><span>🇬🇹 حسین مرانی</span><span>۴ امتیاز</span></div></div>
+      <div class="leader-card"><div class="leader-header">👑 صدرنشین کلاسیک</div><div class="leader-row"><span>🇳🇴 مهدی علی محمدی</span><span>۴ امتیاز</span></div></div>
       <div class="leader-card"><div class="leader-header">👑 صدرنشین درفت</div><div class="leader-row"><span>🇸🇪 فاطمه محمدزاده</span><span>۴ امتیاز</span></div></div>
     </div>
 
     <div class="leaders-grid">
       <div class="leader-card"><div class="leader-header">۵ نفر برتر — کلاسیک</div>
+        <div class="leader-row"><span>🇳🇴 مهدی علی محمدی</span><span>۴</span></div>
+        <div class="leader-row"><span>🇸🇪 فاطمه محمدزاده</span><span>۴</span></div>
         <div class="leader-row"><span>🇬🇹 حسین مرانی</span><span>۴</span></div>
-        <div class="leader-row"><span>🇳🇴 مهدی علی محمدی</span><span>۲</span></div>
+        <div class="leader-row"><span>🇫🇷 سید امیرعلی علوی</span><span>۱</span></div>
         <div class="leader-row"><span>🇻🇮 نوید جهانی</span><span>۱</span></div>
       </div>
       <div class="leader-card"><div class="leader-header">۵ نفر برتر — درفت</div>
         <div class="leader-row"><span>🇸🇪 فاطمه محمدزاده</span><span>۴</span></div>
+        <div class="leader-row"><span>🇬🇪 محمدحسین اکبری</span><span>۴</span></div>
+        <div class="leader-row"><span>🇳🇴 مهدی علی محمدی</span><span>۲</span></div>
         <div class="leader-row"><span>🇫🇷 سید امیرعلی علوی</span><span>۲</span></div>
-        <div class="leader-row"><span>🇳🇴 مهدی علی محمدی</span><span>۱</span></div>
+        <div class="leader-row"><span>🇸🇾 سید امیررضا صالحی امیری</span><span>۲</span></div>
       </div>
     </div>
 
@@ -700,20 +704,20 @@
 
 <script>
   (function() {
-    const CURRENT_WEEK = 1;
+    const CURRENT_WEEK = 2;
     const HUNGER_BRONZE = 10;
     const HUNGER_SILVER = 20;
     const HUNGER_GOLD = 30;
 
     const players = [
-      { name: 'فاطمه محمدزاده', flag: '🇸🇪', classic:{gold:0, silver:0, bronze:0, penG:0, penS:0, penB:0}, draft:{gold:1, silver:0, bronze:0}, chips:{asc:false, mirror:false, duel:false, duelSilver:false, savior:false}, gambit:{stage1:false, stage2:false, stage3:false} },
+      { name: 'فاطمه محمدزاده', flag: '🇸🇪', classic:{gold:1, silver:0, bronze:0, penG:0, penS:0, penB:0}, draft:{gold:1, silver:0, bronze:0}, chips:{asc:false, mirror:false, duel:false, duelSilver:false, savior:false}, gambit:{stage1:false, stage2:false, stage3:false} },
+      { name: 'مهدی علی محمدی', flag: '🇳🇴', classic:{gold:0, silver:2, bronze:0, penG:0, penS:0, penB:0}, draft:{gold:0, silver:0, bronze:2}, chips:{asc:false, mirror:false, duel:false, duelSilver:false, savior:false}, gambit:{stage1:false, stage2:false, stage3:false} },
+      { name: 'محمدحسین اکبری', flag: '🇬🇪', classic:{gold:0, silver:0, bronze:0, penG:0, penS:0, penB:0}, draft:{gold:1, silver:0, bronze:0}, chips:{asc:false, mirror:false, duel:false, duelSilver:false, savior:false}, gambit:{stage1:false, stage2:false, stage3:false} },
       { name: 'حسین مرانی', flag: '🇬🇹', classic:{gold:1, silver:0, bronze:0, penG:0, penS:0, penB:0}, draft:{gold:0, silver:0, bronze:0}, chips:{asc:false, mirror:false, duel:false, duelSilver:false, savior:false}, gambit:{stage1:false, stage2:false, stage3:false} },
-      { name: 'مهدی علی محمدی', flag: '🇳🇴', classic:{gold:0, silver:1, bronze:0, penG:0, penS:0, penB:0}, draft:{gold:0, silver:0, bronze:1}, chips:{asc:false, mirror:false, duel:false, duelSilver:false, savior:false}, gambit:{stage1:false, stage2:false, stage3:false} },
-      { name: 'سید امیرعلی علوی', flag: '🇫🇷', classic:{gold:0, silver:0, bronze:0, penG:0, penS:0, penB:0}, draft:{gold:0, silver:1, bronze:0}, chips:{asc:false, mirror:false, duel:false, duelSilver:false, savior:false}, gambit:{stage1:false, stage2:false, stage3:false} },
+      { name: 'سید امیرعلی علوی', flag: '🇫🇷', classic:{gold:0, silver:0, bronze:1, penG:0, penS:0, penB:0}, draft:{gold:0, silver:1, bronze:0}, chips:{asc:false, mirror:false, duel:false, duelSilver:false, savior:false}, gambit:{stage1:false, stage2:false, stage3:false} },
+      { name: 'سید امیررضا صالحی امیری', flag: '🇸🇾', classic:{gold:0, silver:0, bronze:0, penG:0, penS:0, penB:0}, draft:{gold:0, silver:1, bronze:0}, chips:{asc:false, mirror:false, duel:false, duelSilver:false, savior:false}, gambit:{stage1:false, stage2:false, stage3:false} },
       { name: 'نوید جهانی', flag: '🇻🇮', classic:{gold:0, silver:0, bronze:1, penG:0, penS:0, penB:0}, draft:{gold:0, silver:0, bronze:0}, chips:{asc:false, mirror:false, duel:false, duelSilver:false, savior:false}, gambit:{stage1:false, stage2:false, stage3:false} },
       { name: 'هاتف کیابخت', flag: '🇨🇮', classic:{gold:0, silver:0, bronze:0, penG:0, penS:0, penB:0}, draft:{gold:0, silver:0, bronze:0}, chips:{asc:false, mirror:false, duel:false, duelSilver:false, savior:false}, gambit:{stage1:false, stage2:false, stage3:false} },
-      { name: 'سید امیررضا صالحی امیری', flag: '🇸🇾', classic:{gold:0, silver:0, bronze:0, penG:0, penS:0, penB:0}, draft:{gold:0, silver:0, bronze:0}, chips:{asc:false, mirror:false, duel:false, duelSilver:false, savior:false}, gambit:{stage1:false, stage2:false, stage3:false} },
-      { name: 'محمدحسین اکبری', flag: '🇬🇪', classic:{gold:0, silver:0, bronze:0, penG:0, penS:0, penB:0}, draft:{gold:0, silver:0, bronze:0}, chips:{asc:false, mirror:false, duel:false, duelSilver:false, savior:false}, gambit:{stage1:false, stage2:false, stage3:false} },
       { name: 'مازیار رضایی', flag: '🇨🇼', classic:{gold:0, silver:0, bronze:0, penG:0, penS:0, penB:0}, draft:{gold:0, silver:0, bronze:0}, chips:{asc:false, mirror:false, duel:false, duelSilver:false, savior:false}, gambit:{stage1:false, stage2:false, stage3:false} }
     ];
 
