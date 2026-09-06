@@ -6,569 +6,59 @@
   <title>المپیک فانتزی شمال کشور | فصل ۱۴۰۵-۱۴۰۶</title>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --gold: #ffd966;
-      --silver: #d4d4dc;
-      --bronze: #cd9b6a;
-      --accent: #a78bfa;
-      --accent2: #60a5fa;
-      --bg-dark: #050816;
-      --glass-bg: rgba(18, 22, 40, 0.65);
-      --border-glow: rgba(170, 150, 255, 0.45);
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --gold: #ffd966; --silver: #d4d4dc; --bronze: #cd9b6a; --accent: #a78bfa; --bg-dark: #050816; }
     body {
-      font-family: 'Vazirmatn', sans-serif;
-      background: var(--bg-dark);
-      color: #f0f4ff;
-      min-height: 100vh;
-      position: relative;
-      overflow-x: hidden;
-      background-image:
-        radial-gradient(circle at 8% 15%, rgba(90, 60, 240, 0.22) 0%, transparent 32%),
-        radial-gradient(circle at 92% 75%, rgba(200, 80, 190, 0.18) 0%, transparent 38%),
-        radial-gradient(circle at 50% 50%, rgba(30, 20, 70, 0.4) 0%, transparent 65%),
-        linear-gradient(160deg, #050816 0%, #0a0f22 45%, #120b26 100%);
+      font-family: 'Vazirmatn', sans-serif; background: var(--bg-dark); color: #f0f4ff; min-height: 100vh; position: relative; overflow-x: hidden;
+      background-image: radial-gradient(circle at 8% 15%, rgba(90,60,240,0.22) 0%, transparent 32%), radial-gradient(circle at 92% 75%, rgba(200,80,190,0.18) 0%, transparent 38%), radial-gradient(circle at 50% 50%, rgba(30,20,70,0.4) 0%, transparent 65%), linear-gradient(160deg, #050816 0%, #0a0f22 45%, #120b26 100%);
       background-attachment: fixed;
     }
-
-    .bg-glow {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      background:
-        radial-gradient(circle at 25% 20%, rgba(139, 110, 255, 0.28) 0%, transparent 40%),
-        radial-gradient(circle at 80% 70%, rgba(120, 180, 255, 0.2) 0%, transparent 35%);
-      filter: blur(50px);
-      animation: glowPulse 6s ease-in-out infinite alternate;
-    }
-
-    @keyframes glowPulse {
-      0% { opacity: 0.45; transform: scale(0.96); }
-      100% { opacity: 0.9; transform: scale(1.04); }
-    }
-
-    .container {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      max-width: 1450px;
-      margin: 0 auto;
-      padding: clamp(12px, 3vw, 28px);
-    }
-
-    .glass {
-      background: rgba(16, 20, 38, 0.55);
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
-      border: 1px solid rgba(190, 200, 255, 0.18);
-      border-radius: clamp(24px, 4vw, 36px);
-      box-shadow: 0 25px 45px -15px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.03), inset 0 1px 1px rgba(255,255,255,0.06);
-      transition: all 0.3s ease;
-    }
-
-    .main-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 15px;
-      padding: clamp(14px, 2.5vw, 20px) clamp(16px, 3vw, 28px);
-      margin-bottom: clamp(20px, 3vw, 32px);
-      background: rgba(8, 12, 26, 0.7);
-      border-radius: clamp(28px, 5vw, 50px);
-      border: 1px solid rgba(150, 140, 255, 0.35);
-      box-shadow: 0 15px 30px -10px rgba(0,0,0,0.8), 0 0 35px rgba(130, 100, 255, 0.15);
-    }
-
-    .logo {
-      font-weight: 900;
-      font-size: clamp(20px, 3.5vw, 30px);
-      letter-spacing: -0.5px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: linear-gradient(135deg, #f2f0ff, #b9a6ff, #64b5f6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-shadow: 0 0 30px rgba(150, 130, 255, 0.7);
-    }
-
-    .logo-icon {
-      font-size: clamp(28px, 5vw, 38px);
-      -webkit-text-fill-color: initial;
-      filter: drop-shadow(0 0 14px #9b8cff);
-      animation: floatIcon 3s ease-in-out infinite;
-    }
-
-    @keyframes floatIcon {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-7px); }
-    }
-
-    .nav-pills {
-      display: flex;
-      gap: clamp(6px, 1.5vw, 10px);
-      flex-wrap: wrap;
-    }
-
-    .nav-pill {
-      background: rgba(30, 38, 62, 0.75);
-      border: 1px solid rgba(160, 175, 230, 0.4);
-      color: #e0e5ff;
-      padding: clamp(8px, 1.5vw, 12px) clamp(14px, 2.5vw, 22px);
-      border-radius: 40px;
-      cursor: pointer;
-      font-weight: 700;
-      font-size: clamp(12px, 1.6vw, 15px);
-      transition: 0.3s;
-      font-family: 'Vazirmatn', sans-serif;
-      letter-spacing: 0.2px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 20px -8px rgba(0,0,0,0.5);
-      white-space: nowrap;
-    }
-
-    .nav-pill.active {
-      background: linear-gradient(145deg, #26345f, #1c1f4a);
-      border-color: #ae9cff;
-      box-shadow: 0 0 25px rgba(160, 125, 255, 0.8), 0 8px 16px rgba(0,0,0,0.4);
-      color: #ffffff;
-      text-shadow: 0 0 8px #c3adff;
-      transform: scale(1.03);
-    }
-
-    .nav-pill:hover {
-      background: #2a3565;
-      transform: translateY(-3px);
-      box-shadow: 0 12px 20px -8px rgba(80, 60, 200, 0.6);
-    }
-
-    .hunger-banner {
-      display: flex;
-      justify-content: center;
-      gap: clamp(10px, 2vw, 20px);
-      flex-wrap: wrap;
-      padding: clamp(10px, 2vw, 16px) clamp(12px, 2.5vw, 22px);
-      margin-bottom: clamp(20px, 3vw, 32px);
-      background: rgba(16, 20, 35, 0.65);
-      border-radius: 40px;
-      border: 1px solid rgba(255, 215, 120, 0.3);
-    }
-
-    .hunger-item {
-      background: rgba(28, 32, 55, 0.85);
-      border: 1px solid rgba(255, 215, 120, 0.65);
-      border-radius: 40px;
-      padding: clamp(8px, 1.5vw, 12px) clamp(14px, 2.5vw, 24px);
-      display: flex;
-      align-items: center;
-      gap: clamp(6px, 1vw, 10px);
-      font-weight: 700;
-      font-size: clamp(12px, 1.7vw, 15px);
-      direction: rtl;
-      box-shadow: 0 0 18px rgba(255, 180, 60, 0.25);
-      transition: 0.25s;
-      white-space: nowrap;
-    }
-
-    .hunger-item:hover {
-      transform: scale(1.04);
-      box-shadow: 0 0 30px rgba(255, 187, 77, 0.5);
-    }
-
-    .hunger-label {
-      color: #e8e4ff;
-    }
-
-    .hunger-num {
-      font-weight: 900;
-      font-size: clamp(20px, 2.8vw, 24px);
-      color: var(--gold);
-      text-shadow: 0 0 18px #ffbc4d, 0 0 30px #ff9f4d;
-      animation: pulseNum 2s infinite;
-    }
-
-    @keyframes pulseNum {
-      0%, 100% { opacity: 0.9; }
-      50% { opacity: 1; text-shadow: 0 0 28px #ffb347, 0 0 55px #ff9f4d; }
-    }
-
-    .hero-card {
-      background: linear-gradient(145deg, rgba(22, 28, 50, 0.75), rgba(30, 25, 60, 0.85));
-      border: 1px solid rgba(180, 160, 255, 0.45);
-      border-radius: clamp(28px, 5vw, 42px);
-      padding: clamp(24px, 4vw, 38px) clamp(14px, 3vw, 28px);
-      text-align: center;
-      margin-bottom: clamp(24px, 3.5vw, 34px);
-      box-shadow: 0 25px 45px -20px #000, 0 0 50px rgba(125, 100, 255, 0.3);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      background: conic-gradient(from 90deg at 50% 50%, transparent, rgba(180, 140, 255, 0.25), transparent, rgba(100, 180, 255, 0.25), transparent);
-      animation: rotateGlow 9s linear infinite;
-      z-index: -1;
-    }
-
-    @keyframes rotateGlow {
-      to { transform: rotate(360deg); }
-    }
-
-    .hero-season {
-      font-size: clamp(15px, 2.5vw, 19px);
-      font-weight: 700;
-      color: #c3baff;
-      letter-spacing: 1px;
-    }
-
-    .hero-week {
-      font-size: clamp(32px, 7vw, 56px);
-      font-weight: 900;
-      background: linear-gradient(135deg, #ffffff, #d9c8ff, #7cc4ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 60px rgba(180, 150, 255, 0.8);
-      margin-top: 5px;
-    }
-
-    .section-title {
-      font-size: clamp(18px, 2.8vw, 24px);
-      font-weight: 800;
-      margin-bottom: clamp(14px, 2.5vw, 20px);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #e9e4ff;
-      text-shadow: 0 0 12px rgba(180, 150, 255, 0.5);
-    }
-
-    .icon-badge {
-      width: clamp(36px, 5vw, 44px);
-      height: clamp(36px, 5vw, 44px);
-      background: rgba(130, 140, 255, 0.25);
-      border-radius: clamp(14px, 2vw, 18px);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: clamp(18px, 3vw, 24px);
-      border: 1px solid rgba(180, 170, 255, 0.5);
-      box-shadow: 0 0 20px rgba(130, 110, 255, 0.5);
-      flex-shrink: 0;
-    }
-
-    /* ==== PREMIUM OVERALL LEADER BOX ==== */
-    .overall-leader-premium {
-      background: linear-gradient(150deg, rgba(26, 20, 55, 0.9), rgba(40, 22, 70, 0.95));
-      border: 2px solid rgba(255, 215, 120, 0.7);
-      border-radius: clamp(28px, 5vw, 40px);
-      padding: clamp(20px, 3vw, 32px);
-      margin-bottom: clamp(24px, 3vw, 32px);
-      text-align: center;
-      box-shadow:
-        0 0 0 1px rgba(255, 215, 120, 0.15),
-        0 25px 50px -15px rgba(0, 0, 0, 0.9),
-        0 0 70px rgba(255, 180, 60, 0.3),
-        0 0 120px rgba(180, 130, 255, 0.15);
-      position: relative;
-      overflow: hidden;
-      transition: 0.4s;
-      backdrop-filter: blur(20px);
-    }
-
-    .overall-leader-premium::before {
-      content: "";
-      position: absolute;
-      inset: -50%;
-      background: conic-gradient(from 180deg at 50% 50%, transparent, rgba(255, 215, 120, 0.3), transparent, rgba(180, 140, 255, 0.4), transparent);
-      animation: rotateGlow 7s linear infinite;
-      z-index: 0;
-    }
-
-    .overall-leader-premium:hover {
-      box-shadow: 0 0 0 1px rgba(255, 215, 120, 0.3), 0 30px 60px -15px rgba(0,0,0,0.9), 0 0 100px rgba(255, 180, 60, 0.5), 0 0 160px rgba(180, 130, 255, 0.3);
-      transform: translateY(-4px);
-    }
-
-    .overall-leader-inner {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: clamp(6px, 1.2vw, 10px);
-    }
-
-    .overall-leader-label {
-      font-size: clamp(15px, 2.2vw, 18px);
-      font-weight: 700;
-      color: #e8d5b0;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .overall-leader-name {
-      font-size: clamp(26px, 5vw, 42px);
-      font-weight: 900;
-      color: #fff;
-      text-shadow: 0 0 25px rgba(255, 215, 120, 0.9), 0 0 60px rgba(255, 180, 60, 0.6);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .overall-leader-flag {
-      font-size: clamp(30px, 5vw, 44px);
-      filter: drop-shadow(0 0 14px rgba(255, 215, 120, 0.9));
-    }
-
-    .overall-leader-points {
-      font-size: clamp(20px, 3.5vw, 28px);
-      font-weight: 800;
-      color: var(--gold);
-      text-shadow: 0 0 20px rgba(255, 200, 80, 0.8);
-      background: rgba(255, 215, 120, 0.15);
-      padding: 4px 20px;
-      border-radius: 40px;
-      border: 1px solid rgba(255, 215, 120, 0.4);
-    }
-
-    /* ==== TABLES ==== */
-    .table-wrap {
-      overflow-x: auto;
-      margin: clamp(12px, 2vw, 18px) 0;
-      border-radius: clamp(18px, 3vw, 24px);
-      background: rgba(10, 15, 30, 0.55);
-      padding: 4px;
-      border: 1px solid rgba(140, 150, 220, 0.2);
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: thin;
-      scrollbar-color: #6b5cff rgba(20, 25, 45, 0.8);
-    }
-
-    .table-wrap::-webkit-scrollbar {
-      height: 8px;
-    }
-    .table-wrap::-webkit-scrollbar-track {
-      background: rgba(20, 25, 45, 0.8);
-      border-radius: 10px;
-    }
-    .table-wrap::-webkit-scrollbar-thumb {
-      background: #6b5cff;
-      border-radius: 10px;
-    }
-
-    .medal-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: clamp(13px, 1.8vw, 16px);
-      min-width: 750px;
-    }
-
-    .medal-table th {
-      background: rgba(25, 32, 60, 0.95);
-      padding: clamp(12px, 2vw, 16px) clamp(8px, 1.5vw, 12px);
-      font-weight: 800;
-      color: #c7d0ff;
-      border-bottom: 2px solid #4b5a90;
-      white-space: nowrap;
-      letter-spacing: 0.5px;
-      text-shadow: 0 0 8px #8f7bff;
-      font-size: clamp(12px, 1.7vw, 15px);
-    }
-
-    .medal-table td {
-      padding: clamp(10px, 1.8vw, 14px) clamp(6px, 1.2vw, 10px);
-      text-align: center;
-      background: rgba(15, 20, 38, 0.65);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      white-space: nowrap;
-      transition: 0.2s;
-      font-size: clamp(13px, 1.8vw, 16px);
-    }
-
-    .medal-table tr:hover td {
-      background: rgba(50, 60, 100, 0.75);
-      box-shadow: 0 0 20px rgba(100, 80, 200, 0.35);
-    }
-
-    .total-points {
-      font-weight: 900;
-      color: #ffe28a;
-      text-shadow: 0 0 15px #ffb84d;
-      font-size: clamp(15px, 2.2vw, 18px);
-    }
-
-    .flag-icon {
-      font-size: clamp(18px, 3vw, 22px);
-      margin-left: 5px;
-      filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.7));
-    }
-
-    .player-with-flag {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: clamp(4px, 0.8vw, 7px);
-      font-weight: 600;
-      font-size: clamp(13px, 1.8vw, 16px);
-    }
-
-    .leader-card {
-      background: rgba(22, 28, 50, 0.7);
-      border-radius: clamp(20px, 3.5vw, 28px);
-      padding: clamp(16px, 2.5vw, 22px);
-      backdrop-filter: blur(14px);
-      border: 1px solid rgba(200, 210, 255, 0.25);
-      box-shadow: 0 20px 30px -10px #000;
-      transition: 0.3s;
-    }
-
-    .leader-card:hover {
-      border-color: #ae9cff;
-      box-shadow: 0 0 30px rgba(140, 110, 255, 0.4);
-    }
-
-    .leader-header {
-      font-weight: 800;
-      font-size: clamp(17px, 2.5vw, 20px);
-      margin-bottom: clamp(10px, 1.8vw, 14px);
-      color: #d9d4ff;
-      text-shadow: 0 0 10px #9b8cff;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .leader-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: clamp(6px, 1vw, 9px) 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      font-size: clamp(14px, 2vw, 16px);
-    }
-
-    .chip-status-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 10px;
-    }
-
-    .chip-status-card {
-      background: rgba(26, 34, 60, 0.7);
-      border-radius: 18px;
-      padding: clamp(12px, 2vw, 16px) 8px;
-      text-align: center;
-      border: 1px solid rgba(180, 190, 255, 0.25);
-      box-shadow: 0 10px 20px -8px #000;
-      transition: 0.2s;
-      font-size: clamp(13px, 1.8vw, 15px);
-    }
-
-    .chip-status-card:hover {
-      background: rgba(40, 50, 80, 0.8);
-    }
-
-    .gambit-separator {
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #9f8bff, #6a5cff, transparent);
-      margin: clamp(25px, 4vw, 35px) 0 clamp(18px, 3vw, 25px);
-      box-shadow: 0 0 30px #6a5cff;
-    }
-
-    .footer-note {
-      text-align: center;
-      padding: clamp(20px, 3vw, 28px);
-      margin-top: clamp(20px, 3vw, 28px);
-      color: #8899cc;
-      font-size: clamp(12px, 1.6vw, 14px);
-      border-top: 1px solid rgba(150, 160, 220, 0.4);
-      letter-spacing: 0.5px;
-    }
-
-    /* ==== RESPONSIVE GRID ==== */
-    .leaders-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: clamp(14px, 2vw, 22px);
-      margin-bottom: clamp(24px, 3vw, 32px);
-    }
-
-    /* ==== MOBILE SPECIFIC ==== */
-    @media (max-width: 640px) {
-      .main-header {
-        flex-direction: column;
-        align-items: stretch;
-        text-align: center;
-        gap: 12px;
-      }
-      .logo {
-        justify-content: center;
-      }
-      .nav-pills {
-        justify-content: center;
-      }
-      .nav-pill {
-        flex: 0 1 auto;
-        padding: 10px 16px;
-        font-size: 12px;
-      }
-      .hunger-banner {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 8px;
-      }
-      .hunger-item {
-        justify-content: center;
-      }
-      .hero-card {
-        padding: 24px 12px;
-      }
-      .overall-leader-name {
-        font-size: clamp(22px, 7vw, 32px);
-      }
-      .overall-leader-flag {
-        font-size: clamp(24px, 8vw, 36px);
-      }
-      .overall-leader-points {
-        font-size: clamp(18px, 5vw, 24px);
-        padding: 3px 16px;
-      }
-      .medal-table {
-        min-width: 700px;
-      }
-      .leader-row {
-        font-size: 14px;
-      }
-    }
-
-    @media (max-width: 380px) {
-      .nav-pill {
-        padding: 8px 12px;
-        font-size: 11px;
-      }
-      .hunger-item {
-        font-size: 12px;
-      }
-    }
+    .bg-glow { position: fixed; inset: 0; pointer-events: none; z-index: 0; background: radial-gradient(circle at 25% 20%, rgba(139,110,255,0.28) 0%, transparent 40%), radial-gradient(circle at 80% 70%, rgba(120,180,255,0.2) 0%, transparent 35%); filter: blur(50px); animation: glowPulse 6s ease-in-out infinite alternate; }
+    @keyframes glowPulse { 0% { opacity: 0.45; transform: scale(0.96); } 100% { opacity: 0.9; transform: scale(1.04); } }
+    .container { position: relative; z-index: 2; width: 100%; max-width: 1450px; margin: 0 auto; padding: clamp(12px, 3vw, 28px); }
+    .glass { background: rgba(16,20,38,0.55); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); border: 1px solid rgba(190,200,255,0.18); border-radius: clamp(24px,4vw,36px); box-shadow: 0 25px 45px -15px rgba(0,0,0,0.85), 0 0 0 1px rgba(255,255,255,0.03); transition: all 0.3s ease; }
+    .main-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; padding: clamp(14px,2.5vw,20px) clamp(16px,3vw,28px); margin-bottom: clamp(20px,3vw,32px); background: rgba(8,12,26,0.7); border-radius: clamp(28px,5vw,50px); border: 1px solid rgba(150,140,255,0.35); box-shadow: 0 15px 30px -10px rgba(0,0,0,0.8); }
+    .logo { font-weight: 900; font-size: clamp(20px,3.5vw,30px); display: flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #f2f0ff, #b9a6ff, #64b5f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .logo-icon { font-size: clamp(28px,5vw,38px); -webkit-text-fill-color: initial; filter: drop-shadow(0 0 14px #9b8cff); animation: floatIcon 3s ease-in-out infinite; }
+    @keyframes floatIcon { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+    .nav-pills { display: flex; gap: clamp(6px,1.5vw,10px); flex-wrap: wrap; }
+    .nav-pill { background: rgba(30,38,62,0.75); border: 1px solid rgba(160,175,230,0.4); color: #e0e5ff; padding: clamp(8px,1.5vw,12px) clamp(14px,2.5vw,22px); border-radius: 40px; cursor: pointer; font-weight: 700; font-size: clamp(12px,1.6vw,15px); transition: 0.3s; font-family: 'Vazirmatn', sans-serif; }
+    .nav-pill.active { background: linear-gradient(145deg, #26345f, #1c1f4a); border-color: #ae9cff; box-shadow: 0 0 25px rgba(160,125,255,0.8); color: #fff; }
+    .nav-pill:hover { background: #2a3565; transform: translateY(-3px); }
+    .hunger-banner { display: flex; justify-content: center; gap: clamp(10px,2vw,20px); flex-wrap: wrap; padding: clamp(10px,2vw,16px) clamp(12px,2.5vw,22px); margin-bottom: clamp(20px,3vw,32px); background: rgba(16,20,35,0.65); border-radius: 40px; border: 1px solid rgba(255,215,120,0.3); }
+    .hunger-item { background: rgba(28,32,55,0.85); border: 1px solid rgba(255,215,120,0.65); border-radius: 40px; padding: clamp(8px,1.5vw,12px) clamp(14px,2.5vw,24px); display: flex; align-items: center; gap: clamp(6px,1vw,10px); font-weight: 700; font-size: clamp(12px,1.7vw,15px); direction: rtl; }
+    .hunger-num { font-weight: 900; font-size: clamp(20px,2.8vw,24px); color: var(--gold); text-shadow: 0 0 18px #ffbc4d; }
+    .hero-card { background: linear-gradient(145deg, rgba(22,28,50,0.75), rgba(30,25,60,0.85)); border: 1px solid rgba(180,160,255,0.45); border-radius: clamp(28px,5vw,42px); padding: clamp(24px,4vw,38px) clamp(14px,3vw,28px); text-align: center; margin-bottom: clamp(24px,3.5vw,34px); box-shadow: 0 25px 45px -20px #000; position: relative; overflow: hidden; }
+    .hero-season { font-size: clamp(15px,2.5vw,19px); font-weight: 700; color: #c3baff; }
+    .hero-week { font-size: clamp(32px,7vw,56px); font-weight: 900; background: linear-gradient(135deg, #ffffff, #d9c8ff, #7cc4ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 60px rgba(180,150,255,0.8); margin-top: 5px; }
+    .section-title { font-size: clamp(18px,2.8vw,24px); font-weight: 800; margin-bottom: clamp(14px,2.5vw,20px); display: flex; align-items: center; gap: 10px; color: #e9e4ff; }
+    .icon-badge { width: clamp(36px,5vw,44px); height: clamp(36px,5vw,44px); background: rgba(130,140,255,0.25); border-radius: clamp(14px,2vw,18px); display: inline-flex; align-items: center; justify-content: center; font-size: clamp(18px,3vw,24px); border: 1px solid rgba(180,170,255,0.5); box-shadow: 0 0 20px rgba(130,110,255,0.5); }
+    .overall-leader-premium { background: linear-gradient(150deg, rgba(26,20,55,0.9), rgba(40,22,70,0.95)); border: 2px solid rgba(255,215,120,0.7); border-radius: clamp(28px,5vw,40px); padding: clamp(20px,3vw,32px); margin-bottom: clamp(24px,3vw,32px); text-align: center; box-shadow: 0 0 0 1px rgba(255,215,120,0.15), 0 25px 50px -15px rgba(0,0,0,0.9), 0 0 70px rgba(255,180,60,0.3); position: relative; overflow: hidden; backdrop-filter: blur(20px); }
+    .overall-leader-premium::before { content: ""; position: absolute; inset: -50%; background: conic-gradient(from 180deg at 50% 50%, transparent, rgba(255,215,120,0.3), transparent, rgba(180,140,255,0.4), transparent); animation: rotateGlow 7s linear infinite; z-index: 0; }
+    .overall-leader-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: clamp(6px,1.2vw,10px); }
+    .overall-leader-label { font-size: clamp(15px,2.2vw,18px); font-weight: 700; color: #e8d5b0; }
+    .overall-leader-name { font-size: clamp(26px,5vw,42px); font-weight: 900; color: #fff; text-shadow: 0 0 25px rgba(255,215,120,0.9); display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .overall-leader-flag { font-size: clamp(30px,5vw,44px); }
+    .overall-leader-points { font-size: clamp(20px,3.5vw,28px); font-weight: 800; color: var(--gold); text-shadow: 0 0 20px rgba(255,200,80,0.8); background: rgba(255,215,120,0.15); padding: 4px 20px; border-radius: 40px; border: 1px solid rgba(255,215,120,0.4); }
+    .table-wrap { overflow-x: auto; margin: clamp(12px,2vw,18px) 0; border-radius: clamp(18px,3vw,24px); background: rgba(10,15,30,0.55); padding: 4px; border: 1px solid rgba(140,150,220,0.2); -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: #6b5cff rgba(20,25,45,0.8); }
+    .medal-table { width: 100%; border-collapse: collapse; font-size: clamp(13px,1.8vw,16px); min-width: 750px; }
+    .medal-table th { background: rgba(25,32,60,0.95); padding: clamp(12px,2vw,16px) clamp(8px,1.5vw,12px); font-weight: 800; color: #c7d0ff; border-bottom: 2px solid #4b5a90; white-space: nowrap; }
+    .medal-table td { padding: clamp(10px,1.8vw,14px) clamp(6px,1.2vw,10px); text-align: center; background: rgba(15,20,38,0.65); border-bottom: 1px solid rgba(255,255,255,0.05); white-space: nowrap; transition: 0.2s; }
+    .medal-table tr:hover td { background: rgba(50,60,100,0.75); box-shadow: 0 0 20px rgba(100,80,200,0.35); }
+    .total-points { font-weight: 900; color: #ffe28a; text-shadow: 0 0 15px #ffb84d; font-size: clamp(15px,2.2vw,18px); }
+    .flag-icon { font-size: clamp(18px,3vw,22px); margin-left: 5px; }
+    .player-with-flag { display: flex; align-items: center; justify-content: center; gap: clamp(4px,0.8vw,7px); font-weight: 600; }
+    .leader-card { background: rgba(22,28,50,0.7); border-radius: clamp(20px,3.5vw,28px); padding: clamp(16px,2.5vw,22px); backdrop-filter: blur(14px); border: 1px solid rgba(200,210,255,0.25); box-shadow: 0 20px 30px -10px #000; }
+    .leader-header { font-weight: 800; font-size: clamp(17px,2.5vw,20px); margin-bottom: clamp(10px,1.8vw,14px); color: #d9d4ff; }
+    .leader-row { display: flex; justify-content: space-between; align-items: center; padding: clamp(6px,1vw,9px) 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: clamp(14px,2vw,16px); }
+    .gambit-separator { height: 2px; background: linear-gradient(90deg, transparent, #9f8bff, #6a5cff, transparent); margin: clamp(25px,4vw,35px) 0 clamp(18px,3vw,25px); box-shadow: 0 0 30px #6a5cff; }
+    .footer-note { text-align: center; padding: clamp(20px,3vw,28px); margin-top: clamp(20px,3vw,28px); color: #8899cc; font-size: clamp(12px,1.6vw,14px); border-top: 1px solid rgba(150,160,220,0.4); }
+    .leaders-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(14px,2vw,22px); margin-bottom: clamp(24px,3vw,32px); }
+    @media (max-width: 640px) { .main-header { flex-direction: column; align-items: stretch; text-align: center; } .logo { justify-content: center; } .nav-pills { justify-content: center; } .hunger-banner { flex-direction: column; align-items: stretch; gap: 8px; } .hunger-item { justify-content: center; } .overall-leader-name { font-size: clamp(22px,7vw,32px); } .medal-table { min-width: 700px; } }
+    .negative { direction: ltr; unicode-bidi: isolate; display: inline-block; }
+    .duel-player { font-weight: 900; font-size: clamp(18px,2.5vw,22px); background: linear-gradient(135deg, #ffffff, #ffd966); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 15px rgba(255,215,120,0.7); }
+    .duel-score { font-weight: 900; font-size: clamp(22px,3vw,28px); color: #fff; text-shadow: 0 0 20px rgba(255,255,255,0.8); }
+    .duel-winner { font-weight: 800; font-size: clamp(15px,2vw,18px); color: #4ade80; text-shadow: 0 0 12px rgba(74,222,128,0.7); }
   </style>
 </head>
 <body>
@@ -584,252 +74,244 @@
     </div>
   </header>
 
-  <!-- HUNGER BANNER -->
   <div class="hunger-banner glass">
-    <div class="hunger-item"><span class="hunger-label">تا هانگرگیم برنز‌دزد</span> <span class="hunger-num" id="hgBronzeCount">۸</span> <span class="hunger-label">هفته</span></div>
-    <div class="hunger-item"><span class="hunger-label">تا هانگرگیم نقره‌دزد</span> <span class="hunger-num" id="hgSilverCount">۱۸</span> <span class="hunger-label">هفته</span></div>
-    <div class="hunger-item"><span class="hunger-label">تا هانگرگیم طلا‌دزد</span> <span class="hunger-num" id="hgGoldCount">۲۸</span> <span class="hunger-label">هفته</span></div>
+    <div class="hunger-item"><span class="hunger-label">تا هانگرگیم برنز‌دزد</span> <span class="hunger-num">۷</span> <span class="hunger-label">هفته</span></div>
+    <div class="hunger-item"><span class="hunger-label">تا هانگرگیم نقره‌دزد</span> <span class="hunger-num">۱۷</span> <span class="hunger-label">هفته</span></div>
+    <div class="hunger-item"><span class="hunger-label">تا هانگرگیم طلا‌دزد</span> <span class="hunger-num">۲۷</span> <span class="hunger-label">هفته</span></div>
   </div>
 
-  <!-- HOME -->
   <div id="page-home" class="page-section">
     <div class="hero-card">
       <div class="hero-season">فصل ۱۴۰۵-۱۴۰۶</div>
-      <div class="hero-week">هفته <span id="currentWeekDisplay">۲</span> ام</div>
+      <div class="hero-week">هفته ۳ ام</div>
     </div>
 
-    <!-- ⭐ PREMIUM OVERALL LEADER BOX (صدرنشین کل) -->
-    <div class="overall-leader-premium" id="overallLeaderPremium">
+    <div class="overall-leader-premium">
       <div class="overall-leader-inner">
         <div class="overall-leader-label">👑 صدرنشین کل لیگ</div>
-        <div class="overall-leader-name">
-          <span class="overall-leader-flag" id="overallLeaderFlag">🇸🇪</span>
-          <span id="overallLeaderName">فاطمه محمدزاده</span>
-        </div>
-        <div class="overall-leader-points" id="overallLeaderPoints">۸ امتیاز</div>
+        <div class="overall-leader-name"><span class="overall-leader-flag">🇬🇹</span><span>حسین مرانی</span></div>
+        <div class="overall-leader-points">۱۶ امتیاز</div>
       </div>
     </div>
 
-    <div class="leaders-grid">
-      <div class="leader-card"><div class="leader-header">👑 صدرنشین کلاسیک</div><div class="leader-row"><span>🇳🇴 مهدی علی محمدی</span><span>۴ امتیاز</span></div></div>
-      <div class="leader-card"><div class="leader-header">👑 صدرنشین درفت</div><div class="leader-row"><span>🇸🇪 فاطمه محمدزاده</span><span>۴ امتیاز</span></div></div>
-    </div>
+    <div class="leaders-grid" id="topLeadersGrid"></div>
 
-    <div class="leaders-grid">
-      <div class="leader-card"><div class="leader-header">۵ نفر برتر — کلاسیک</div>
-        <div class="leader-row"><span>🇳🇴 مهدی علی محمدی</span><span>۴</span></div>
-        <div class="leader-row"><span>🇸🇪 فاطمه محمدزاده</span><span>۴</span></div>
-        <div class="leader-row"><span>🇬🇹 حسین مرانی</span><span>۴</span></div>
-        <div class="leader-row"><span>🇫🇷 سید امیرعلی علوی</span><span>۱</span></div>
-        <div class="leader-row"><span>🇻🇮 نوید جهانی</span><span>۱</span></div>
-      </div>
-      <div class="leader-card"><div class="leader-header">۵ نفر برتر — درفت</div>
-        <div class="leader-row"><span>🇸🇪 فاطمه محمدزاده</span><span>۴</span></div>
-        <div class="leader-row"><span>🇬🇪 محمدحسین اکبری</span><span>۴</span></div>
-        <div class="leader-row"><span>🇳🇴 مهدی علی محمدی</span><span>۲</span></div>
-        <div class="leader-row"><span>🇫🇷 سید امیرعلی علوی</span><span>۲</span></div>
-        <div class="leader-row"><span>🇸🇾 سید امیررضا صالحی امیری</span><span>۲</span></div>
-      </div>
-    </div>
-
-    <!-- OVERALL -->
     <div class="glass" style="padding: clamp(16px, 2.5vw, 24px); margin-bottom: clamp(24px, 3vw, 32px);">
       <div class="section-title"><span class="icon-badge">📊</span> جدول نهایی مجموع دو لیگ</div>
       <div class="table-wrap"><table class="medal-table"><thead><tr><th>ردیف</th><th>بازیکن</th><th>طلا</th><th>نقره</th><th>برنز</th><th>امتیاز کل</th><th>رتبه</th></tr></thead><tbody id="overallTableBody"></tbody></table></div>
     </div>
 
-    <!-- CLASSIC -->
     <div class="glass" style="padding: clamp(16px, 2.5vw, 24px); margin-bottom: clamp(24px, 3vw, 32px);">
       <div class="section-title"><span class="icon-badge">🏅</span> جدول لیگ کلاسیک</div>
       <div class="table-wrap"><table class="medal-table"><thead><tr><th>ردیف</th><th>بازیکن</th><th>طلا</th><th>نقره</th><th>برنز</th><th>جریمه طلا</th><th>جریمه نقره</th><th>جریمه برنز</th><th>طلای نهایی</th><th>نقره نهایی</th><th>برنز نهایی</th><th>امتیاز کل</th><th>رتبه</th></tr></thead><tbody id="classicTableBody"></tbody></table></div>
     </div>
 
-    <!-- DRAFT -->
     <div class="glass" style="padding: clamp(16px, 2.5vw, 24px); margin-bottom: clamp(24px, 3vw, 32px);">
       <div class="section-title"><span class="icon-badge">🎯</span> جدول لیگ درفت</div>
       <div class="table-wrap"><table class="medal-table"><thead><tr><th>ردیف</th><th>بازیکن</th><th>طلا</th><th>نقره</th><th>برنز</th><th>امتیاز کل</th><th>رتبه</th></tr></thead><tbody id="draftTableBody"></tbody></table></div>
     </div>
   </div>
 
-  <!-- DUELS -->
   <div id="page-duels" class="page-section" style="display:none;">
     <div class="hero-card"><div class="hero-week" style="font-size:clamp(28px, 5vw, 38px);">⚔️ دوئل‌ها</div><div class="hero-season">فصل ۱۴۰۵-۱۴۰۶</div></div>
     <div class="glass" style="padding:clamp(16px, 2.5vw, 25px);">
       <div class="section-title"><span class="icon-badge">⚔️</span> نتایج دوئل‌ها</div>
-      <div id="duelContent" style="text-align:center; padding:clamp(24px, 4vw, 30px); color:#b3c0ea; font-size:clamp(15px, 2vw, 18px);">هنوز دوئلی ثبت نشده است.</div>
+      <div id="duelContent" style="text-align:center; padding:clamp(24px,4vw,30px); color:#b3c0ea;">
+        <div style="background:rgba(40,50,80,0.6); border-radius:20px; padding:20px; margin:12px 0; border:1px solid rgba(255,215,120,0.3);">
+          <span class="duel-player">🇬🇹 حسین مرانی</span> <span class="duel-score">۲</span> — <span class="duel-score">۰</span> <span class="duel-player">🇨🇼 مازیار رضایی</span>
+          <div class="duel-winner" style="margin-top:10px;">🏆 برنده: حسین مرانی</div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- CHIPS -->
   <div id="page-chips" class="page-section" style="display:none;">
     <div class="hero-card"><div class="hero-week" style="font-size:clamp(28px, 5vw, 38px);">🧩 چیپ‌ها و گمبیت‌ها</div><div class="hero-season">وضعیت مصرف بازیکنان</div></div>
     <div class="glass" style="padding: clamp(16px, 2.5vw, 24px); margin-bottom: clamp(24px, 3vw, 32px);">
       <div class="section-title"><span class="icon-badge">🧩</span> چیپ‌های ویژه</div>
-      <div class="table-wrap">
-        <table class="medal-table">
-          <thead><tr><th>ردیف</th><th>بازیکن</th><th>صعود</th><th>آینه</th><th>دوئل</th><th>دوئل نقره‌ای</th><th>ناجی</th></tr></thead>
-          <tbody id="chipsTableBody"></tbody>
-        </table>
-      </div>
+      <div class="table-wrap"><table class="medal-table"><thead><tr><th>ردیف</th><th>بازیکن</th><th>صعود</th><th>آینه</th><th>دوئل</th><th>دوئل نقره‌ای</th><th>ناجی</th></tr></thead><tbody id="chipsTableBody"></tbody></table></div>
       <div class="gambit-separator"></div>
       <div class="section-title"><span class="icon-badge">👑</span> گمبیت‌ها (فقط لیگ درفت)</div>
-      <div class="table-wrap">
-        <table class="medal-table">
-          <thead><tr><th>ردیف</th><th>بازیکن</th><th>مرحله ۱</th><th>مرحله ۲</th><th>مرحله ۳</th></tr></thead>
-          <tbody id="gambitTableBody"></tbody>
-        </table>
-      </div>
+      <div class="table-wrap"><table class="medal-table"><thead><tr><th>ردیف</th><th>بازیکن</th><th>مرحله ۱</th><th>مرحله ۲</th><th>مرحله ۳</th></tr></thead><tbody id="gambitTableBody"></tbody></table></div>
     </div>
   </div>
 
-  <!-- HISTORY -->
   <div id="page-history" class="page-section" style="display:none;">
     <div class="hero-card"><div class="hero-week" style="font-size:clamp(28px, 5vw, 38px);">📚 تاریخچه لیگ</div><div class="hero-season">قهرمانان گذشته</div></div>
-    <div class="glass" style="padding: clamp(16px, 2.5vw, 24px); margin-bottom: clamp(24px, 3vw, 32px);">
-      <div class="table-wrap">
-        <table class="medal-table">
-          <thead><tr><th>فصل</th><th>کلاسیک</th><th>هد تو هد</th><th>درفت</th><th>جام حذفی</th><th>جام جهانی</th><th>یورو</th></tr></thead>
-          <tbody id="historyTableBody"></tbody>
-        </table>
-      </div>
-    </div>
-    <div class="glass" style="padding: clamp(16px, 2.5vw, 24px);">
-      <div class="section-title"><span class="icon-badge">📊</span> رکوردهای تمام دوران</div>
-      <div class="table-wrap"><table class="medal-table" style="min-width:600px;"><thead><tr><th>رکورد</th><th>بازیکن</th><th>امتیاز</th></tr></thead><tbody id="recordsBody"></tbody></table></div>
-    </div>
+    <div class="glass" style="padding: clamp(16px, 2.5vw, 24px); margin-bottom: clamp(24px, 3vw, 32px);"><div class="table-wrap"><table class="medal-table"><thead><tr><th>فصل</th><th>کلاسیک</th><th>هد تو هد</th><th>درفت</th><th>جام حذفی</th><th>جام جهانی</th><th>یورو</th></tr></thead><tbody id="historyTableBody"></tbody></table></div></div>
+    <div class="glass" style="padding: clamp(16px, 2.5vw, 24px);"><div class="section-title"><span class="icon-badge">📊</span> رکوردهای تمام دوران</div><div class="table-wrap"><table class="medal-table" style="min-width:600px;"><thead><tr><th>رکورد</th><th>بازیکن</th><th>امتیاز</th></tr></thead><tbody id="recordsBody"></tbody></table></div></div>
   </div>
 
-  <div class="footer-note">طراحی و توسعه سید امیررضا صالحی امیری — نسخه ۴.۴۱</div>
+  <div class="footer-note">طراحی و توسعه سید امیررضا صالحی امیری — نسخه ۴.۴۵</div>
 </div>
 
 <script>
   (function() {
-    const CURRENT_WEEK = 2;
-    const HUNGER_BRONZE = 10;
-    const HUNGER_SILVER = 20;
-    const HUNGER_GOLD = 30;
-
-    const players = [
-      { name: 'فاطمه محمدزاده', flag: '🇸🇪', classic:{gold:1, silver:0, bronze:0, penG:0, penS:0, penB:0}, draft:{gold:1, silver:0, bronze:0}, chips:{asc:false, mirror:false, duel:false, duelSilver:false, savior:false}, gambit:{stage1:false, stage2:false, stage3:false} },
-      { name: 'مهدی علی محمدی', flag: '🇳🇴', classic:{gold:0, silver:2, bronze:0, penG:0, penS:0, penB:0}, draft:{gold:0, silver:0, bronze:2}, chips:{asc:false, mirror:false, duel:false, duelSilver:false, savior:false}, gambit:{stage1:false, stage2:false, stage3:false} },
-      { name: 'محمدحسین اکبری', flag: '🇬🇪', classic:{gold:0, silver:0, bronze:0, penG:0, penS:0, penB:0}, draft:{gold:1, silver:0, bronze:0}, chips:{asc:false, mirror:false, duel:false, duelSilver:false, savior:false}, gambit:{stage1:false, stage2:false, stage3:false} },
-      { name: 'حسین مرانی', flag: '🇬🇹', classic:{gold:1, silver:0, bronze:0, penG:0, penS:0, penB:0}, draft:{gold:0, silver:0, bronze:0}, chips:{asc:false, mirror:false, duel:false, duelSilver:false, savior:false}, gambit:{stage1:false, stage2:false, stage3:false} },
-      { name: 'سید امیرعلی علوی', flag: '🇫🇷', classic:{gold:0, silver:0, bronze:1, penG:0, penS:0, penB:0}, draft:{gold:0, silver:1, bronze:0}, chips:{asc:false, mirror:false, duel:false, duelSilver:false, savior:false}, gambit:{stage1:false, stage2:false, stage3:false} },
-      { name: 'سید امیررضا صالحی امیری', flag: '🇸🇾', classic:{gold:0, silver:0, bronze:0, penG:0, penS:0, penB:0}, draft:{gold:0, silver:1, bronze:0}, chips:{asc:false, mirror:false, duel:false, duelSilver:false, savior:false}, gambit:{stage1:false, stage2:false, stage3:false} },
-      { name: 'نوید جهانی', flag: '🇻🇮', classic:{gold:0, silver:0, bronze:1, penG:0, penS:0, penB:0}, draft:{gold:0, silver:0, bronze:0}, chips:{asc:false, mirror:false, duel:false, duelSilver:false, savior:false}, gambit:{stage1:false, stage2:false, stage3:false} },
-      { name: 'هاتف کیابخت', flag: '🇨🇮', classic:{gold:0, silver:0, bronze:0, penG:0, penS:0, penB:0}, draft:{gold:0, silver:0, bronze:0}, chips:{asc:false, mirror:false, duel:false, duelSilver:false, savior:false}, gambit:{stage1:false, stage2:false, stage3:false} },
-      { name: 'مازیار رضایی', flag: '🇨🇼', classic:{gold:0, silver:0, bronze:0, penG:0, penS:0, penB:0}, draft:{gold:0, silver:0, bronze:0}, chips:{asc:false, mirror:false, duel:false, duelSilver:false, savior:false}, gambit:{stage1:false, stage2:false, stage3:false} }
+    const overallData = [
+      { name: 'حسین مرانی', flag: '🇬🇹', gold: 4, silver: 0, bronze: 0, points: 16 },
+      { name: 'نوید جهانی', flag: '🇻🇮', gold: 2, silver: 0, bronze: 1, points: 9 },
+      { name: 'فاطمه محمدزاده', flag: '🇸🇪', gold: 2, silver: 0, bronze: 1, points: 9 },
+      { name: 'مهدی علی محمدی', flag: '🇳🇴', gold: 0, silver: 2, bronze: 2, points: 6 },
+      { name: 'سید امیررضا صالحی امیری', flag: '🇸🇾', gold: 0, silver: 2, bronze: 0, points: 4 },
+      { name: 'محمدحسین اکبری', flag: '🇬🇪', gold: 1, silver: 0, bronze: 0, points: 4 },
+      { name: 'سید امیرعلی علوی', flag: '🇫🇷', gold: 0, silver: 1, bronze: 1, points: 3 },
+      { name: 'هاتف کیابخت', flag: '🇨🇮', gold: 0, silver: 0, bronze: 1, points: 1 },
+      { name: 'مازیار رضایی', flag: '🇨🇼', gold: -1, silver: 1, bronze: 0, points: -2 }
     ];
 
-    function toPersian(num) { return num.toString().replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[parseInt(d)]); }
+    const classicData = [
+      { name: 'حسین مرانی', flag: '🇬🇹', gold: 2, silver: 0, bronze: 0, penG: 0, penS: 0, penB: 0, finalG: 2, finalS: 0, finalB: 0, points: 8 },
+      { name: 'مهدی علی محمدی', flag: '🇳🇴', gold: 0, silver: 2, bronze: 0, penG: 0, penS: 0, penB: 0, finalG: 0, finalS: 2, finalB: 0, points: 4 },
+      { name: 'فاطمه محمدزاده', flag: '🇸🇪', gold: 1, silver: 0, bronze: 0, penG: 0, penS: 0, penB: 0, finalG: 1, finalS: 0, finalB: 0, points: 4 },
+      { name: 'مازیار رضایی', flag: '🇨🇼', gold: 0, silver: 1, bronze: 0, penG: 0, penS: 0, penB: 0, finalG: 0, finalS: 1, finalB: 0, points: 2 },
+      { name: 'سید امیرعلی علوی', flag: '🇫🇷', gold: 0, silver: 0, bronze: 1, penG: 0, penS: 0, penB: 0, finalG: 0, finalS: 0, finalB: 1, points: 1 },
+      { name: 'نوید جهانی', flag: '🇻🇮', gold: 0, silver: 0, bronze: 1, penG: 0, penS: 0, penB: 0, finalG: 0, finalS: 0, finalB: 1, points: 1 },
+      { name: 'هاتف کیابخت', flag: '🇨🇮', gold: 0, silver: 0, bronze: 1, penG: 0, penS: 0, penB: 0, finalG: 0, finalS: 0, finalB: 1, points: 1 },
+      { name: 'سید امیررضا صالحی امیری', flag: '🇸🇾', gold: 0, silver: 0, bronze: 0, penG: 0, penS: 0, penB: 0, finalG: 0, finalS: 0, finalB: 0, points: 0 },
+      { name: 'محمدحسین اکبری', flag: '🇬🇪', gold: 0, silver: 0, bronze: 0, penG: 0, penS: 0, penB: 0, finalG: 0, finalS: 0, finalB: 0, points: 0 }
+    ];
+
+    const draftData = [
+      { name: 'فاطمه محمدزاده', flag: '🇸🇪', gold: 1, silver: 0, bronze: 1, points: 5 },
+      { name: 'سید امیررضا صالحی امیری', flag: '🇸🇾', gold: 0, silver: 2, bronze: 0, points: 4 },
+      { name: 'محمدحسین اکبری', flag: '🇬🇪', gold: 1, silver: 0, bronze: 0, points: 4 },
+      { name: 'حسین مرانی', flag: '🇬🇹', gold: 1, silver: 0, bronze: 0, points: 4 },
+      { name: 'مهدی علی محمدی', flag: '🇳🇴', gold: 0, silver: 0, bronze: 2, points: 2 },
+      { name: 'سید امیرعلی علوی', flag: '🇫🇷', gold: 0, silver: 1, bronze: 0, points: 2 },
+      { name: 'نوید جهانی', flag: '🇻🇮', gold: 0, silver: 0, bronze: 0, points: 0 },
+      { name: 'هاتف کیابخت', flag: '🇨🇮', gold: 0, silver: 0, bronze: 0, points: 0 },
+      { name: 'مازیار رضایی', flag: '🇨🇼', gold: 0, silver: 0, bronze: 0, points: 0 }
+    ];
+
+    const chipsData = [
+      { name: 'مهدی علی محمدی', flag: '🇳🇴', asc: false, mirror: false, duel: false, duelSilver: false, savior: false },
+      { name: 'سید امیرعلی علوی', flag: '🇫🇷', asc: false, mirror: false, duel: false, duelSilver: false, savior: false },
+      { name: 'نوید جهانی', flag: '🇻🇮', asc: false, mirror: true, duel: false, duelSilver: false, savior: false },
+      { name: 'هاتف کیابخت', flag: '🇨🇮', asc: false, mirror: false, duel: false, duelSilver: false, savior: false },
+      { name: 'سید امیررضا صالحی امیری', flag: '🇸🇾', asc: false, mirror: false, duel: false, duelSilver: false, savior: false },
+      { name: 'فاطمه محمدزاده', flag: '🇸🇪', asc: false, mirror: false, duel: false, duelSilver: false, savior: false },
+      { name: 'محمدحسین اکبری', flag: '🇬🇪', asc: false, mirror: false, duel: false, duelSilver: false, savior: false },
+      { name: 'مازیار رضایی', flag: '🇨🇼', asc: false, mirror: false, duel: false, duelSilver: false, savior: false },
+      { name: 'حسین مرانی', flag: '🇬🇹', asc: false, mirror: false, duel: true, duelSilver: false, savior: false }
+    ];
+
+    const gambitData = [
+      { name: 'مهدی علی محمدی', flag: '🇳🇴', stage1: false, stage2: false, stage3: false },
+      { name: 'سید امیرعلی علوی', flag: '🇫🇷', stage1: false, stage2: false, stage3: false },
+      { name: 'نوید جهانی', flag: '🇻🇮', stage1: false, stage2: false, stage3: false },
+      { name: 'هاتف کیابخت', flag: '🇨🇮', stage1: false, stage2: false, stage3: false },
+      { name: 'سید امیررضا صالحی امیری', flag: '🇸🇾', stage1: false, stage2: false, stage3: false },
+      { name: 'فاطمه محمدزاده', flag: '🇸🇪', stage1: false, stage2: false, stage3: false },
+      { name: 'محمدحسین اکبری', flag: '🇬🇪', stage1: false, stage2: false, stage3: false },
+      { name: 'مازیار رضایی', flag: '🇨🇼', stage1: false, stage2: false, stage3: false },
+      { name: 'حسین مرانی', flag: '🇬🇹', stage1: false, stage2: false, stage3: false }
+    ];
+
+    function toPersian(num) {
+      if (typeof num === 'number' && num < 0) {
+        const abs = Math.abs(num).toString().replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[parseInt(d)]);
+        return `<span class="negative">${abs}-</span>`;
+      }
+      return num.toString().replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[parseInt(d)]);
+    }
+
     function flagHtml(p){ return `<span class="player-with-flag"><span class="flag-icon">${p.flag}</span> ${p.name}</span>`; }
 
-    function getOverallPoints(p) {
-      const g = (p.classic.gold - p.classic.penG) + p.draft.gold;
-      const s = (p.classic.silver - p.classic.penS) + p.draft.silver;
-      const b = (p.classic.bronze - p.classic.penB) + p.draft.bronze;
-      return g * 4 + s * 2 + b;
+    function sortByPriority(arr, fields) {
+      return arr.sort((a,b) => {
+        for (const f of fields) {
+          if (a[f] !== b[f]) return b[f] - a[f];
+        }
+        return 0;
+      });
     }
 
-    // OVERALL
+    // جداول
     const overallBody = document.getElementById('overallTableBody');
-    const sortedOverall = [...players].sort((a,b) => getOverallPoints(b) - getOverallPoints(a));
-    sortedOverall.forEach((p,i) => {
-      const g = (p.classic.gold-p.classic.penG) + p.draft.gold;
-      const s = (p.classic.silver-p.classic.penS) + p.draft.silver;
-      const b = (p.classic.bronze-p.classic.penB) + p.draft.bronze;
-      const pts = getOverallPoints(p);
-      overallBody.innerHTML += `<tr><td>${toPersian(i+1)}</td><td>${flagHtml(p)}</td><td>${toPersian(g)}</td><td>${toPersian(s)}</td><td>${toPersian(b)}</td><td class="total-points">${toPersian(pts)}</td><td>${toPersian(i+1)}</td></tr>`;
+    sortByPriority([...overallData], ['points', 'gold', 'silver', 'bronze']).forEach((p,i) => {
+      overallBody.innerHTML += `<tr><td>${toPersian(i+1)}</td><td>${flagHtml(p)}</td><td>${toPersian(p.gold)}</td><td>${toPersian(p.silver)}</td><td>${toPersian(p.bronze)}</td><td class="total-points">${toPersian(p.points)}</td><td>${toPersian(i+1)}</td></tr>`;
     });
 
-    // SET PREMIUM OVERALL LEADER BOX
-    const topOverall = sortedOverall[0];
-    if (topOverall) {
-      const overallG = (topOverall.classic.gold - topOverall.classic.penG) + topOverall.draft.gold;
-      const overallS = (topOverall.classic.silver - topOverall.classic.penS) + topOverall.draft.silver;
-      const overallB = (topOverall.classic.bronze - topOverall.classic.penB) + topOverall.draft.bronze;
-      const overallPts = overallG * 4 + overallS * 2 + overallB;
-      document.getElementById('overallLeaderFlag').textContent = topOverall.flag;
-      document.getElementById('overallLeaderName').textContent = topOverall.name;
-      document.getElementById('overallLeaderPoints').textContent = `${toPersian(overallPts)} امتیاز`;
+    const classicBody = document.getElementById('classicTableBody');
+    const sortedClassic = sortByPriority([...classicData], ['points', 'finalG', 'finalS', 'finalB']);
+    sortedClassic.forEach((p,i) => {
+      classicBody.innerHTML += `<tr><td>${toPersian(i+1)}</td><td>${flagHtml(p)}</td><td>${toPersian(p.gold)}</td><td>${toPersian(p.silver)}</td><td>${toPersian(p.bronze)}</td><td>${toPersian(p.penG)}</td><td>${toPersian(p.penS)}</td><td>${toPersian(p.penB)}</td><td>${toPersian(p.finalG)}</td><td>${toPersian(p.finalS)}</td><td>${toPersian(p.finalB)}</td><td class="total-points">${toPersian(p.points)}</td><td>${toPersian(i+1)}</td></tr>`;
+    });
+
+    const draftBody = document.getElementById('draftTableBody');
+    const sortedDraft = sortByPriority([...draftData], ['points', 'gold', 'silver', 'bronze']);
+    sortedDraft.forEach((p,i) => {
+      draftBody.innerHTML += `<tr><td>${toPersian(i+1)}</td><td>${flagHtml(p)}</td><td>${toPersian(p.gold)}</td><td>${toPersian(p.silver)}</td><td>${toPersian(p.bronze)}</td><td class="total-points">${toPersian(p.points)}</td><td>${toPersian(i+1)}</td></tr>`;
+    });
+
+    // چیپ‌ها و گمبیت‌ها
+    const chipsBody = document.getElementById('chipsTableBody');
+    chipsData.forEach((p,i) => {
+      const tick = (val) => val ? '<span style="color:#4ade80; font-size:1.3em;">✔</span>' : '<span style="color:#ff6b6b; font-size:1.3em;">✖</span>';
+      chipsBody.innerHTML += `<tr><td>${toPersian(i+1)}</td><td>${flagHtml(p)}</td><td>${tick(p.asc)}</td><td>${tick(p.mirror)}</td><td>${tick(p.duel)}</td><td>${tick(p.duelSilver)}</td><td>${tick(p.savior)}</td></tr>`;
+    });
+
+    const gambitBody = document.getElementById('gambitTableBody');
+    gambitData.forEach((p,i) => {
+      const tick = (val) => val ? '<span style="color:#4ade80; font-size:1.2em;">✔</span>' : '<span style="color:#ff6b6b; font-size:1.2em;">✖</span>';
+      gambitBody.innerHTML += `<tr><td>${toPersian(i+1)}</td><td>${flagHtml(p)}</td><td>${tick(p.stage1)}</td><td>${tick(p.stage2)}</td><td>${tick(p.stage3)}</td></tr>`;
+    });
+
+    // صدرنشین‌ها — سه نفر برتر با استفاده از جداول مرتب‌شده
+    const topLeadersGrid = document.getElementById('topLeadersGrid');
+    const topClassic = sortedClassic.slice(0, 3);
+    const topDraft = sortedDraft.slice(0, 3);
+
+    function topRows(list) {
+      return list.map(p => `<div class="leader-row"><span>${p.flag} ${p.name}</span><span>${toPersian(p.points)} امتیاز</span></div>`).join('');
     }
 
-    // CLASSIC
-    const classicBody = document.getElementById('classicTableBody');
-    const sortedClassic = [...players].sort((a,b) => {
-      const pa = (a.classic.gold-a.classic.penG)*4+(a.classic.silver-a.classic.penS)*2+(a.classic.bronze-a.classic.penB);
-      const pb = (b.classic.gold-b.classic.penG)*4+(b.classic.silver-b.classic.penS)*2+(b.classic.bronze-b.classic.penB);
-      return pb-pa;
-    });
-    sortedClassic.forEach((p,i) => {
-      const fg = p.classic.gold-p.classic.penG; const fs = p.classic.silver-p.classic.penS; const fb = p.classic.bronze-p.classic.penB;
-      const pts = fg*4+fs*2+fb;
-      classicBody.innerHTML += `<tr><td>${toPersian(i+1)}</td><td>${flagHtml(p)}</td><td>${toPersian(p.classic.gold)}</td><td>${toPersian(p.classic.silver)}</td><td>${toPersian(p.classic.bronze)}</td><td>${toPersian(p.classic.penG)}</td><td>${toPersian(p.classic.penS)}</td><td>${toPersian(p.classic.penB)}</td><td>${toPersian(fg)}</td><td>${toPersian(fs)}</td><td>${toPersian(fb)}</td><td class="total-points">${toPersian(pts)}</td><td>${toPersian(i+1)}</td></tr>`;
-    });
+    topLeadersGrid.innerHTML = `
+      <div class="leader-card">
+        <div class="leader-header">👑 سه نفر برتر کلاسیک</div>
+        ${topRows(topClassic)}
+      </div>
+      <div class="leader-card">
+        <div class="leader-header">👑 سه نفر برتر درفت</div>
+        ${topRows(topDraft)}
+      </div>
+    `;
 
-    // DRAFT
-    const draftBody = document.getElementById('draftTableBody');
-    const sortedDraft = [...players].sort((a,b) => (b.draft.gold*4+b.draft.silver*2+b.draft.bronze)-(a.draft.gold*4+a.draft.silver*2+a.draft.bronze));
-    sortedDraft.forEach((p,i) => {
-      const pts = p.draft.gold*4+p.draft.silver*2+p.draft.bronze;
-      draftBody.innerHTML += `<tr><td>${toPersian(i+1)}</td><td>${flagHtml(p)}</td><td>${toPersian(p.draft.gold)}</td><td>${toPersian(p.draft.silver)}</td><td>${toPersian(p.draft.bronze)}</td><td class="total-points">${toPersian(pts)}</td><td>${toPersian(i+1)}</td></tr>`;
-    });
-
-    // CHIPS
-    const chipsBody = document.getElementById('chipsTableBody');
-    players.forEach((p,i) => {
-      const tick = (val) => val ? '<span style="color:#4ade80; text-shadow:0 0 8px #4ade80; font-size:1.3em;">✔</span>' : '<span style="color:#ff6b6b; text-shadow:0 0 8px #ff6b6b; font-size:1.3em;">✖</span>';
-      chipsBody.innerHTML += `<tr><td>${toPersian(i+1)}</td><td>${flagHtml(p)}</td><td>${tick(p.chips.asc)}</td><td>${tick(p.chips.mirror)}</td><td>${tick(p.chips.duel)}</td><td>${tick(p.chips.duelSilver)}</td><td>${tick(p.chips.savior)}</td></tr>`;
-    });
-
-    // GAMBIT
-    const gambitBody = document.getElementById('gambitTableBody');
-    players.forEach((p,i) => {
-      const tick = (val) => val ? '<span style="color:#4ade80; font-size:1.2em;">✔</span>' : '<span style="color:#ff6b6b; font-size:1.2em;">✖</span>';
-      gambitBody.innerHTML += `<tr><td>${toPersian(i+1)}</td><td>${flagHtml(p)}</td><td>${tick(p.gambit.stage1)}</td><td>${tick(p.gambit.stage2)}</td><td>${tick(p.gambit.stage3)}</td></tr>`;
-    });
-
-    // HISTORY
+    // تاریخچه
     const historyBody = document.getElementById('historyTableBody');
     const seasons = [
-      { year:"1397-1398", classic:"امیررضا صالحی", hth:"امیررضا صالحی", draft:"-", cup:"-", world:"-", euro:"-" },
-      { year:"1398-1399", classic:"امیرعلی علوی", hth:"مهدی علی محمدی", draft:"-", cup:"-", world:"-", euro:"-" },
-      { year:"1399-1400", classic:"-", hth:"-", draft:"-", cup:"-", world:"-", euro:"-" },
-      { year:"1400-1401", classic:"نوید جهانی", hth:"نوید جهانی", draft:"-", cup:"امیررضا صالحی", world:"-", euro:"امیررضا صالحی" },
-      { year:"1401-1402", classic:"مهدی علی محمدی", hth:"مهدی علی محمدی", draft:"امیررضا صالحی", cup:"محمد توکلی", world:"علی نوری", euro:"-" },
-      { year:"1402-1403", classic:"امیررضا صالحی", hth:"امیررضا صالحی", draft:"امیرعلی علوی", cup:"مهدی علی محمدی", world:"-", euro:"محمدحسین اکبری" },
-      { year:"1403-1404", classic:"امیررضا صالحی", hth:"نوید جهانی", draft:"رسول", cup:"علی نوری", world:"-", euro:"-" },
-      { year:"1404-1405", classic:"-", hth:"-", draft:"-", cup:"-", world:"مهدی علی محمدی", euro:"-" }
+      { year:"۱۳۹۷-۱۳۹۸", classic:"امیررضا صالحی", hth:"امیررضا صالحی", draft:"-", cup:"-", world:"-", euro:"-" },
+      { year:"۱۳۹۸-۱۳۹۹", classic:"امیرعلی علوی", hth:"مهدی علی محمدی", draft:"-", cup:"-", world:"-", euro:"-" },
+      { year:"۱۳۹۹-۱۴۰۰", classic:"-", hth:"-", draft:"-", cup:"-", world:"-", euro:"-" },
+      { year:"۱۴۰۰-۱۴۰۱", classic:"نوید جهانی", hth:"نوید جهانی", draft:"-", cup:"امیررضا صالحی", world:"-", euro:"امیررضا صالحی" },
+      { year:"۱۴۰۱-۱۴۰۲", classic:"مهدی علی محمدی", hth:"مهدی علی محمدی", draft:"امیررضا صالحی", cup:"محمد توکلی", world:"علی نوری", euro:"-" },
+      { year:"۱۴۰۲-۱۴۰۳", classic:"امیررضا صالحی", hth:"امیررضا صالحی", draft:"امیرعلی علوی", cup:"مهدی علی محمدی", world:"-", euro:"محمدحسین اکبری" },
+      { year:"۱۴۰۳-۱۴۰۴", classic:"امیررضا صالحی", hth:"نوید جهانی", draft:"رسول", cup:"علی نوری", world:"-", euro:"-" },
+      { year:"۱۴۰۴-۱۴۰۵", classic:"-", hth:"-", draft:"-", cup:"-", world:"مهدی علی محمدی", euro:"-" }
     ];
     seasons.forEach(s => {
-      historyBody.innerHTML += `<tr><td>${toPersian(s.year)}</td><td>${s.classic}</td><td>${s.hth}</td><td>${s.draft}</td><td>${s.cup}</td><td>${s.world}</td><td>${s.euro}</td></tr>`;
+      historyBody.innerHTML += `<tr><td>${s.year}</td><td>${s.classic}</td><td>${s.hth}</td><td>${s.draft}</td><td>${s.cup}</td><td>${s.world}</td><td>${s.euro}</td></tr>`;
     });
 
-    // RECORDS
+    // رکوردها
     const recordsBody = document.getElementById('recordsBody');
     const records = [
-      { label:'بیشترین امتیاز با چیپ', player:'امیرعلی علوی', value:'157' },
-      { label:'بیشترین امتیاز بی چیپ', player:'امیرعلی علوی', value:'129' },
-      { label:'بیشترین امتیاز با دبل گیمویک درفت', player:'امیررضا صالحی', value:'93' },
-      { label:'بیشترین امتیاز بی دبل گیمویک درفت', player:'امیرعلی علوی', value:'81' },
-      { label:'بهترین تریپل', player:'امیررضا صالحی', value:'87' },
-      { label:'بیشترین تساوی', player:'امیررضا صالحی', value:'5' },
-      { label:'سنگین ترین برد', player:'مهدی علی محمدی در مقابل محمد توکلی', value:'91 اختلاف' },
-      { label:'کمترین امتیاز', player:'رضا غلامی', value:'3' },
-      { label:'سنگین ترین برد درفت', player:'امیرعلی علوی در مقابل رضا', value:'59 اختلاف' },
-      { label:'کمترین امتیاز درفت', player:'نوید جهانی', value:'0' }
+      { label:'بیشترین امتیاز با چیپ', player:'امیرعلی علوی', value:'۱۵۷' },
+      { label:'بیشترین امتیاز بی چیپ', player:'امیرعلی علوی', value:'۱۲۹' },
+      { label:'بیشترین امتیاز با دبل گیمویک درفت', player:'امیررضا صالحی', value:'۹۳' },
+      { label:'بیشترین امتیاز بی دبل گیمویک درفت', player:'امیرعلی علوی', value:'۸۱' },
+      { label:'بهترین تریپل', player:'امیررضا صالحی', value:'۸۷' },
+      { label:'بیشترین تساوی', player:'امیررضا صالحی', value:'۵' },
+      { label:'سنگین ترین برد', player:'مهدی علی محمدی در مقابل محمد توکلی', value:'۹۱ اختلاف' },
+      { label:'کمترین امتیاز', player:'رضا غلامی', value:'۳' },
+      { label:'سنگین ترین برد درفت', player:'امیرعلی علوی در مقابل رضا', value:'۵۹ اختلاف' },
+      { label:'کمترین امتیاز درفت', player:'نوید جهانی', value:'۰' }
     ];
     records.forEach(r => {
       recordsBody.innerHTML += `<tr><td>${r.label}</td><td>${r.player}</td><td>${r.value}</td></tr>`;
     });
 
-    // HUNGER
-    document.getElementById('hgBronzeCount').textContent = toPersian(Math.max(0, HUNGER_BRONZE - CURRENT_WEEK));
-    document.getElementById('hgSilverCount').textContent = toPersian(Math.max(0, HUNGER_SILVER - CURRENT_WEEK));
-    document.getElementById('hgGoldCount').textContent = toPersian(Math.max(0, HUNGER_GOLD - CURRENT_WEEK));
-    document.getElementById('currentWeekDisplay').textContent = toPersian(CURRENT_WEEK);
-
-    // NAV
+    // ناوبری
     document.querySelectorAll('.nav-pill').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.nav-pill').forEach(b => b.classList.remove('active'));
