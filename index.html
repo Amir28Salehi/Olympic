@@ -75,22 +75,22 @@
   </header>
 
   <div class="hunger-banner glass">
-    <div class="hunger-item"><span class="hunger-label">تا هانگرگیم برنز‌دزد</span> <span class="hunger-num">۷</span> <span class="hunger-label">هفته</span></div>
-    <div class="hunger-item"><span class="hunger-label">تا هانگرگیم نقره‌دزد</span> <span class="hunger-num">۱۷</span> <span class="hunger-label">هفته</span></div>
-    <div class="hunger-item"><span class="hunger-label">تا هانگرگیم طلا‌دزد</span> <span class="hunger-num">۲۷</span> <span class="hunger-label">هفته</span></div>
+    <div class="hunger-item"><span class="hunger-label">تا هانگرگیم برنز‌دزد</span> <span class="hunger-num">۶</span> <span class="hunger-label">هفته</span></div>
+    <div class="hunger-item"><span class="hunger-label">تا هانگرگیم نقره‌دزد</span> <span class="hunger-num">۱۶</span> <span class="hunger-label">هفته</span></div>
+    <div class="hunger-item"><span class="hunger-label">تا هانگرگیم طلا‌دزد</span> <span class="hunger-num">۲۶</span> <span class="hunger-label">هفته</span></div>
   </div>
 
   <div id="page-home" class="page-section">
     <div class="hero-card">
       <div class="hero-season">فصل ۱۴۰۵-۱۴۰۶</div>
-      <div class="hero-week">هفته ۳ ام</div>
+      <div class="hero-week">هفته ۴ ام</div>
     </div>
 
     <div class="overall-leader-premium">
       <div class="overall-leader-inner">
         <div class="overall-leader-label">👑 صدرنشین کل لیگ</div>
         <div class="overall-leader-name"><span class="overall-leader-flag">🇬🇹</span><span>حسین مرانی</span></div>
-        <div class="overall-leader-points">۱۶ امتیاز</div>
+        <div class="overall-leader-points">۲۰ امتیاز</div>
       </div>
     </div>
 
@@ -117,10 +117,17 @@
     <div class="glass" style="padding:clamp(16px, 2.5vw, 25px);">
       <div class="section-title"><span class="icon-badge">⚔️</span> نتایج دوئل‌ها</div>
       <div id="duelContent" style="text-align:center; padding:clamp(24px,4vw,30px); color:#b3c0ea;">
+
         <div style="background:rgba(40,50,80,0.6); border-radius:20px; padding:20px; margin:12px 0; border:1px solid rgba(255,215,120,0.3);">
           <span class="duel-player">🇬🇹 حسین مرانی</span> <span class="duel-score">۲</span> — <span class="duel-score">۰</span> <span class="duel-player">🇨🇼 مازیار رضایی</span>
           <div class="duel-winner" style="margin-top:10px;">🏆 برنده: حسین مرانی</div>
         </div>
+
+        <div style="background:rgba(40,50,80,0.6); border-radius:20px; padding:20px; margin:12px 0; border:1px solid rgba(255,215,120,0.3);">
+          <span class="duel-player">🇻🇮 نوید جهانی</span> <span class="duel-score">۱</span> — <span class="duel-score">۱</span> <span class="duel-player">🇳🇴 مهدی علی محمدی</span>
+          <div class="duel-winner" style="margin-top:10px; color:#ffd966;">🍌 برنده موز: نوید جهانی</div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -148,45 +155,45 @@
 <script>
   (function() {
     const overallData = [
-      { name: 'حسین مرانی', flag: '🇬🇹', gold: 4, silver: 0, bronze: 0, points: 16 },
+      { name: 'حسین مرانی', flag: '🇬🇹', gold: 5, silver: 0, bronze: 0, points: 20 },
+      { name: 'فاطمه محمدزاده', flag: '🇸🇪', gold: 3, silver: 0, bronze: 2, points: 14 },
       { name: 'نوید جهانی', flag: '🇻🇮', gold: 2, silver: 0, bronze: 1, points: 9 },
-      { name: 'فاطمه محمدزاده', flag: '🇸🇪', gold: 2, silver: 0, bronze: 1, points: 9 },
       { name: 'مهدی علی محمدی', flag: '🇳🇴', gold: 0, silver: 2, bronze: 2, points: 6 },
-      { name: 'سید امیررضا صالحی امیری', flag: '🇸🇾', gold: 0, silver: 2, bronze: 0, points: 4 },
+      { name: 'سید امیررضا صالحی امیری', flag: '🇸🇾', gold: 0, silver: 3, bronze: 0, points: 6 },
+      { name: 'سید امیرعلی علوی', flag: '🇫🇷', gold: 0, silver: 1, bronze: 2, points: 4 },
       { name: 'محمدحسین اکبری', flag: '🇬🇪', gold: 1, silver: 0, bronze: 0, points: 4 },
-      { name: 'سید امیرعلی علوی', flag: '🇫🇷', gold: 0, silver: 1, bronze: 1, points: 3 },
       { name: 'هاتف کیابخت', flag: '🇨🇮', gold: 0, silver: 0, bronze: 1, points: 1 },
-      { name: 'مازیار رضایی', flag: '🇨🇼', gold: -1, silver: 1, bronze: 0, points: -2 }
+      { name: 'مازیار رضایی', flag: '🇨🇼', gold: -1, silver: 2, bronze: 0, points: 0 }
     ];
 
     const classicData = [
-      { name: 'حسین مرانی', flag: '🇬🇹', gold: 2, silver: 0, bronze: 0, penG: 0, penS: 0, penB: 0, finalG: 2, finalS: 0, finalB: 0, points: 8 },
+      { name: 'حسین مرانی', flag: '🇬🇹', gold: 3, silver: 0, bronze: 0, penG: 0, penS: 0, penB: 0, finalG: 3, finalS: 0, finalB: 0, points: 12 },
+      { name: 'فاطمه محمدزاده', flag: '🇸🇪', gold: 1, silver: 0, bronze: 1, penG: 0, penS: 0, penB: 0, finalG: 1, finalS: 0, finalB: 1, points: 5 },
       { name: 'مهدی علی محمدی', flag: '🇳🇴', gold: 0, silver: 2, bronze: 0, penG: 0, penS: 0, penB: 0, finalG: 0, finalS: 2, finalB: 0, points: 4 },
-      { name: 'فاطمه محمدزاده', flag: '🇸🇪', gold: 1, silver: 0, bronze: 0, penG: 0, penS: 0, penB: 0, finalG: 1, finalS: 0, finalB: 0, points: 4 },
+      { name: 'سید امیررضا صالحی امیری', flag: '🇸🇾', gold: 0, silver: 1, bronze: 0, penG: 0, penS: 0, penB: 0, finalG: 0, finalS: 1, finalB: 0, points: 2 },
       { name: 'مازیار رضایی', flag: '🇨🇼', gold: 0, silver: 1, bronze: 0, penG: 0, penS: 0, penB: 0, finalG: 0, finalS: 1, finalB: 0, points: 2 },
       { name: 'سید امیرعلی علوی', flag: '🇫🇷', gold: 0, silver: 0, bronze: 1, penG: 0, penS: 0, penB: 0, finalG: 0, finalS: 0, finalB: 1, points: 1 },
       { name: 'نوید جهانی', flag: '🇻🇮', gold: 0, silver: 0, bronze: 1, penG: 0, penS: 0, penB: 0, finalG: 0, finalS: 0, finalB: 1, points: 1 },
       { name: 'هاتف کیابخت', flag: '🇨🇮', gold: 0, silver: 0, bronze: 1, penG: 0, penS: 0, penB: 0, finalG: 0, finalS: 0, finalB: 1, points: 1 },
-      { name: 'سید امیررضا صالحی امیری', flag: '🇸🇾', gold: 0, silver: 0, bronze: 0, penG: 0, penS: 0, penB: 0, finalG: 0, finalS: 0, finalB: 0, points: 0 },
       { name: 'محمدحسین اکبری', flag: '🇬🇪', gold: 0, silver: 0, bronze: 0, penG: 0, penS: 0, penB: 0, finalG: 0, finalS: 0, finalB: 0, points: 0 }
     ];
 
     const draftData = [
-      { name: 'فاطمه محمدزاده', flag: '🇸🇪', gold: 1, silver: 0, bronze: 1, points: 5 },
+      { name: 'فاطمه محمدزاده', flag: '🇸🇪', gold: 2, silver: 0, bronze: 1, points: 9 },
       { name: 'سید امیررضا صالحی امیری', flag: '🇸🇾', gold: 0, silver: 2, bronze: 0, points: 4 },
       { name: 'محمدحسین اکبری', flag: '🇬🇪', gold: 1, silver: 0, bronze: 0, points: 4 },
       { name: 'حسین مرانی', flag: '🇬🇹', gold: 1, silver: 0, bronze: 0, points: 4 },
+      { name: 'سید امیرعلی علوی', flag: '🇫🇷', gold: 0, silver: 1, bronze: 1, points: 3 },
       { name: 'مهدی علی محمدی', flag: '🇳🇴', gold: 0, silver: 0, bronze: 2, points: 2 },
-      { name: 'سید امیرعلی علوی', flag: '🇫🇷', gold: 0, silver: 1, bronze: 0, points: 2 },
+      { name: 'مازیار رضایی', flag: '🇨🇼', gold: 0, silver: 1, bronze: 0, points: 2 },
       { name: 'نوید جهانی', flag: '🇻🇮', gold: 0, silver: 0, bronze: 0, points: 0 },
-      { name: 'هاتف کیابخت', flag: '🇨🇮', gold: 0, silver: 0, bronze: 0, points: 0 },
-      { name: 'مازیار رضایی', flag: '🇨🇼', gold: 0, silver: 0, bronze: 0, points: 0 }
+      { name: 'هاتف کیابخت', flag: '🇨🇮', gold: 0, silver: 0, bronze: 0, points: 0 }
     ];
 
     const chipsData = [
       { name: 'مهدی علی محمدی', flag: '🇳🇴', asc: false, mirror: false, duel: false, duelSilver: false, savior: false },
       { name: 'سید امیرعلی علوی', flag: '🇫🇷', asc: false, mirror: false, duel: false, duelSilver: false, savior: false },
-      { name: 'نوید جهانی', flag: '🇻🇮', asc: false, mirror: true, duel: false, duelSilver: false, savior: false },
+      { name: 'نوید جهانی', flag: '🇻🇮', asc: false, mirror: true, duel: true, duelSilver: false, savior: false },
       { name: 'هاتف کیابخت', flag: '🇨🇮', asc: false, mirror: false, duel: false, duelSilver: false, savior: false },
       { name: 'سید امیررضا صالحی امیری', flag: '🇸🇾', asc: false, mirror: false, duel: false, duelSilver: false, savior: false },
       { name: 'فاطمه محمدزاده', flag: '🇸🇪', asc: false, mirror: false, duel: false, duelSilver: false, savior: false },
