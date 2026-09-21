@@ -60,8 +60,6 @@
     .duel-score { font-weight: 900; font-size: clamp(22px,3vw,28px); color: #fff; text-shadow: 0 0 20px rgba(255,255,255,0.8); }
     .duel-winner { font-weight: 800; font-size: clamp(15px,2vw,18px); color: #4ade80; text-shadow: 0 0 12px rgba(74,222,128,0.7); }
 
-    /* ================== افزوده‌های جدید ================== */
-    /* سکوی هفته */
     .podium-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(290px,1fr)); gap: clamp(14px,2vw,20px); margin-bottom: clamp(24px,3vw,32px); }
     .podium-card { background: linear-gradient(150deg, rgba(22,26,50,0.85), rgba(30,24,60,0.9)); border:1px solid rgba(180,160,255,0.35); border-radius: clamp(22px,3.5vw,30px); padding: clamp(16px,2.5vw,22px); backdrop-filter: blur(16px); box-shadow: 0 20px 34px -16px #000; }
     .podium-head { font-weight:800; font-size: clamp(15px,2.2vw,18px); margin-bottom: clamp(10px,1.6vw,14px); color:#dcd6ff; display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:wrap; }
@@ -76,24 +74,14 @@
     .podium-player { font-weight:800; font-size: clamp(13px,1.9vw,16px); flex:1; display:flex; align-items:center; gap:6px; }
     .podium-tag { font-size: clamp(10px,1.4vw,12px); font-weight:800; color:#9fabd6; }
 
-    /* فیلترها */
-    .filter-bar { display:flex; flex-direction:column; gap: clamp(10px,1.8vw,14px); padding: clamp(14px,2.5vw,20px); margin-bottom: clamp(18px,2.5vw,24px); }
-    .filter-group { display:flex; align-items:center; gap: clamp(6px,1.2vw,9px); flex-wrap:wrap; }
-    .filter-label { font-size: clamp(12px,1.6vw,14px); font-weight:800; color:#b9c2ee; min-width: 58px; }
     .filter-btn { background: rgba(30,38,62,0.75); border:1px solid rgba(160,175,230,0.32); color:#dfe4ff; padding: clamp(7px,1.2vw,9px) clamp(12px,2vw,18px); border-radius:30px; cursor:pointer; font-family:'Vazirmatn',sans-serif; font-weight:700; font-size: clamp(12px,1.5vw,14px); transition:0.25s; }
     .filter-btn:hover { background:#2a3565; transform: translateY(-2px); }
     .filter-btn.active { background: linear-gradient(145deg,#3a2f6e,#241d4d); border-color:#ae9cff; box-shadow:0 0 18px rgba(160,125,255,0.65); color:#fff; }
     .filter-select { background: rgba(20,26,48,0.95); border:1px solid rgba(160,175,230,0.4); color:#eef1ff; padding: clamp(9px,1.4vw,11px) clamp(12px,2vw,16px); border-radius:18px; font-family:'Vazirmatn',sans-serif; font-weight:700; font-size: clamp(12px,1.6vw,15px); cursor:pointer; outline:none; min-width: 190px; transition:0.25s; }
     .filter-select:focus { border-color:#ae9cff; box-shadow:0 0 20px rgba(160,125,255,0.5); }
     .filter-select option { background:#0d1226; color:#eef1ff; }
+    .filter-group { display:flex; align-items:center; gap: clamp(6px,1.2vw,9px); flex-wrap:wrap; }
 
-    /* خلاصه */
-    .summary-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(120px,1fr)); gap: clamp(10px,1.6vw,14px); }
-    .summary-card { background: rgba(24,30,55,0.8); border:1px solid rgba(160,175,230,0.25); border-radius: clamp(16px,2.5vw,20px); padding: clamp(12px,2vw,16px); text-align:center; }
-    .summary-card .s-val { font-size: clamp(22px,3.5vw,30px); font-weight:900; }
-    .summary-card .s-lbl { font-size: clamp(11px,1.5vw,13px); color:#a9b4dd; font-weight:700; margin-top:4px; }
-
-    /* مدال‌ها */
     .medal-badge { display:inline-flex; align-items:center; justify-content:center; min-width: 32px; padding: 3px 10px; border-radius: 20px; font-weight:800; font-size: clamp(12px,1.6vw,14px); }
     .medal-gold { background: rgba(255,215,102,0.15); color:#ffd966; border:1px solid rgba(255,215,102,0.45); }
     .medal-silver { background: rgba(212,212,220,0.13); color:#e4e4ec; border:1px solid rgba(212,212,220,0.4); }
@@ -104,7 +92,234 @@
     .league-tag.draft { background: rgba(167,139,250,0.16); color:#c4b5fd; border:1px solid rgba(167,139,250,0.45); }
     .empty-state { text-align:center; padding: clamp(24px,4vw,36px); color:#8c98c6; font-weight:700; }
 
-    /* مقایسه */
+    /* ============ KPI GRID ============ */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: clamp(12px, 1.8vw, 18px);
+      margin-bottom: clamp(24px, 3vw, 34px);
+    }
+    .kpi-card {
+      background: linear-gradient(150deg, rgba(22,28,50,0.85), rgba(30,25,60,0.9));
+      border: 1px solid rgba(180,160,255,0.3);
+      border-radius: clamp(20px, 3vw, 26px);
+      padding: clamp(16px, 2.2vw, 22px);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .kpi-card::before {
+      content: "";
+      position: absolute;
+      top: 0; right: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle at 100% 0%, rgba(160,130,255,0.15), transparent 60%);
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    .kpi-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(200,180,255,0.6);
+      box-shadow: 0 22px 45px -18px rgba(130,100,255,0.7);
+    }
+    .kpi-card.gold { border-color: rgba(255,215,102,0.45); }
+    .kpi-card.gold::before { background: radial-gradient(circle at 100% 0%, rgba(255,200,80,0.25), transparent 60%); }
+    .kpi-card.gold:hover { box-shadow: 0 22px 45px -18px rgba(255,190,60,0.6); border-color: rgba(255,215,102,0.85); }
+    .kpi-card.blue { border-color: rgba(100,181,246,0.4); }
+    .kpi-card.blue::before { background: radial-gradient(circle at 100% 0%, rgba(100,181,246,0.22), transparent 60%); }
+    .kpi-card.blue:hover { box-shadow: 0 22px 45px -18px rgba(100,181,246,0.55); border-color: rgba(100,181,246,0.8); }
+    .kpi-card.purple { border-color: rgba(167,139,250,0.45); }
+    .kpi-card.purple::before { background: radial-gradient(circle at 100% 0%, rgba(167,139,250,0.22), transparent 60%); }
+    .kpi-card.purple:hover { box-shadow: 0 22px 45px -18px rgba(167,139,250,0.6); border-color: rgba(167,139,250,0.85); }
+    .kpi-card.pink { border-color: rgba(244,114,182,0.4); }
+    .kpi-card.pink::before { background: radial-gradient(circle at 100% 0%, rgba(244,114,182,0.2), transparent 60%); }
+    .kpi-card.pink:hover { box-shadow: 0 22px 45px -18px rgba(244,114,182,0.55); border-color: rgba(244,114,182,0.8); }
+    .kpi-card.green { border-color: rgba(74,222,128,0.4); }
+    .kpi-card.green::before { background: radial-gradient(circle at 100% 0%, rgba(74,222,128,0.2), transparent 60%); }
+    .kpi-card.green:hover { box-shadow: 0 22px 45px -18px rgba(74,222,128,0.55); border-color: rgba(74,222,128,0.8); }
+    .kpi-icon {
+      font-size: clamp(28px, 4vw, 36px);
+      line-height: 1;
+      margin-bottom: 10px;
+      filter: drop-shadow(0 0 14px rgba(160,130,255,0.75));
+      position: relative;
+      z-index: 1;
+    }
+    .kpi-label {
+      font-size: clamp(11px, 1.5vw, 13px);
+      font-weight: 800;
+      color: #9fabd6;
+      margin-bottom: 6px;
+      letter-spacing: 0.4px;
+      position: relative;
+      z-index: 1;
+    }
+    .kpi-value {
+      font-size: clamp(15px, 2vw, 18px);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.5;
+      position: relative;
+      z-index: 1;
+    }
+    .kpi-sub {
+      font-size: clamp(11px, 1.5vw, 13px);
+      color: #b8c0e8;
+      font-weight: 700;
+      margin-top: 6px;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+    .kpi-sub strong { color: #e9e4ff; }
+
+    /* ============ LEAGUE RESULTS GRID ============ */
+    .league-results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(16px, 2.5vw, 26px);
+    }
+    .results-panel {
+      background: linear-gradient(155deg, rgba(18,23,45,0.75), rgba(28,24,58,0.85));
+      border: 1px solid rgba(180,160,255,0.28);
+      border-radius: clamp(22px, 3.5vw, 30px);
+      padding: clamp(16px, 2.5vw, 24px);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 20px 34px -16px #000;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .results-panel.classic { border-color: rgba(100,181,246,0.4); }
+    .results-panel.classic:hover { box-shadow: 0 24px 45px -18px rgba(100,181,246,0.4); }
+    .results-panel.draft { border-color: rgba(167,139,250,0.42); }
+    .results-panel.draft:hover { box-shadow: 0 24px 45px -18px rgba(167,139,250,0.45); }
+    .results-panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: clamp(14px, 2vw, 18px);
+      padding-bottom: clamp(12px, 1.6vw, 14px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      flex-wrap: wrap;
+    }
+    .results-panel-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      font-size: clamp(15px, 2.2vw, 19px);
+      color: #fff;
+    }
+    .results-panel-icon {
+      width: clamp(34px, 4.5vw, 42px);
+      height: clamp(34px, 4.5vw, 42px);
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: clamp(18px, 2.6vw, 22px);
+      border: 1px solid;
+    }
+    .results-panel.classic .results-panel-icon { background: rgba(100,181,246,0.15); border-color: rgba(100,181,246,0.5); box-shadow: 0 0 18px rgba(100,181,246,0.35); }
+    .results-panel.draft .results-panel-icon { background: rgba(167,139,250,0.15); border-color: rgba(167,139,250,0.5); box-shadow: 0 0 18px rgba(167,139,250,0.4); }
+    .results-panel-count {
+      font-size: clamp(11px, 1.4vw, 13px);
+      font-weight: 800;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 4px 12px;
+      border-radius: 20px;
+      color: #b8c0e8;
+    }
+
+    .results-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 6px;
+    }
+    .results-table thead th {
+      padding: 6px 12px;
+      text-align: right;
+      font-weight: 800;
+      font-size: clamp(11px, 1.5vw, 13px);
+      color: #9fabd6;
+      letter-spacing: 0.4px;
+    }
+    .results-table thead th:nth-child(2) { text-align: right; }
+    .results-table thead th:nth-child(3) { text-align: left; width: 70px; }
+    .results-table tbody td {
+      padding: clamp(10px, 1.6vw, 13px) clamp(10px, 1.4vw, 14px);
+      background: rgba(255,255,255,0.03);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      vertical-align: middle;
+      transition: background 0.2s;
+    }
+    .results-table tbody tr:hover td { background: rgba(120,100,220,0.14); }
+    .results-table tbody td:first-child {
+      border-top-right-radius: 14px;
+      border-bottom-right-radius: 14px;
+      border-right: 1px solid rgba(255,255,255,0.05);
+      width: 68px;
+      text-align: center;
+    }
+    .results-table tbody td:nth-child(2) {
+      border-left: none;
+      border-right: none;
+    }
+    .results-table tbody td:last-child {
+      border-top-left-radius: 14px;
+      border-bottom-left-radius: 14px;
+      border-left: 1px solid rgba(255,255,255,0.05);
+      text-align: left;
+    }
+    .week-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 36px;
+      height: 36px;
+      padding: 0 10px;
+      border-radius: 12px;
+      font-weight: 900;
+      font-size: clamp(13px, 1.8vw, 15px);
+      background: rgba(130,110,255,0.15);
+      border: 1px solid rgba(160,140,255,0.4);
+      color: #c9bcff;
+      box-shadow: 0 0 14px rgba(130,100,255,0.25);
+    }
+    .result-medal {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: clamp(38px, 5vw, 44px);
+      height: clamp(38px, 5vw, 44px);
+      border-radius: 50%;
+      font-size: clamp(19px, 2.6vw, 23px);
+      border: 1.5px solid;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .result-medal:hover { transform: scale(1.1); }
+    .result-medal.gold {
+      background: rgba(255,215,102,0.18);
+      border-color: rgba(255,215,102,0.7);
+      box-shadow: 0 0 22px rgba(255,200,80,0.4), inset 0 0 12px rgba(255,200,80,0.2);
+    }
+    .result-medal.silver {
+      background: rgba(212,212,220,0.15);
+      border-color: rgba(212,212,220,0.6);
+      box-shadow: 0 0 18px rgba(200,200,220,0.28), inset 0 0 10px rgba(200,200,220,0.15);
+    }
+    .result-medal.bronze {
+      background: rgba(205,155,106,0.18);
+      border-color: rgba(205,155,106,0.65);
+      box-shadow: 0 0 20px rgba(205,155,106,0.35), inset 0 0 10px rgba(205,155,106,0.18);
+    }
+    .results-table .player-with-flag { justify-content: flex-start; }
+
+    /* ============ مقایسه بازیکنان ============ */
     .cmp-selects { display:grid; grid-template-columns: 1fr auto 1fr; gap: clamp(10px,2vw,18px); align-items:center; }
     .cmp-selects .filter-select { width:100%; min-width:0; }
     .vs-badge { font-size: clamp(20px,3.5vw,30px); font-weight:900; color:#ffd966; text-shadow:0 0 24px rgba(255,200,80,0.85); letter-spacing:2px; }
@@ -126,11 +341,24 @@
     .bar-track { width:100%; max-width: 230px; height:9px; border-radius:10px; background: rgba(255,255,255,0.07); overflow:hidden; }
     .bar-fill { height:100%; border-radius:10px; transition: width .7s cubic-bezier(.2,.9,.3,1); }
     .cmp-verdict { text-align:center; font-weight:800; font-size: clamp(13px,2vw,17px); color:#e9e4ff; background: rgba(130,110,255,0.12); border:1px solid rgba(160,140,255,0.35); border-radius: 20px; padding: clamp(12px,2vw,16px); margin-top: clamp(14px,2vw,18px); line-height:1.9; }
+
+    @media (max-width: 900px) {
+      .league-results-grid { grid-template-columns: 1fr; }
+    }
     @media (max-width: 640px) {
       .cmp-selects { grid-template-columns: 1fr; }
       .vs-badge { text-align:center; }
       .cmp-heads { grid-template-columns: 1fr; }
       .cmp-label { font-size: 10px; }
+    }
+    @media (max-width: 480px) {
+      .kpi-grid { grid-template-columns: 1fr; }
+      .kpi-card { padding: 14px; }
+      .results-panel { padding: 14px; }
+      .results-table thead th:nth-child(3) { width: 60px; }
+      .results-table tbody td:first-child { width: 56px; }
+      .result-medal { width: 34px; height: 34px; font-size: 17px; }
+      .week-chip { min-width: 30px; height: 30px; font-size: 12px; }
     }
   </style>
 </head>
@@ -150,15 +378,15 @@
   </header>
 
   <div class="hunger-banner glass">
-    <div class="hunger-item"><span class="hunger-label">تا هانگرگیم برنز‌دزد</span> <span class="hunger-num">۶</span> <span class="hunger-label">هفته</span></div>
-    <div class="hunger-item"><span class="hunger-label">تا هانگرگیم نقره‌دزد</span> <span class="hunger-num">۱۶</span> <span class="hunger-label">هفته</span></div>
-    <div class="hunger-item"><span class="hunger-label">تا هانگرگیم طلا‌دزد</span> <span class="hunger-num">۲۶</span> <span class="hunger-label">هفته</span></div>
+    <div class="hunger-item"><span class="hunger-label">تا هانگرگیم برنز‌دزد</span> <span class="hunger-num">۵</span> <span class="hunger-label">هفته</span></div>
+    <div class="hunger-item"><span class="hunger-label">تا هانگرگیم نقره‌دزد</span> <span class="hunger-num">۱۵</span> <span class="hunger-label">هفته</span></div>
+    <div class="hunger-item"><span class="hunger-label">تا هانگرگیم طلا‌دزد</span> <span class="hunger-num">۲۵</span> <span class="hunger-label">هفته</span></div>
   </div>
 
   <div id="page-home" class="page-section">
     <div class="hero-card">
       <div class="hero-season">فصل ۱۴۰۵-۱۴۰۶</div>
-      <div class="hero-week">هفته ۴ ام</div>
+      <div class="hero-week">هفته ۵ ام</div>
     </div>
 
     <div class="section-title"><span class="icon-badge">🔥</span> برترین‌های آخرین هفته</div>
@@ -168,7 +396,7 @@
       <div class="overall-leader-inner">
         <div class="overall-leader-label">👑 صدرنشین کل لیگ</div>
         <div class="overall-leader-name"><span class="overall-leader-flag">🇬🇹</span><span>حسین مرانی</span></div>
-        <div class="overall-leader-points">۲۰ امتیاز</div>
+        <div class="overall-leader-points">۲۶ امتیاز</div>
       </div>
     </div>
 
@@ -190,59 +418,26 @@
     </div>
   </div>
 
-  <!-- ============ تب جدید: جزئیات نتایج ============ -->
   <div id="page-details" class="page-section" style="display:none;">
     <div class="hero-card">
       <div class="hero-week" style="font-size:clamp(28px, 5vw, 38px);">📋 جزئیات نتایج هفتگی</div>
-      <div class="hero-season">فصل ۱۴۰۵-۱۴۰۶ — همه مدال‌ها، همه هفته‌ها</div>
+      <div class="hero-season">فصل ۱۴۰۵-۱۴۰۶ — نگاهی عمیق به ۵ هفته گذشته</div>
     </div>
 
-    <div class="glass filter-bar">
-      <div class="filter-group">
-        <span class="filter-label">هفته:</span>
-        <div id="weekFilter" class="filter-group"></div>
-      </div>
-      <div class="filter-group">
-        <span class="filter-label">لیگ:</span>
-        <div id="leagueFilter" class="filter-group"></div>
-      </div>
-      <div class="filter-group">
-        <span class="filter-label">بازیکن:</span>
-        <select id="playerFilter" class="filter-select"></select>
-      </div>
-      <div class="filter-group">
-        <button class="filter-btn" id="resetFilters">↺ پاک کردن فیلترها</button>
-      </div>
+    <div class="section-title"><span class="icon-badge">💡</span> آمار و نکات جالب هفته‌ها</div>
+    <div class="kpi-grid" id="kpiGrid"></div>
+
+    <div class="section-title"><span class="icon-badge">📅</span> نتایج کامل هفته به هفته</div>
+    <div class="league-results-grid">
+      <div class="results-panel classic" id="classicResultsPanel"></div>
+      <div class="results-panel draft" id="draftResultsPanel"></div>
     </div>
 
-    <div class="glass" style="padding: clamp(16px, 2.5vw, 24px); margin-bottom: clamp(24px, 3vw, 32px);">
-      <div class="section-title"><span class="icon-badge">🧮</span> خلاصه نتیجه فیلتر</div>
-      <div class="summary-grid" id="detailsSummary"></div>
-    </div>
-
-    <div class="glass" style="padding: clamp(16px, 2.5vw, 24px); margin-bottom: clamp(24px, 3vw, 32px);">
-      <div class="section-title"><span class="icon-badge">📅</span> نتایج هفته به هفته</div>
-      <div class="table-wrap">
-        <table class="medal-table" style="min-width:700px;">
-          <thead><tr><th>هفته</th><th>لیگ</th><th>بازیکن</th><th>🥇 طلا</th><th>🥈 نقره</th><th>🥉 برنز</th><th>امتیاز</th></tr></thead>
-          <tbody id="detailsTableBody"></tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="glass" style="padding: clamp(16px, 2.5vw, 24px); margin-bottom: clamp(24px, 3vw, 32px);">
-      <div class="section-title"><span class="icon-badge">🏆</span> جدول مجموع بر اساس فیلتر</div>
-      <div class="table-wrap">
-        <table class="medal-table" style="min-width:650px;">
-          <thead><tr><th>ردیف</th><th>بازیکن</th><th>🥇 طلا</th><th>🥈 نقره</th><th>🥉 برنز</th><th>امتیاز</th></tr></thead>
-          <tbody id="detailsAggBody"></tbody>
-        </table>
-      </div>
-      <div style="text-align:center; color:#7e8ab8; font-size: clamp(11px,1.5vw,13px); font-weight:700; margin-top:10px;">امتیازها بر پایه نتایج هفتگی محاسبه شده‌اند (طلا ۴، نقره ۲، برنز ۱) و شامل جریمه‌ها نمی‌شوند.</div>
+    <div style="text-align:center; color:#7e8ab8; font-size: clamp(11px,1.5vw,13px); font-weight:700; margin-top: clamp(16px,2.5vw,22px); line-height:1.9;">
+      🥇 طلا = ۴ امتیاز &nbsp;|&nbsp; 🥈 نقره = ۲ امتیاز &nbsp;|&nbsp; 🥉 برنز = ۱ امتیاز
     </div>
   </div>
 
-  <!-- ============ تب جدید: مقایسه بازیکنان ============ -->
   <div id="page-compare" class="page-section" style="display:none;">
     <div class="hero-card">
       <div class="hero-week" style="font-size:clamp(28px, 5vw, 38px);">⚖️ مقایسه بازیکنان</div>
@@ -269,17 +464,14 @@
     <div class="glass" style="padding:clamp(16px, 2.5vw, 25px);">
       <div class="section-title"><span class="icon-badge">⚔️</span> نتایج دوئل‌ها</div>
       <div id="duelContent" style="text-align:center; padding:clamp(24px,4vw,30px); color:#b3c0ea;">
-
         <div style="background:rgba(40,50,80,0.6); border-radius:20px; padding:20px; margin:12px 0; border:1px solid rgba(255,215,120,0.3);">
           <span class="duel-player">🇬🇹 حسین مرانی</span> <span class="duel-score">۲</span> — <span class="duel-score">۰</span> <span class="duel-player">🇨🇼 مازیار رضایی</span>
           <div class="duel-winner" style="margin-top:10px;">🏆 برنده: حسین مرانی</div>
         </div>
-
         <div style="background:rgba(40,50,80,0.6); border-radius:20px; padding:20px; margin:12px 0; border:1px solid rgba(255,215,120,0.3);">
           <span class="duel-player">🇻🇮 نوید جهانی</span> <span class="duel-score">۱</span> — <span class="duel-score">۱</span> <span class="duel-player">🇳🇴 مهدی علی محمدی</span>
           <div class="duel-winner" style="margin-top:10px; color:#ffd966;">🍌 برنده موز: نوید جهانی</div>
         </div>
-
       </div>
     </div>
   </div>
@@ -301,44 +493,44 @@
     <div class="glass" style="padding: clamp(16px, 2.5vw, 24px);"><div class="section-title"><span class="icon-badge">📊</span> رکوردهای تمام دوران</div><div class="table-wrap"><table class="medal-table" style="min-width:600px;"><thead><tr><th>رکورد</th><th>بازیکن</th><th>امتیاز</th></tr></thead><tbody id="recordsBody"></tbody></table></div></div>
   </div>
 
-  <div class="footer-note">طراحی و توسعه سید امیررضا صالحی امیری — نسخه ۴.۴۵</div>
+  <div class="footer-note">طراحی و توسعه سید امیررضا صالحی امیری — نسخه ۴.۵</div>
 </div>
 
 <script>
   (function() {
     const overallData = [
-      { name: 'حسین مرانی', flag: '🇬🇹', gold: 5, silver: 0, bronze: 0, points: 20 },
-      { name: 'فاطمه محمدزاده', flag: '🇸🇪', gold: 3, silver: 0, bronze: 2, points: 14 },
-      { name: 'نوید جهانی', flag: '🇻🇮', gold: 2, silver: 0, bronze: 1, points: 9 },
-      { name: 'مهدی علی محمدی', flag: '🇳🇴', gold: 0, silver: 2, bronze: 2, points: 6 },
+      { name: 'حسین مرانی', flag: '🇬🇹', gold: 6, silver: 1, bronze: 0, points: 26 },
+      { name: 'فاطمه محمدزاده', flag: '🇸🇪', gold: 3, silver: 1, bronze: 2, points: 16 },
+      { name: 'نوید جهانی', flag: '🇻🇮', gold: 2, silver: 0, bronze: 2, points: 10 },
+      { name: 'مهدی علی محمدی', flag: '🇳🇴', gold: 0, silver: 3, bronze: 2, points: 8 },
       { name: 'سید امیررضا صالحی امیری', flag: '🇸🇾', gold: 0, silver: 3, bronze: 0, points: 6 },
       { name: 'سید امیرعلی علوی', flag: '🇫🇷', gold: 0, silver: 1, bronze: 2, points: 4 },
       { name: 'محمدحسین اکبری', flag: '🇬🇪', gold: 1, silver: 0, bronze: 0, points: 4 },
-      { name: 'هاتف کیابخت', flag: '🇨🇮', gold: 0, silver: 0, bronze: 1, points: 1 },
-      { name: 'مازیار رضایی', flag: '🇨🇼', gold: -1, silver: 2, bronze: 0, points: 0 }
+      { name: 'هاتف کیابخت', flag: '🇨🇮', gold: 0, silver: 0, bronze: 2, points: 2 },
+      { name: 'مازیار رضایی', flag: '🇨🇼', gold: 0, silver: 1, bronze: 0, points: 2 }
     ];
 
     const classicData = [
-      { name: 'حسین مرانی', flag: '🇬🇹', gold: 3, silver: 0, bronze: 0, penG: 0, penS: 0, penB: 0, finalG: 3, finalS: 0, finalB: 0, points: 12 },
+      { name: 'حسین مرانی', flag: '🇬🇹', gold: 4, silver: 0, bronze: 0, penG: 0, penS: 0, penB: 0, finalG: 4, finalS: 0, finalB: 0, points: 16 },
+      { name: 'مهدی علی محمدی', flag: '🇳🇴', gold: 0, silver: 3, bronze: 0, penG: 0, penS: 0, penB: 0, finalG: 0, finalS: 3, finalB: 0, points: 6 },
       { name: 'فاطمه محمدزاده', flag: '🇸🇪', gold: 1, silver: 0, bronze: 1, penG: 0, penS: 0, penB: 0, finalG: 1, finalS: 0, finalB: 1, points: 5 },
-      { name: 'مهدی علی محمدی', flag: '🇳🇴', gold: 0, silver: 2, bronze: 0, penG: 0, penS: 0, penB: 0, finalG: 0, finalS: 2, finalB: 0, points: 4 },
+      { name: 'هاتف کیابخت', flag: '🇨🇮', gold: 0, silver: 0, bronze: 2, penG: 0, penS: 0, penB: 0, finalG: 0, finalS: 0, finalB: 2, points: 2 },
       { name: 'سید امیررضا صالحی امیری', flag: '🇸🇾', gold: 0, silver: 1, bronze: 0, penG: 0, penS: 0, penB: 0, finalG: 0, finalS: 1, finalB: 0, points: 2 },
       { name: 'مازیار رضایی', flag: '🇨🇼', gold: 0, silver: 1, bronze: 0, penG: 0, penS: 0, penB: 0, finalG: 0, finalS: 1, finalB: 0, points: 2 },
       { name: 'سید امیرعلی علوی', flag: '🇫🇷', gold: 0, silver: 0, bronze: 1, penG: 0, penS: 0, penB: 0, finalG: 0, finalS: 0, finalB: 1, points: 1 },
       { name: 'نوید جهانی', flag: '🇻🇮', gold: 0, silver: 0, bronze: 1, penG: 0, penS: 0, penB: 0, finalG: 0, finalS: 0, finalB: 1, points: 1 },
-      { name: 'هاتف کیابخت', flag: '🇨🇮', gold: 0, silver: 0, bronze: 1, penG: 0, penS: 0, penB: 0, finalG: 0, finalS: 0, finalB: 1, points: 1 },
       { name: 'محمدحسین اکبری', flag: '🇬🇪', gold: 0, silver: 0, bronze: 0, penG: 0, penS: 0, penB: 0, finalG: 0, finalS: 0, finalB: 0, points: 0 }
     ];
 
     const draftData = [
-      { name: 'فاطمه محمدزاده', flag: '🇸🇪', gold: 2, silver: 0, bronze: 1, points: 9 },
+      { name: 'فاطمه محمدزاده', flag: '🇸🇪', gold: 2, silver: 1, bronze: 1, points: 11 },
+      { name: 'حسین مرانی', flag: '🇬🇹', gold: 1, silver: 1, bronze: 0, points: 6 },
       { name: 'سید امیررضا صالحی امیری', flag: '🇸🇾', gold: 0, silver: 2, bronze: 0, points: 4 },
       { name: 'محمدحسین اکبری', flag: '🇬🇪', gold: 1, silver: 0, bronze: 0, points: 4 },
-      { name: 'حسین مرانی', flag: '🇬🇹', gold: 1, silver: 0, bronze: 0, points: 4 },
+      { name: 'مازیار رضایی', flag: '🇨🇼', gold: 1, silver: 0, bronze: 0, points: 4 },
       { name: 'سید امیرعلی علوی', flag: '🇫🇷', gold: 0, silver: 1, bronze: 1, points: 3 },
       { name: 'مهدی علی محمدی', flag: '🇳🇴', gold: 0, silver: 0, bronze: 2, points: 2 },
-      { name: 'مازیار رضایی', flag: '🇨🇼', gold: 0, silver: 1, bronze: 0, points: 2 },
-      { name: 'نوید جهانی', flag: '🇻🇮', gold: 0, silver: 0, bronze: 0, points: 0 },
+      { name: 'نوید جهانی', flag: '🇻🇮', gold: 0, silver: 0, bronze: 1, points: 1 },
       { name: 'هاتف کیابخت', flag: '🇨🇮', gold: 0, silver: 0, bronze: 0, points: 0 }
     ];
 
@@ -385,7 +577,6 @@
       });
     }
 
-    // جداول
     const overallBody = document.getElementById('overallTableBody');
     sortByPriority([...overallData], ['points', 'gold', 'silver', 'bronze']).forEach((p,i) => {
       overallBody.innerHTML += `<tr><td>${toPersian(i+1)}</td><td>${flagHtml(p)}</td><td>${toPersian(p.gold)}</td><td>${toPersian(p.silver)}</td><td>${toPersian(p.bronze)}</td><td class="total-points">${toPersian(p.points)}</td><td>${toPersian(i+1)}</td></tr>`;
@@ -403,7 +594,6 @@
       draftBody.innerHTML += `<tr><td>${toPersian(i+1)}</td><td>${flagHtml(p)}</td><td>${toPersian(p.gold)}</td><td>${toPersian(p.silver)}</td><td>${toPersian(p.bronze)}</td><td class="total-points">${toPersian(p.points)}</td><td>${toPersian(i+1)}</td></tr>`;
     });
 
-    // چیپ‌ها و گمبیت‌ها
     const chipsBody = document.getElementById('chipsTableBody');
     chipsData.forEach((p,i) => {
       const tick = (val) => val ? '<span style="color:#4ade80; font-size:1.3em;">✔</span>' : '<span style="color:#ff6b6b; font-size:1.3em;">✖</span>';
@@ -416,7 +606,6 @@
       gambitBody.innerHTML += `<tr><td>${toPersian(i+1)}</td><td>${flagHtml(p)}</td><td>${tick(p.stage1)}</td><td>${tick(p.stage2)}</td><td>${tick(p.stage3)}</td></tr>`;
     });
 
-    // صدرنشین‌ها — سه نفر برتر با استفاده از جداول مرتب‌شده
     const topLeadersGrid = document.getElementById('topLeadersGrid');
     const topClassic = sortedClassic.slice(0, 3);
     const topDraft = sortedDraft.slice(0, 3);
@@ -436,7 +625,6 @@
       </div>
     `;
 
-    // تاریخچه
     const historyBody = document.getElementById('historyTableBody');
     const seasons = [
       { year:"۱۳۹۷-۱۳۹۸", classic:"امیررضا صالحی", hth:"امیررضا صالحی", draft:"-", cup:"-", world:"-", euro:"-" },
@@ -452,7 +640,6 @@
       historyBody.innerHTML += `<tr><td>${s.year}</td><td>${s.classic}</td><td>${s.hth}</td><td>${s.draft}</td><td>${s.cup}</td><td>${s.world}</td><td>${s.euro}</td></tr>`;
     });
 
-    // رکوردها
     const recordsBody = document.getElementById('recordsBody');
     const records = [
       { label:'بیشترین امتیاز با چیپ', player:'امیرعلی علوی', value:'۱۵۷' },
@@ -470,7 +657,6 @@
       recordsBody.innerHTML += `<tr><td>${r.label}</td><td>${r.player}</td><td>${r.value}</td></tr>`;
     });
 
-    // ناوبری
     document.querySelectorAll('.nav-pill').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.nav-pill').forEach(b => b.classList.remove('active'));
@@ -484,12 +670,10 @@
   })();
 </script>
 
-<!-- ================= اسکریپت افزوده‌شده: جزئیات نتایج + مقایسه ================= -->
 <script>
 (function(){
   'use strict';
 
-  /* ---------- داده‌های هفتگی ---------- */
   const WEEKLY = [
     { w:1, l:'draft',   p:'فاطمه محمدزاده',              g:1, s:0, b:0 },
     { w:1, l:'draft',   p:'سید امیرعلی علوی',            g:0, s:1, b:0 },
@@ -497,30 +681,32 @@
     { w:1, l:'classic', p:'حسین مرانی',                  g:1, s:0, b:0 },
     { w:1, l:'classic', p:'مهدی علی محمدی',              g:0, s:1, b:0 },
     { w:1, l:'classic', p:'نوید جهانی',                  g:0, s:0, b:1 },
-
     { w:2, l:'classic', p:'فاطمه محمدزاده',              g:1, s:0, b:0 },
     { w:2, l:'classic', p:'مهدی علی محمدی',              g:0, s:1, b:0 },
     { w:2, l:'classic', p:'سید امیرعلی علوی',            g:0, s:0, b:1 },
     { w:2, l:'draft',   p:'محمدحسین اکبری',              g:1, s:0, b:0 },
     { w:2, l:'draft',   p:'سید امیررضا صالحی امیری',     g:0, s:1, b:0 },
     { w:2, l:'draft',   p:'مهدی علی محمدی',              g:0, s:0, b:1 },
-
     { w:3, l:'classic', p:'حسین مرانی',                  g:1, s:0, b:0 },
     { w:3, l:'classic', p:'مازیار رضایی',                g:0, s:1, b:0 },
     { w:3, l:'classic', p:'هاتف کیابخت',                 g:0, s:0, b:1 },
     { w:3, l:'draft',   p:'حسین مرانی',                  g:1, s:0, b:0 },
     { w:3, l:'draft',   p:'سید امیررضا صالحی امیری',     g:0, s:1, b:0 },
     { w:3, l:'draft',   p:'فاطمه محمدزاده',              g:0, s:0, b:1 },
-
     { w:4, l:'classic', p:'حسین مرانی',                  g:1, s:0, b:0 },
     { w:4, l:'classic', p:'سید امیررضا صالحی امیری',     g:0, s:1, b:0 },
     { w:4, l:'classic', p:'فاطمه محمدزاده',              g:0, s:0, b:1 },
-    { w:4, l:'draft',   p:'فاطمه محمدزاده',              g:1, s:0, b:0 },
-    { w:4, l:'draft',   p:'مازیار رضایی',                g:0, s:1, b:0 },
-    { w:4, l:'draft',   p:'سید امیرعلی علوی',            g:0, s:0, b:1 }
+    { w:4, l:'draft',   p:'مازیار رضایی',                g:1, s:0, b:0 },
+    { w:4, l:'draft',   p:'فاطمه محمدزاده',              g:0, s:1, b:0 },
+    { w:4, l:'draft',   p:'سید امیرعلی علوی',            g:0, s:0, b:1 },
+    { w:5, l:'classic', p:'حسین مرانی',                  g:1, s:0, b:0 },
+    { w:5, l:'classic', p:'مهدی علی محمدی',              g:0, s:1, b:0 },
+    { w:5, l:'classic', p:'هاتف کیابخت',                 g:0, s:0, b:1 },
+    { w:5, l:'draft',   p:'فاطمه محمدزاده',              g:1, s:0, b:0 },
+    { w:5, l:'draft',   p:'حسین مرانی',                  g:0, s:1, b:0 },
+    { w:5, l:'draft',   p:'نوید جهانی',                  g:0, s:0, b:1 }
   ];
 
-  /* ---------- پرچم‌ها ---------- */
   const FLAGS = {
     'حسین مرانی':'🇬🇹',
     'فاطمه محمدزاده':'🇸🇪',
@@ -534,27 +720,26 @@
   };
   const PLAYERS = Object.keys(FLAGS);
 
-  /* ---------- آمار رسمی (هماهنگ با جداول اصلی) ---------- */
   const OFFICIAL = {
-    'حسین مرانی':              { g:5,  s:0, b:0, pts:20 },
-    'فاطمه محمدزاده':          { g:3,  s:0, b:2, pts:14 },
-    'نوید جهانی':              { g:2,  s:0, b:1, pts:9  },
-    'مهدی علی محمدی':          { g:0,  s:2, b:2, pts:6  },
+    'حسین مرانی':              { g:6,  s:1, b:0, pts:26 },
+    'فاطمه محمدزاده':          { g:3,  s:1, b:2, pts:16 },
+    'نوید جهانی':              { g:2,  s:0, b:2, pts:10 },
+    'مهدی علی محمدی':          { g:0,  s:3, b:2, pts:8  },
     'سید امیررضا صالحی امیری': { g:0,  s:3, b:0, pts:6  },
     'سید امیرعلی علوی':        { g:0,  s:1, b:2, pts:4  },
     'محمدحسین اکبری':          { g:1,  s:0, b:0, pts:4  },
-    'هاتف کیابخت':             { g:0,  s:0, b:1, pts:1  },
-    'مازیار رضایی':            { g:-1, s:2, b:0, pts:0  }
+    'هاتف کیابخت':             { g:0,  s:0, b:2, pts:2  },
+    'مازیار رضایی':            { g:0,  s:1, b:0, pts:2  }
   };
   const OFFICIAL_CLASSIC = {
-    'حسین مرانی': 12, 'فاطمه محمدزاده': 5, 'مهدی علی محمدی': 4,
-    'سید امیررضا صالحی امیری': 2, 'مازیار رضایی': 2, 'سید امیرعلی علوی': 1,
-    'نوید جهانی': 1, 'هاتف کیابخت': 1, 'محمدحسین اکبری': 0
+    'حسین مرانی': 16, 'مهدی علی محمدی': 6, 'فاطمه محمدزاده': 5,
+    'هاتف کیابخت': 2, 'سید امیررضا صالحی امیری': 2, 'مازیار رضایی': 2,
+    'سید امیرعلی علوی': 1, 'نوید جهانی': 1, 'محمدحسین اکبری': 0
   };
   const OFFICIAL_DRAFT = {
-    'فاطمه محمدزاده': 9, 'سید امیررضا صالحی امیری': 4, 'محمدحسین اکبری': 4,
-    'حسین مرانی': 4, 'سید امیرعلی علوی': 3, 'مهدی علی محمدی': 2,
-    'مازیار رضایی': 2, 'نوید جهانی': 0, 'هاتف کیابخت': 0
+    'فاطمه محمدزاده': 11, 'حسین مرانی': 6, 'سید امیررضا صالحی امیری': 4,
+    'محمدحسین اکبری': 4, 'مازیار رضایی': 4, 'سید امیرعلی علوی': 3,
+    'مهدی علی محمدی': 2, 'نوید جهانی': 1, 'هاتف کیابخت': 0
   };
 
   const RANKS = (function(){
@@ -565,7 +750,6 @@
     return map;
   })();
 
-  /* ---------- ابزارها ---------- */
   const ALL_WEEKS = Array.from(new Set(WEEKLY.map(r => r.w))).sort((a,b)=>a-b);
   const LAST_WEEK = ALL_WEEKS[ALL_WEEKS.length - 1];
 
@@ -582,10 +766,6 @@
   function pName(name){
     return '<span class="player-with-flag"><span class="flag-icon">' + (FLAGS[name]||'🏳️') + '</span> ' + name + '</span>';
   }
-  function medalCell(v, cls){
-    if (!v) return '<span class="medal-badge medal-zero">۰</span>';
-    return '<span class="medal-badge ' + cls + '">' + fa(v) + '</span>';
-  }
   function medalLine(r){
     if (!r || (!r.g && !r.s && !r.b)) return '<span style="opacity:.3">—</span>';
     let out = '';
@@ -595,7 +775,6 @@
     return out.trim();
   }
 
-  /* ================= ۱) سکوی آخرین هفته در صفحه اصلی ================= */
   function renderPodium(){
     const host = document.getElementById('lastWeekPodium');
     if (!host) return;
@@ -644,127 +823,164 @@
     host.innerHTML = html;
   }
 
-  /* ================= ۲) تب جزئیات نتایج ================= */
-  const detailsState = { week:'all', league:'all', player:'all' };
-
-  function buildDetailsFilters(){
-    const weekHost = document.getElementById('weekFilter');
-    const leagueHost = document.getElementById('leagueFilter');
-    const playerSel = document.getElementById('playerFilter');
-
-    let wHtml = '<button class="filter-btn active" data-week="all">همه</button>';
-    ALL_WEEKS.forEach(w => {
-      wHtml += '<button class="filter-btn" data-week="' + w + '">هفته ' + fa(w) + '</button>';
+  function computeStats(){
+    const stats = {};
+    PLAYERS.forEach(n => {
+      stats[n] = { g:0, s:0, b:0, pts:0, weeks: new Set(), entries:0 };
     });
-    weekHost.innerHTML = wHtml;
-
-    leagueHost.innerHTML =
-      '<button class="filter-btn active" data-league="all">همه</button>' +
-      '<button class="filter-btn" data-league="classic">کلاسیک</button>' +
-      '<button class="filter-btn" data-league="draft">درفت</button>';
-
-    let pHtml = '<option value="all">همه بازیکنان</option>';
-    PLAYERS.forEach(p => { pHtml += '<option value="' + p + '">' + p + '</option>'; });
-    playerSel.innerHTML = pHtml;
-
-    weekHost.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        weekHost.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const v = btn.getAttribute('data-week');
-        detailsState.week = (v === 'all') ? 'all' : parseInt(v, 10);
-        renderDetails();
-      });
+    WEEKLY.forEach(r => {
+      const st = stats[r.p]; if (!st) return;
+      st.g += r.g; st.s += r.s; st.b += r.b; st.pts += ptsOf(r);
+      if (r.g || r.s || r.b) { st.weeks.add(r.w); st.entries++; }
     });
-
-    leagueHost.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        leagueHost.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        detailsState.league = btn.getAttribute('data-league');
-        renderDetails();
-      });
-    });
-
-    playerSel.addEventListener('change', () => {
-      detailsState.player = playerSel.value;
-      renderDetails();
-    });
-
-    document.getElementById('resetFilters').addEventListener('click', () => {
-      detailsState.week = 'all';
-      detailsState.league = 'all';
-      detailsState.player = 'all';
-      weekHost.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-week') === 'all'));
-      leagueHost.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-league') === 'all'));
-      playerSel.value = 'all';
-      renderDetails();
-    });
+    return stats;
   }
 
-  function renderDetails(){
-    const rows = WEEKLY.filter(r =>
-      (detailsState.week === 'all' || r.w === detailsState.week) &&
-      (detailsState.league === 'all' || r.l === detailsState.league) &&
-      (detailsState.player === 'all' || r.p === detailsState.player)
-    );
+  function renderKPIs(){
+    const host = document.getElementById('kpiGrid');
+    if (!host) return;
+    const stats = computeStats();
 
-    /* خلاصه */
-    const sum = { g:0, s:0, b:0, p:0 };
-    rows.forEach(r => { sum.g += r.g; sum.s += r.s; sum.b += r.b; sum.p += ptsOf(r); });
+    let kingGold = '', maxG = -1;
+    PLAYERS.forEach(n => { if (stats[n].g > maxG) { maxG = stats[n].g; kingGold = n; } });
 
-    document.getElementById('detailsSummary').innerHTML =
-      '<div class="summary-card"><div class="s-val" style="color:#ffd966; text-shadow:0 0 18px rgba(255,200,80,.7)">' + fa(sum.g) + '</div><div class="s-lbl">🥇 طلا</div></div>' +
-      '<div class="summary-card"><div class="s-val" style="color:#e4e4ec; text-shadow:0 0 18px rgba(220,220,240,.5)">' + fa(sum.s) + '</div><div class="s-lbl">🥈 نقره</div></div>' +
-      '<div class="summary-card"><div class="s-val" style="color:#e2ab7c; text-shadow:0 0 18px rgba(205,155,106,.6)">' + fa(sum.b) + '</div><div class="s-lbl">🥉 برنز</div></div>' +
-      '<div class="summary-card"><div class="s-val" style="color:#c4b5ff; text-shadow:0 0 18px rgba(160,130,255,.7)">' + fa(sum.p) + '</div><div class="s-lbl">امتیاز</div></div>' +
-      '<div class="summary-card"><div class="s-val" style="color:#8ec9ff">' + fa(rows.length) + '</div><div class="s-lbl">تعداد رکورد</div></div>';
-
-    /* جدول رکوردها */
-    const body = document.getElementById('detailsTableBody');
-    if (!rows.length) {
-      body.innerHTML = '<tr><td colspan="7"><div class="empty-state">🔍 نتیجه‌ای با این فیلترها پیدا نشد</div></td></tr>';
-    } else {
-      body.innerHTML = rows.map(r => {
-        return '<tr>' +
-          '<td>' + fa(r.w) + '</td>' +
-          '<td><span class="league-tag ' + r.l + '">' + LEAGUE_LABEL[r.l] + '</span></td>' +
-          '<td>' + pName(r.p) + '</td>' +
-          '<td>' + medalCell(r.g, 'medal-gold') + '</td>' +
-          '<td>' + medalCell(r.s, 'medal-silver') + '</td>' +
-          '<td>' + medalCell(r.b, 'medal-bronze') + '</td>' +
-          '<td class="total-points">' + fa(ptsOf(r)) + '</td>' +
-        '</tr>';
-      }).join('');
+    function longestClassicGoldStreak(name){
+      let best = 0, cur = 0;
+      ALL_WEEKS.forEach(w => {
+        const r = WEEKLY.find(x => x.w === w && x.l === 'classic' && x.p === name);
+        if (r && r.g > 0) { cur++; if (cur > best) best = cur; } else { cur = 0; }
+      });
+      return best;
     }
+    let streakName = '', streakLen = 0;
+    PLAYERS.forEach(n => { const s = longestClassicGoldStreak(n); if (s > streakLen) { streakLen = s; streakName = n; } });
 
-    /* جدول مجموع */
-    const agg = {};
+    let bestWeekPts = -1, bestWeekName = '', bestWeekNum = 0;
+    PLAYERS.forEach(n => {
+      ALL_WEEKS.forEach(w => {
+        const tot = WEEKLY.filter(r => r.w === w && r.p === n).reduce((s,r) => s + ptsOf(r), 0);
+        if (tot > bestWeekPts) { bestWeekPts = tot; bestWeekName = n; bestWeekNum = w; }
+      });
+    });
+
+    const complete = PLAYERS.filter(n => stats[n].g > 0 && stats[n].s > 0 && stats[n].b > 0);
+    const totalWeeks = ALL_WEEKS.length;
+    const always = PLAYERS.filter(n => stats[n].weeks.size === totalWeeks);
+
+    let maxMedals = -1, topMedalists = [];
+    PLAYERS.forEach(n => {
+      const tot = stats[n].g + stats[n].s + stats[n].b;
+      if (tot > maxMedals) { maxMedals = tot; topMedalists = [n]; }
+      else if (tot === maxMedals) topMedalists.push(n);
+    });
+
+    const w1Gold = WEEKLY.filter(r => r.w === 1 && r.g > 0);
+
+    const totalGold = WEEKLY.reduce((s,r) => s + r.g, 0);
+    const totalSilver = WEEKLY.reduce((s,r) => s + r.s, 0);
+    const totalBronze = WEEKLY.reduce((s,r) => s + r.b, 0);
+
+    const cards = [
+      {
+        cls:'gold', icon:'👑', label:'پادشاه طلا',
+        value: pName(kingGold),
+        sub: 'با <strong>' + fa(maxG) + ' طلا</strong> در ۵ هفته — نیمی از کل طلاهای اهدایی!'
+      },
+      {
+        cls:'purple', icon:'🔥', label:'زنجیره طلایی',
+        value: pName(streakName),
+        sub: '<strong>' + fa(streakLen) + ' هفته متوالی</strong> طلای کلاسیک (هفته ۳ تا ۵)'
+      },
+      {
+        cls:'blue', icon:'💎', label:'رکورد امتیاز هفتگی',
+        value: pName(bestWeekName),
+        sub: '<strong>' + fa(bestWeekPts) + ' امتیاز</strong> در هفته ' + fa(bestWeekNum) + ' — طلای کلاسیک + طلای درفت'
+      },
+      {
+        cls:'pink', icon:'🎪', label:'مجموعه کامل',
+        value: complete.length ? pName(complete[0]) : '—',
+        sub: 'تنها بازیکنی که <strong>طلا، نقره و برنز</strong> دارد'
+      },
+      {
+        cls:'green', icon:'📅', label:'حضور همیشگی',
+        value: always.length ? always.map(n => pName(n)).join(' و ') : '—',
+        sub: 'در <strong>هر ۵ هفته</strong> مدال گرفتند'
+      },
+      {
+        cls:'gold', icon:'🏆', label:'بیشترین مدال',
+        value: topMedalists.map(n => pName(n)).join(' و '),
+        sub: 'هر کدام با <strong>' + fa(maxMedals) + ' مدال</strong> در پنج هفته'
+      },
+      {
+        cls:'blue', icon:'🥇', label:'اولین طلاهای فصل',
+        value: w1Gold.map(r => pName(r.p)).join(' و '),
+        sub: 'طلای افتتاحیه هفته ۱ — کلاسیک و درفت'
+      },
+      {
+        cls:'purple', icon:'📊', label:'مجموع مدال‌های فصل',
+        value: fa(totalGold + totalSilver + totalBronze) + ' مدال',
+        sub: '🥇 ' + fa(totalGold) + ' &nbsp;·&nbsp; 🥈 ' + fa(totalSilver) + ' &nbsp;·&nbsp; 🥉 ' + fa(totalBronze)
+      }
+    ];
+
+    host.innerHTML = cards.map(c =>
+      '<div class="kpi-card ' + c.cls + '">' +
+        '<span class="kpi-icon">' + c.icon + '</span>' +
+        '<div class="kpi-label">' + c.label + '</div>' +
+        '<div class="kpi-value">' + c.value + '</div>' +
+        '<div class="kpi-sub">' + c.sub + '</div>' +
+      '</div>'
+    ).join('');
+  }
+
+  function renderLeagueTable(leagueKey){
+    const rows = WEEKLY.filter(r => r.l === leagueKey).sort((a,b) => a.w - b.w);
+    const isClassic = leagueKey === 'classic';
+    const icon = isClassic ? '🏅' : '🎯';
+    const title = isClassic ? 'لیگ کلاسیک' : 'لیگ درفت';
+
+    let bodyRows = '';
     rows.forEach(r => {
-      if (!agg[r.p]) agg[r.p] = { g:0, s:0, b:0, p:0 };
-      agg[r.p].g += r.g; agg[r.p].s += r.s; agg[r.p].b += r.b; agg[r.p].p += ptsOf(r);
-    });
-    const aggArr = Object.keys(agg).map(n => ({ name:n, ...agg[n] }));
-    aggArr.sort((a,b) => (b.p - a.p) || (b.g - a.g) || (b.s - a.s) || (b.b - a.b));
+      let cls, medal;
+      if (r.g) { cls = 'gold'; medal = '🥇'; }
+      else if (r.s) { cls = 'silver'; medal = '🥈'; }
+      else if (r.b) { cls = 'bronze'; medal = '🥉'; }
+      else return;
 
-    const aggBody = document.getElementById('detailsAggBody');
-    if (!aggArr.length) {
-      aggBody.innerHTML = '<tr><td colspan="6"><div class="empty-state">داده‌ای برای نمایش وجود ندارد</div></td></tr>';
-    } else {
-      aggBody.innerHTML = aggArr.map((p,i) => {
-        return '<tr>' +
-          '<td>' + fa(i+1) + '</td>' +
-          '<td>' + pName(p.name) + '</td>' +
-          '<td>' + medalCell(p.g, 'medal-gold') + '</td>' +
-          '<td>' + medalCell(p.s, 'medal-silver') + '</td>' +
-          '<td>' + medalCell(p.b, 'medal-bronze') + '</td>' +
-          '<td class="total-points">' + fa(p.p) + '</td>' +
+      bodyRows +=
+        '<tr>' +
+          '<td><span class="week-chip">' + fa(r.w) + '</span></td>' +
+          '<td>' + pName(r.p) + '</td>' +
+          '<td><span class="result-medal ' + cls + '">' + medal + '</span></td>' +
         '</tr>';
-      }).join('');
-    }
+    });
+
+    return (
+      '<div class="results-panel-head">' +
+        '<div class="results-panel-title">' +
+          '<span class="results-panel-icon">' + icon + '</span>' +
+          '<span>' + title + '</span>' +
+        '</div>' +
+        '<span class="results-panel-count">' + fa(rows.length) + ' مدال</span>' +
+      '</div>' +
+      '<table class="results-table">' +
+        '<thead><tr>' +
+          '<th>هفته</th>' +
+          '<th>بازیکن</th>' +
+          '<th>مدال</th>' +
+        '</tr></thead>' +
+        '<tbody>' + bodyRows + '</tbody>' +
+      '</table>'
+    );
   }
 
-  /* ================= ۳) تب مقایسه بازیکنان ================= */
+  function renderDetailsTables(){
+    const cP = document.getElementById('classicResultsPanel');
+    const dP = document.getElementById('draftResultsPanel');
+    if (cP) cP.innerHTML = renderLeagueTable('classic');
+    if (dP) dP.innerHTML = renderLeagueTable('draft');
+  }
+
   const selA = document.getElementById('cmpPlayerA');
   const selB = document.getElementById('cmpPlayerB');
 
@@ -773,7 +989,6 @@
     PLAYERS.forEach(p => { html += '<option value="' + p + '">' + p + '</option>'; });
     selA.innerHTML = html;
     selB.innerHTML = html;
-
     selA.value = PLAYERS[0];
     selB.value = PLAYERS[1];
 
@@ -792,19 +1007,14 @@
       let b = PLAYERS[Math.floor(Math.random()*PLAYERS.length)];
       let guard = 0;
       while (b === a && guard < 50) { b = PLAYERS[Math.floor(Math.random()*PLAYERS.length)]; guard++; }
-      selA.value = a;
-      selB.value = b;
+      selA.value = a; selB.value = b;
       renderCompare();
     });
   }
 
-  function weeklyRows(name){
-    return WEEKLY.filter(r => r.p === name);
-  }
+  function weeklyRows(name){ return WEEKLY.filter(r => r.p === name); }
   function weekLeaguePoints(name, w, l){
-    return weeklyRows(name)
-      .filter(r => r.w === w && r.l === l)
-      .reduce((s,r) => s + ptsOf(r), 0);
+    return weeklyRows(name).filter(r => r.w === w && r.l === l).reduce((s,r) => s + ptsOf(r), 0);
   }
   function weekLeagueMedals(name, w, l){
     const list = weeklyRows(name).filter(r => r.w === w && r.l === l);
@@ -834,7 +1044,6 @@
     const oa = OFFICIAL[nameA] || { g:0, s:0, b:0, pts:0 };
     const ob = OFFICIAL[nameB] || { g:0, s:0, b:0, pts:0 };
 
-    /* رو در رو هفته‌ای */
     let winsA = 0, winsB = 0, ties = 0;
     ALL_WEEKS.forEach(w => {
       ['classic','draft'].forEach(l => {
@@ -881,7 +1090,6 @@
         '</div>';
     });
 
-    /* جدول هفته به هفته */
     let weekRows = '';
     ALL_WEEKS.forEach(w => {
       ['classic','draft'].forEach(l => {
@@ -889,7 +1097,6 @@
         const mB = weekLeagueMedals(nameB, w, l);
         const pa = mA.g*4 + mA.s*2 + mA.b;
         const pb = mB.g*4 + mB.s*2 + mB.b;
-
         if (pa === 0 && pb === 0) return;
 
         let verdict;
@@ -912,15 +1119,10 @@
       weekRows = '<tr><td colspan="5"><div class="empty-state">هیچ‌کدام از این دو بازیکن تا حالا مدالی نگرفته‌اند</div></td></tr>';
     }
 
-    /* حکم نهایی */
     let verdictText = '';
-    if (oa.pts > ob.pts) {
-      verdictText = '👑 <strong>' + nameA + '</strong> با ' + fa(oa.pts) + ' امتیاز در مجموع جلوتر است.';
-    } else if (ob.pts > oa.pts) {
-      verdictText = '👑 <strong>' + nameB + '</strong> با ' + fa(ob.pts) + ' امتیاز در مجموع جلوتر است.';
-    } else {
-      verdictText = '🤝 این دو بازیکن در مجموع امتیاز برابرند!';
-    }
+    if (oa.pts > ob.pts) verdictText = '👑 <strong>' + nameA + '</strong> با ' + fa(oa.pts) + ' امتیاز در مجموع جلوتر است.';
+    else if (ob.pts > oa.pts) verdictText = '👑 <strong>' + nameB + '</strong> با ' + fa(ob.pts) + ' امتیاز در مجموع جلوتر است.';
+    else verdictText = '🤝 این دو بازیکن در مجموع امتیاز برابرند!';
 
     if (winsA > winsB) verdictText += '<br>⚔️ در هفته‌های رویارو، <strong>' + nameA + '</strong> با ' + fa(winsA) + ' برد در مقابل ' + fa(winsB) + ' برد برتری دارد.';
     else if (winsB > winsA) verdictText += '<br>⚔️ در هفته‌های رویارو، <strong>' + nameB + '</strong> با ' + fa(winsB) + ' برد در مقابل ' + fa(winsA) + ' برد برتری دارد.';
@@ -929,7 +1131,6 @@
 
     host.innerHTML =
       '<div class="glass" style="padding: clamp(16px, 2.5vw, 24px); margin-bottom: clamp(24px, 3vw, 32px);">' +
-
         '<div class="cmp-heads">' +
           '<div class="cmp-head a">' +
             '<div class="cmp-head-name">' + (FLAGS[nameA]||'') + ' ' + nameA + '</div>' +
@@ -952,12 +1153,9 @@
             '</div>' +
           '</div>' +
         '</div>' +
-
         rowsHtml +
-
         '<div class="cmp-verdict">' + verdictText + '</div>' +
       '</div>' +
-
       '<div class="glass" style="padding: clamp(16px, 2.5vw, 24px); margin-bottom: clamp(24px, 3vw, 32px);">' +
         '<div class="section-title"><span class="icon-badge">📅</span> رویارویی هفته به هفته</div>' +
         '<div class="table-wrap">' +
@@ -975,23 +1173,16 @@
       '</div>';
   }
 
-  /* ================= اجرا ================= */
-  document.addEventListener('DOMContentLoaded', function(){
+  function initAll(){
     renderPodium();
-    buildDetailsFilters();
-    renderDetails();
-    buildCompareSelects();
-    renderCompare();
-  });
-
-  // اگر DOM آماده بود، همان لحظه اجرا کن
-  if (document.readyState !== 'loading') {
-    renderPodium();
-    buildDetailsFilters();
-    renderDetails();
+    renderKPIs();
+    renderDetailsTables();
     buildCompareSelects();
     renderCompare();
   }
+
+  document.addEventListener('DOMContentLoaded', initAll);
+  if (document.readyState !== 'loading') initAll();
 })();
 </script>
 </body>
