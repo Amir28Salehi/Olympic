@@ -378,15 +378,15 @@
   </header>
 
   <div class="hunger-banner glass">
-    <div class="hunger-item"><span class="hunger-label">تا هانگرگیم برنز‌دزد</span> <span class="hunger-num">۳</span> <span class="hunger-label">هفته</span></div>
-    <div class="hunger-item"><span class="hunger-label">تا هانگرگیم نقره‌دزد</span> <span class="hunger-num">۱۳</span> <span class="hunger-label">هفته</span></div>
-    <div class="hunger-item"><span class="hunger-label">تا هانگرگیم طلا‌دزد</span> <span class="hunger-num">۲۳</span> <span class="hunger-label">هفته</span></div>
+    <div class="hunger-item"><span class="hunger-label">تا هانگرگیم برنز‌دزد</span> <span class="hunger-num">۲</span> <span class="hunger-label">هفته</span></div>
+    <div class="hunger-item"><span class="hunger-label">تا هانگرگیم نقره‌دزد</span> <span class="hunger-num">۱۲</span> <span class="hunger-label">هفته</span></div>
+    <div class="hunger-item"><span class="hunger-label">تا هانگرگیم طلا‌دزد</span> <span class="hunger-num">۲۲</span> <span class="hunger-label">هفته</span></div>
   </div>
 
   <div id="page-home" class="page-section">
     <div class="hero-card">
       <div class="hero-season">فصل ۱۴۰۵-۱۴۰۶</div>
-      <div class="hero-week">هفته ۷ ام</div>
+      <div class="hero-week">هفته ۸ ام</div>
     </div>
 
     <div class="section-title"><span class="icon-badge">🔥</span> برترین‌های آخرین هفته</div>
@@ -396,7 +396,7 @@
       <div class="overall-leader-inner">
         <div class="overall-leader-label">👑 صدرنشین کل لیگ</div>
         <div class="overall-leader-name"><span class="overall-leader-flag">🇬🇹</span><span>حسین مرانی</span></div>
-        <div class="overall-leader-points">۲۸ امتیاز</div>
+        <div class="overall-leader-points">۳۰ امتیاز</div>
       </div>
     </div>
 
@@ -421,10 +421,10 @@
   <div id="page-details" class="page-section" style="display:none;">
     <div class="hero-card">
       <div class="hero-week" style="font-size:clamp(28px, 5vw, 38px);">📋 جزئیات نتایج هفتگی</div>
-      <div class="hero-season">فصل ۱۴۰۵-۱۴۰۶ — نگاهی عمیق به ۷ هفته گذشته</div>
+      <div class="hero-season">فصل ۱۴۰۵-۱۴۰۶ — نگاهی عمیق به ۸ هفته گذشته</div>
     </div>
 
-    <div class="section-title"><span class="icon-badge">💡</span> آمار و نکات جالب هفته‌ها</div>
+    <div class="section-title"><span class="icon-badge">💡</span> جالب‌ترین فکت‌های فصل</div>
     <div class="kpi-grid" id="kpiGrid"></div>
 
     <div class="section-title"><span class="icon-badge">📅</span> نتایج کامل هفته به هفته</div>
@@ -503,38 +503,38 @@
 <script>
   (function() {
     const overallData = [
-      { name: 'حسین مرانی', flag: '🇬🇹', gold: 7, silver: 0, bronze: 0, points: 28 },
-      { name: 'نوید جهانی', flag: '🇻🇮', gold: 3, silver: 1, bronze: 2, points: 16 },
+      { name: 'حسین مرانی', flag: '🇬🇹', gold: 7, silver: 1, bronze: 0, points: 30 },
+      { name: 'نوید جهانی', flag: '🇻🇮', gold: 3, silver: 2, bronze: 2, points: 18 },
       { name: 'فاطمه محمدزاده', flag: '🇸🇪', gold: 3, silver: 1, bronze: 2, points: 16 },
       { name: 'مهدی علی محمدی', flag: '🇳🇴', gold: 0, silver: 5, bronze: 4, points: 14 },
-      { name: 'سید امیررضا صالحی امیری', flag: '🇸🇾', gold: 1, silver: 3, bronze: 0, points: 10 },
-      { name: 'مازیار رضایی', flag: '🇨🇼', gold: 1, silver: 2, bronze: 0, points: 8 },
-      { name: 'سید امیرعلی علوی', flag: '🇫🇷', gold: 0, silver: 2, bronze: 3, points: 7 },
+      { name: 'سید امیررضا صالحی امیری', flag: '🇸🇾', gold: 2, silver: 3, bronze: 0, points: 14 },
+      { name: 'مازیار رضایی', flag: '🇨🇼', gold: 2, silver: 2, bronze: 1, points: 13 },
+      { name: 'سید امیرعلی علوی', flag: '🇫🇷', gold: 0, silver: 2, bronze: 4, points: 8 },
       { name: 'محمدحسین اکبری', flag: '🇬🇪', gold: 1, silver: 0, bronze: 1, points: 5 },
       { name: 'هاتف کیابخت', flag: '🇨🇮', gold: 0, silver: 0, bronze: 2, points: 2 }
     ];
 
     const classicData = [
-      { name: 'حسین مرانی', flag: '🇬🇹', gold: 4, silver: 0, bronze: 0, penG: 0, penS: 0, penB: 0, finalG: 4, finalS: 0, finalB: 0, points: 16 },
+      { name: 'حسین مرانی', flag: '🇬🇹', gold: 4, silver: 1, bronze: 0, penG: 0, penS: 0, penB: 0, finalG: 4, finalS: 1, finalB: 0, points: 18 },
+      { name: 'سید امیررضا صالحی امیری', flag: '🇸🇾', gold: 2, silver: 1, bronze: 0, penG: 0, penS: 0, penB: 0, finalG: 2, finalS: 1, finalB: 0, points: 10 },
       { name: 'مهدی علی محمدی', flag: '🇳🇴', gold: 0, silver: 4, bronze: 1, penG: 0, penS: 0, penB: 0, finalG: 0, finalS: 4, finalB: 1, points: 9 },
-      { name: 'سید امیررضا صالحی امیری', flag: '🇸🇾', gold: 1, silver: 1, bronze: 0, penG: 0, penS: 0, penB: 0, finalG: 1, finalS: 1, finalB: 0, points: 6 },
       { name: 'نوید جهانی', flag: '🇻🇮', gold: 1, silver: 0, bronze: 1, penG: 0, penS: 0, penB: 0, finalG: 1, finalS: 0, finalB: 1, points: 5 },
       { name: 'فاطمه محمدزاده', flag: '🇸🇪', gold: 1, silver: 0, bronze: 1, penG: 0, penS: 0, penB: 0, finalG: 1, finalS: 0, finalB: 1, points: 5 },
       { name: 'سید امیرعلی علوی', flag: '🇫🇷', gold: 0, silver: 1, bronze: 2, penG: 0, penS: 0, penB: 0, finalG: 0, finalS: 1, finalB: 2, points: 4 },
+      { name: 'مازیار رضایی', flag: '🇨🇼', gold: 0, silver: 1, bronze: 1, penG: 0, penS: 0, penB: 0, finalG: 0, finalS: 1, finalB: 1, points: 3 },
       { name: 'هاتف کیابخت', flag: '🇨🇮', gold: 0, silver: 0, bronze: 2, penG: 0, penS: 0, penB: 0, finalG: 0, finalS: 0, finalB: 2, points: 2 },
-      { name: 'مازیار رضایی', flag: '🇨🇼', gold: 0, silver: 1, bronze: 0, penG: 0, penS: 0, penB: 0, finalG: 0, finalS: 1, finalB: 0, points: 2 },
       { name: 'محمدحسین اکبری', flag: '🇬🇪', gold: 0, silver: 0, bronze: 0, penG: 0, penS: 0, penB: 0, finalG: 0, finalS: 0, finalB: 0, points: 0 }
     ];
 
     const draftData = [
+      { name: 'مازیار رضایی', flag: '🇨🇼', gold: 3, silver: 0, bronze: 0, points: 12 },
       { name: 'فاطمه محمدزاده', flag: '🇸🇪', gold: 2, silver: 1, bronze: 1, points: 11 },
       { name: 'حسین مرانی', flag: '🇬🇹', gold: 2, silver: 1, bronze: 0, points: 10 },
-      { name: 'مازیار رضایی', flag: '🇨🇼', gold: 2, silver: 0, bronze: 0, points: 8 },
       { name: 'مهدی علی محمدی', flag: '🇳🇴', gold: 0, silver: 1, bronze: 3, points: 5 },
+      { name: 'نوید جهانی', flag: '🇻🇮', gold: 0, silver: 2, bronze: 1, points: 5 },
       { name: 'محمدحسین اکبری', flag: '🇬🇪', gold: 1, silver: 0, bronze: 1, points: 5 },
+      { name: 'سید امیرعلی علوی', flag: '🇫🇷', gold: 0, silver: 1, bronze: 2, points: 4 },
       { name: 'سید امیررضا صالحی امیری', flag: '🇸🇾', gold: 0, silver: 2, bronze: 0, points: 4 },
-      { name: 'سید امیرعلی علوی', flag: '🇫🇷', gold: 0, silver: 1, bronze: 1, points: 3 },
-      { name: 'نوید جهانی', flag: '🇻🇮', gold: 0, silver: 1, bronze: 1, points: 3 },
       { name: 'هاتف کیابخت', flag: '🇨🇮', gold: 0, silver: 0, bronze: 0, points: 0 }
     ];
 
@@ -678,7 +678,7 @@
 (function(){
   'use strict';
 
-  // WEEKLY data updated to week 7
+  // WEEKLY data updated to week 8
   const WEEKLY = [
     { w:1, l:'draft',   p:'فاطمه محمدزاده',              g:1, s:0, b:0 },
     { w:1, l:'draft',   p:'سید امیرعلی علوی',            g:0, s:1, b:0 },
@@ -726,7 +726,13 @@
     { w:7, l:'classic', p:'مهدی علی محمدی',              g:0, s:1, b:0 },
     { w:7, l:'classic', p:'سید امیرعلی علوی',            g:0, s:0, b:1 },
     { w:7, l:'',        p:'حسین مرانی',                  g:0, s:-1, b:0, chip: true },
-    { w:7, l:'',        p:'مازیار رضایی',                g:0, s:1, b:0, chip: true }
+    { w:7, l:'',        p:'مازیار رضایی',                g:0, s:1, b:0, chip: true },
+    { w:8, l:'classic', p:'سید امیررضا صالحی امیری',     g:1, s:0, b:0 },
+    { w:8, l:'classic', p:'حسین مرانی',                  g:0, s:1, b:0 },
+    { w:8, l:'classic', p:'مازیار رضایی',                g:0, s:0, b:1 },
+    { w:8, l:'draft',   p:'مازیار رضایی',                g:1, s:0, b:0 },
+    { w:8, l:'draft',   p:'نوید جهانی',                  g:0, s:1, b:0 },
+    { w:8, l:'draft',   p:'سید امیرعلی علوی',            g:0, s:0, b:1 }
   ];
 
   const FLAGS = {
@@ -743,25 +749,25 @@
   const PLAYERS = Object.keys(FLAGS);
 
   const OFFICIAL = {
-    'حسین مرانی':              { g:7, s:0, b:0, pts:28 },
-    'نوید جهانی':              { g:3, s:1, b:2, pts:16 },
+    'حسین مرانی':              { g:7, s:1, b:0, pts:30 },
+    'نوید جهانی':              { g:3, s:2, b:2, pts:18 },
     'فاطمه محمدزاده':          { g:3, s:1, b:2, pts:16 },
     'مهدی علی محمدی':          { g:0, s:5, b:4, pts:14 },
-    'سید امیررضا صالحی امیری': { g:1, s:3, b:0, pts:10 },
-    'مازیار رضایی':            { g:1, s:2, b:0, pts:8 },
-    'سید امیرعلی علوی':        { g:0, s:2, b:3, pts:7 },
+    'سید امیررضا صالحی امیری': { g:2, s:3, b:0, pts:14 },
+    'مازیار رضایی':            { g:2, s:2, b:1, pts:13 },
+    'سید امیرعلی علوی':        { g:0, s:2, b:4, pts:8 },
     'محمدحسین اکبری':          { g:1, s:0, b:1, pts:5 },
     'هاتف کیابخت':             { g:0, s:0, b:2, pts:2 }
   };
   const OFFICIAL_CLASSIC = {
-    'حسین مرانی': 16, 'مهدی علی محمدی': 9, 'سید امیررضا صالحی امیری': 6,
+    'حسین مرانی': 18, 'سید امیررضا صالحی امیری': 10, 'مهدی علی محمدی': 9,
     'نوید جهانی': 5, 'فاطمه محمدزاده': 5, 'سید امیرعلی علوی': 4,
-    'هاتف کیابخت': 2, 'مازیار رضایی': 2, 'محمدحسین اکبری': 0
+    'مازیار رضایی': 3, 'هاتف کیابخت': 2, 'محمدحسین اکبری': 0
   };
   const OFFICIAL_DRAFT = {
-    'فاطمه محمدزاده': 11, 'حسین مرانی': 10, 'مازیار رضایی': 8,
-    'مهدی علی محمدی': 5, 'محمدحسین اکبری': 5, 'سید امیررضا صالحی امیری': 4,
-    'سید امیرعلی علوی': 3, 'نوید جهانی': 3, 'هاتف کیابخت': 0
+    'مازیار رضایی': 12, 'فاطمه محمدزاده': 11, 'حسین مرانی': 10,
+    'مهدی علی محمدی': 5, 'نوید جهانی': 5, 'محمدحسین اکبری': 5,
+    'سید امیرعلی علوی': 4, 'سید امیررضا صالحی امیری': 4, 'هاتف کیابخت': 0
   };
 
   const RANKS = (function(){
@@ -845,104 +851,54 @@
     host.innerHTML = html;
   }
 
-  function computeStats(){
-    const stats = {};
-    PLAYERS.forEach(n => {
-      stats[n] = { g:0, s:0, b:0, pts:0, weeks: new Set(), entries:0 };
-    });
-    WEEKLY.forEach(r => {
-      const st = stats[r.p]; if (!st) return;
-      st.g += (r.g||0); st.s += (r.s||0); st.b += (r.b||0);
-      st.pts += ptsOf(r);
-      if (r.g || r.s || r.b) { st.weeks.add(r.w); st.entries++; }
-    });
-    return stats;
-  }
-
+  // ============ سه فکت جالب (جایگزین KPI Grid) ============
   function renderKPIs(){
     const host = document.getElementById('kpiGrid');
     if (!host) return;
-    const stats = computeStats();
 
-    let kingGold = '', maxG = -1;
-    PLAYERS.forEach(n => { if (stats[n].g > maxG) { maxG = stats[n].g; kingGold = n; } });
-
-    function longestClassicGoldStreak(name){
-      let best = 0, cur = 0;
-      ALL_WEEKS.forEach(w => {
-        const r = WEEKLY.find(x => x.w === w && x.l === 'classic' && x.p === name);
-        if (r && r.g > 0) { cur++; if (cur > best) best = cur; } else { cur = 0; }
-      });
-      return best;
-    }
-    let streakName = '', streakLen = 0;
-    PLAYERS.forEach(n => { const s = longestClassicGoldStreak(n); if (s > streakLen) { streakLen = s; streakName = n; } });
-
-    let bestWeekPts = -1, bestWeekName = '', bestWeekNum = 0;
+    // Fact 1: بهترین هفته — بیشترین امتیاز در یک هفته
+    let bestWeekPts = -1, bestWeekName = '', bestWeekNum = 0, bestWeekDetail = '';
     PLAYERS.forEach(n => {
       ALL_WEEKS.forEach(w => {
-        const tot = WEEKLY.filter(r => r.w === w && r.p === n).reduce((s,r) => s + ptsOf(r), 0);
-        if (tot > bestWeekPts) { bestWeekPts = tot; bestWeekName = n; bestWeekNum = w; }
+        const entries = WEEKLY.filter(r => r.w === w && r.p === n);
+        const tot = entries.reduce((s,r) => s + ptsOf(r), 0);
+        if (tot > bestWeekPts) {
+          bestWeekPts = tot;
+          bestWeekName = n;
+          bestWeekNum = w;
+          bestWeekDetail = entries.map(r => (r.g>0?'🥇':'') + (r.s>0?'🥈':'') + (r.b>0?'🥉':'')).join(' ');
+        }
       });
     });
 
-    const complete = PLAYERS.filter(n => stats[n].g > 0 && stats[n].s > 0 && stats[n].b > 0);
-    const totalWeeks = ALL_WEEKS.length;
-    const always = PLAYERS.filter(n => stats[n].weeks.size === totalWeeks);
-
-    let maxMedals = -1, topMedalists = [];
+    // Fact 2: پادشاه طلا — بیشترین طلای کل (حتی با جریمه)
+    let kingName = '', kingGold = -1;
     PLAYERS.forEach(n => {
-      const tot = stats[n].g + stats[n].s + stats[n].b;
-      if (tot > maxMedals) { maxMedals = tot; topMedalists = [n]; }
-      else if (tot === maxMedals) topMedalists.push(n);
+      if (OFFICIAL[n].g > kingGold) { kingGold = OFFICIAL[n].g; kingName = n; }
     });
 
-    const w1Gold = WEEKLY.filter(r => r.w === 1 && r.g > 0);
-
-    const totalGold = WEEKLY.reduce((s,r) => s + Math.max(0,r.g||0), 0);
-    const totalSilver = WEEKLY.reduce((s,r) => s + Math.max(0,r.s||0), 0);
-    const totalBronze = WEEKLY.reduce((s,r) => s + Math.max(0,r.b||0), 0);
+    // Fact 3: بازیکن رکورددار بیشترین مدال (طلا+نقره+برنز)
+    let medalKingName = '', medalKingTotal = -1;
+    PLAYERS.forEach(n => {
+      const total = OFFICIAL[n].g + OFFICIAL[n].s + OFFICIAL[n].b;
+      if (total > medalKingTotal) { medalKingTotal = total; medalKingName = n; }
+    });
 
     const cards = [
       {
         cls:'gold', icon:'👑', label:'پادشاه طلا',
-        value: pName(kingGold),
-        sub: 'با <strong>' + fa(maxG) + ' طلا</strong> در ۷ هفته — نیمی از کل طلاهای اهدایی!'
+        value: pName(kingName),
+        sub: 'با <strong>' + fa(kingGold) + ' طلا</strong> در ۸ هفته — بهترین طلاجمع‌کن فصل'
       },
       {
-        cls:'purple', icon:'🔥', label:'زنجیره طلایی',
-        value: pName(streakName),
-        sub: '<strong>' + fa(streakLen) + ' هفته متوالی</strong> طلای کلاسیک (هفته ۳ تا ۵)'
-      },
-      {
-        cls:'blue', icon:'💎', label:'رکورد امتیاز هفتگی',
+        cls:'blue', icon:'💎', label:'بهترین هفتهٔ یک بازیکن',
         value: pName(bestWeekName),
-        sub: '<strong>' + fa(bestWeekPts) + ' امتیاز</strong> در هفته ' + fa(bestWeekNum) + ' — طلای کلاسیک + طلای درفت'
+        sub: '<strong>' + fa(bestWeekPts) + ' امتیاز</strong> در هفته ' + fa(bestWeekNum) + ' — ' + bestWeekDetail
       },
       {
-        cls:'pink', icon:'🎪', label:'مجموعه کامل',
-        value: complete.length ? pName(complete[0]) : '—',
-        sub: 'تنها بازیکنی که <strong>طلا، نقره و برنز</strong> دارد'
-      },
-      {
-        cls:'green', icon:'📅', label:'حضور همیشگی',
-        value: always.length ? always.map(n => pName(n)).join(' و ') : '—',
-        sub: 'در <strong>هر ۷ هفته</strong> مدال گرفتند'
-      },
-      {
-        cls:'gold', icon:'🏆', label:'بیشترین مدال',
-        value: topMedalists.map(n => pName(n)).join(' و '),
-        sub: 'هر کدام با <strong>' + fa(maxMedals) + ' مدال</strong> در هفت هفته'
-      },
-      {
-        cls:'blue', icon:'🥇', label:'اولین طلاهای فصل',
-        value: w1Gold.map(r => pName(r.p)).join(' و '),
-        sub: 'طلای افتتاحیه هفته ۱ — کلاسیک و درفت'
-      },
-      {
-        cls:'purple', icon:'📊', label:'مجموع مدال‌های فصل',
-        value: fa(totalGold + totalSilver + totalBronze) + ' مدال',
-        sub: '🥇 ' + fa(totalGold) + ' &nbsp;·&nbsp; 🥈 ' + fa(totalSilver) + ' &nbsp;·&nbsp; 🥉 ' + fa(totalBronze)
+        cls:'purple', icon:'🏆', label:'رکورددار بیشترین مدال',
+        value: pName(medalKingName),
+        sub: 'در مجموع <strong>' + fa(medalKingTotal) + ' مدال</strong> (طلا + نقره + برنز) در این فصل'
       }
     ];
 
